@@ -1,8 +1,10 @@
 # Domain 3: Data Operations and Support (22%)
 
+> 🔰 New to data? Each tool's first mention links to a plain-English explanation in [Data Basics for Beginners](00-data-basics-for-beginners.md). Abbreviations are listed in the [glossary](00-abbreviations-glossary.md).
+
 > **About 11 of the 50 scored questions.**
 >
-> This domain is about running pipelines in production: automating processing with Amazon Web Services (AWS) services and Software Development Kits (SDKs), analyzing data with Structured Query Language (SQL) and visualization tools, monitoring/logging/troubleshooting pipelines, and making sure the data is correct (data quality, consistency, sampling, skew).
+> This domain is about running pipelines in production: automating processing with Amazon Web Services (AWS) services and Software Development Kits (SDKs), analyzing data with [Structured Query Language [SQL]](00-data-basics-for-beginners.md#sql) and visualization tools, monitoring/logging/troubleshooting pipelines, and making sure the data is correct (data quality, consistency, sampling, skew).
 
 ## Table of contents
 
@@ -19,21 +21,21 @@
 > Summarized from the official AWS Certified Data Engineer – Associate (DEA-C01) exam guide (v1.1). Exact wording: https://docs.aws.amazon.com/aws-certification/latest/data-engineer-associate-01/data-engineer-associate-01-domain3.html
 
 ### Task 3.1: Automate data processing by using AWS services
-- **3.1.1** Orchestrate pipelines (Managed Workflows for Apache Airflow (MWAA), Step Functions).
+- **3.1.1** Orchestrate pipelines ([Managed Workflows for Apache Airflow [MWAA]](00-data-basics-for-beginners.md#amazon-mwaa), [Step Functions](00-data-basics-for-beginners.md#aws-step-functions)).
 - **3.1.2** Troubleshoot Amazon managed workflows.
 - **3.1.3** Call SDKs to use AWS features from code.
-- **3.1.4** Use service features to process data (Elastic MapReduce (EMR), Redshift, Glue).
-- **3.1.5** Consume and maintain data Application Programming Interfaces (APIs).
-- **3.1.6** Prepare data for transformation (Glue DataBrew, 🆕 SageMaker Unified Studio).
-- **3.1.7** Query data (Athena).
-- **3.1.8** Automate processing with Lambda.
-- **3.1.9** Manage events and schedulers (EventBridge).
+- **3.1.4** Use service features to process data ([Elastic MapReduce [EMR]](00-data-basics-for-beginners.md#amazon-emr), [Redshift](00-data-basics-for-beginners.md#amazon-redshift), [Glue](00-data-basics-for-beginners.md#aws-glue)).
+- **3.1.5** Consume and maintain data [Application Programming Interfaces [APIs]](00-data-basics-for-beginners.md#api).
+- **3.1.6** Prepare data for transformation ([Glue DataBrew](00-data-basics-for-beginners.md#aws-glue-databrew), 🆕 [SageMaker Unified Studio](00-data-basics-for-beginners.md#amazon-sagemaker-unified-studio-and-sagemaker-catalog)).
+- **3.1.7** Query data ([Athena](00-data-basics-for-beginners.md#amazon-athena)).
+- **3.1.8** Automate processing with [Lambda](00-data-basics-for-beginners.md#aws-lambda).
+- **3.1.9** Manage events and schedulers ([EventBridge](00-data-basics-for-beginners.md#amazon-eventbridge)).
 
 ### Task 3.2: Analyze data by using AWS services
-- **3.2.1** Visualize data (DataBrew, QuickSight).
-- **3.2.2** Verify and clean data (Lambda, Athena, QuickSight, Jupyter, SageMaker Data Wrangler).
+- **3.2.1** Visualize data (DataBrew, [QuickSight](00-data-basics-for-beginners.md#amazon-quicksight)).
+- **3.2.2** Verify and clean data (Lambda, Athena, QuickSight, [Jupyter](00-data-basics-for-beginners.md#jupyter), SageMaker Data Wrangler).
 - **3.2.3** Use SQL in **Redshift and Athena** to query and create views.
-- **3.2.4** Explore data with Athena notebooks on Apache Spark.
+- **3.2.4** Explore data with Athena notebooks on [Apache Spark](00-data-basics-for-beginners.md#apache-spark).
 - **3.2.5** Describe provisioned vs serverless trade-offs.
 - **3.2.6** Define aggregation, rolling averages, grouping, pivoting.
 
@@ -42,17 +44,17 @@
 - **3.3.2** Deploy logging/monitoring for auditing and traceability.
 - **3.3.3** Send alerts from monitoring.
 - **3.3.4** Troubleshoot performance issues.
-- **3.3.5** Track Application Programming Interface (API) calls with CloudTrail.
+- **3.3.5** Track Application Programming Interface (API) calls with [CloudTrail](00-data-basics-for-beginners.md#aws-cloudtrail).
 - **3.3.6** Troubleshoot and maintain pipelines (Glue, EMR).
-- **3.3.7** Log application data with CloudWatch Logs (configuration and automation).
-- **3.3.8** Analyze logs (Athena, EMR, OpenSearch, CloudWatch Logs Insights, big data app logs).
+- **3.3.7** Log application data with [CloudWatch](00-data-basics-for-beginners.md#amazon-cloudwatch) Logs (configuration and automation).
+- **3.3.8** Analyze logs (Athena, EMR, [OpenSearch](00-data-basics-for-beginners.md#amazon-opensearch-service), CloudWatch Logs Insights, big data app logs).
 
 ### Task 3.4: Ensure data quality
 - **3.4.1** Run quality checks during processing (e.g., empty fields).
 - **3.4.2** Define data quality rules (DataBrew).
 - **3.4.3** Investigate data consistency (DataBrew).
 - **3.4.4** Describe data sampling techniques.
-- **3.4.5** Implement mechanisms for data skew.
+- **3.4.5** Implement mechanisms for [data skew](00-data-basics-for-beginners.md#data-skew).
 
 ---
 
@@ -64,12 +66,12 @@ Domain 1 covers *choosing* an orchestrator. Here the focus is *running* them.
 
 | | Step Functions | Amazon MWAA |
 |---|---|---|
-| Definition | JavaScript Object Notation (JSON)/YAML Ain't Markup Language (YAML) (Amazon States Language), visual Workflow Studio | Python Directed Acyclic Graph (DAG) files in Simple Storage Service (S3) |
+| Definition | [JavaScript Object Notation [JSON]](00-data-basics-for-beginners.md#json)/YAML Ain't Markup Language [YAML] (Amazon States Language), visual Workflow Studio | Python Directed Acyclic Graph (DAG) files in [Simple Storage Service [S3]](00-data-basics-for-beginners.md#amazon-s3) |
 | Waiting for jobs | `.sync` integration (e.g., `glue:startJobRun.sync`) | Operators/sensors (GlueJobOperator, S3KeySensor) |
 | Error handling | `Retry` (interval, backoff rate, max attempts) and `Catch` per state | Task `retries`, `retry_delay`, `on_failure_callback` |
 | Scaling | Automatic | Environment class + min/max workers (auto scales workers) |
 | Pricing | Per state transition (Standard) or per request/duration (Express) | Per environment-hour + workers |
-| Pick for | AWS-native, serverless, low ops | Existing Airflow code, complex dependencies, open-source operators |
+| Pick for | AWS-native, serverless, low ops | Existing [Airflow](00-data-basics-for-beginners.md#apache-airflow) code, complex dependencies, open-source operators |
 
 ### Troubleshooting managed workflows (skill 3.1.2)
 
@@ -77,7 +79,7 @@ Domain 1 covers *choosing* an orchestrator. Here the focus is *running* them.
 - **Execution history** in the console shows every state's input, output, and error (e.g., `States.TaskFailed`, `States.Timeout`, `States.Permissions`).
 - Enable **CloudWatch Logs** for the state machine (`ALL`, `ERROR`, or `FATAL`). **Express workflows only keep history in CloudWatch Logs**, so you must enable logging to debug them.
 - **X-Ray** tracing shows latency across services.
-- Common fixes: missing Identity and Access Management (IAM) permissions on the state machine role, `TimeoutSeconds`/`HeartbeatSeconds` too low, payload over the 256 KB limit (pass S3 references instead), no `Retry` for transient errors.
+- Common fixes: missing [Identity and Access Management [IAM]](00-data-basics-for-beginners.md#aws-iam) permissions on the state machine role, `TimeoutSeconds`/`HeartbeatSeconds` too low, payload over the 256 KB limit (pass S3 references instead), no `Retry` for transient errors.
 
 **MWAA:**
 - Logs in CloudWatch: **DAG processing, scheduler, web server, worker, task** logs. Turn on the levels you need.
@@ -89,7 +91,7 @@ Domain 1 covers *choosing* an orchestrator. Here the focus is *running* them.
 ### Calling SDKs (skill 3.1.3)
 
 - **AWS SDKs** (boto3 for Python, SDKs for Java, JavaScript, Go…) call AWS APIs from code (Lambda, Glue, containers, notebooks).
-- **Credentials** come from the **IAM role** of the compute (Lambda execution role, Glue job role, Elastic Compute Cloud (EC2) instance profile). Never hardcode keys.
+- **Credentials** come from the **IAM role** of the compute (Lambda execution role, Glue job role, Elastic Compute Cloud [EC2] instance profile). Never hardcode keys.
 - **Paginators** for list operations that return pages (`list_objects_v2`, `get_query_results`).
 - **Waiters** to wait for a state (e.g., wait until a Redshift cluster is available).
 - **Retries**: SDKs retry throttling errors automatically. Configure `standard` or `adaptive` retry mode and max attempts.
@@ -116,32 +118,32 @@ Maintaining data APIs means operating them, not just creating them:
 ### Preparing data for transformation (skill 3.1.6)
 
 **AWS Glue DataBrew** (no-code data prep):
-- **Datasets** (S3, Glue Catalog, Redshift, Relational Database Service (RDS), Snowflake…) → **projects** (interactive session on a sample) → **recipes** (saved list of transform steps) → **recipe jobs** (run the recipe on the full dataset, output to S3) and **profile jobs** (statistics and quality).
+- **Datasets** (S3, Glue Catalog, Redshift, [Relational Database Service [RDS]](00-data-basics-for-beginners.md#amazon-rds), [Snowflake](00-data-basics-for-beginners.md#snowflake-splunk-and-salesforce)…) → **projects** (interactive session on a sample) → **recipes** (saved list of transform steps) → **recipe jobs** (run the recipe on the full dataset, output to S3) and **profile jobs** (statistics and quality).
 - 250+ transforms: remove duplicates, fill/flag missing values, split/merge columns, standardize formats, pivot/unpivot, mask/redact/encrypt Personally Identifiable Information (PII), join datasets.
 - Best for **analysts or data stewards who don't write code**.
 
 🆕 **Amazon SageMaker Unified Studio**:
-- A **single web environment** for data and Artificial Intelligence (AI) work: SQL query editor (Athena and Redshift), Jupyter notebooks (Spark, Python), **visual Extract, Transform, Load (ETL)** (Glue), data prep, model building, generative AI app building with Bedrock, plus the **SageMaker Catalog**.
+- A **single web environment** for data and Artificial Intelligence (AI) work: SQL query editor (Athena and Redshift), Jupyter notebooks (Spark, Python), **visual Extract, Transform, Load [ETL]** (Glue), data prep, model building, generative AI app building with [Bedrock](00-data-basics-for-beginners.md#amazon-bedrock), plus the **SageMaker Catalog**.
 - Organized by **domains → domain units → projects** (Domain 4 covers this). A project gives a team shared data, compute, and permissions.
 - Choose it when the scenario wants **one governed workspace** where engineers, analysts, and data scientists collaborate on the same data.
 
 ### Querying data with Athena (skill 3.1.7)
 
-- Standard SQL (Trino engine) over the Glue Data Catalog; results written to an S3 location (set per **workgroup**).
+- Standard SQL ([Trino](00-data-basics-for-beginners.md#presto-and-trino) engine) over the Glue Data Catalog; results written to an S3 location (set per **workgroup**).
 - **Workgroups**: separate teams/apps, enforce result location and encryption, **per-query and per-workgroup data scan limits**, cost tracking with tags.
 - **Saved queries**, **prepared statements** (parameterized queries; also help prevent SQL injection), **views**.
 - **CREATE TABLE AS SELECT (CTAS)** and `INSERT INTO` to create transformed and partitioned tables.
 - **Query result reuse** avoids rescanning for repeated identical queries.
-- **Provisioned capacity** (reserved Data Processing Units (DPUs)) for predictable concurrency instead of per-TB pricing.
+- **Provisioned capacity** (reserved Data Processing Units [DPUs]) for predictable concurrency instead of per-TB pricing.
 
 ### Automating with Lambda (skill 3.1.8)
 
 Typical automation patterns:
-- **S3 object created → Lambda**: validate the file, convert small files, start a Glue job / Step Functions execution.
+- **S3 object created → Lambda**: validate the file, convert [small files](00-data-basics-for-beginners.md#small-files-problem), start a Glue job / Step Functions execution.
 - **Scheduled Lambda** (EventBridge Scheduler): call an API, run housekeeping (e.g., refresh a materialized view through the Redshift Data API).
-- **Stream processing**: KDS/DynamoDB Streams/SQS → Lambda (see the event source mapping settings in Domain 1).
+- **Stream processing**: [KDS](00-data-basics-for-beginners.md#amazon-kinesis-data-streams)/DynamoDB Streams/SQS → Lambda (see the event source mapping settings in Domain 1).
 - **Glue between steps** inside Step Functions.
-- Keep functions small, idempotent, with Dead-Letter Queues (DLQs)/on-failure destinations and structured logging.
+- Keep functions small, [idempotent](00-data-basics-for-beginners.md#idempotent), with Dead-Letter Queues (DLQs)/on-failure destinations and structured logging.
 
 ### Managing events and schedulers (skill 3.1.9)
 
@@ -149,15 +151,15 @@ Typical automation patterns:
 
 | Component | Purpose |
 |---|---|
-| **Event buses** | Default bus (AWS service events), custom buses (your apps), partner buses (Software as a Service (SaaS)) |
+| **Event buses** | Default bus (AWS service events), custom buses (your apps), partner buses (Software as a Service [SaaS]) |
 | **Rules** | Match events by **event pattern** (source, detail-type, fields) → up to 5 targets per rule |
-| **Targets** | Lambda, Step Functions, Glue workflows, Kinesis, Simple Queue Service (SQS), Simple Notification Service (SNS), Elastic Container Service (ECS) tasks, API destinations… |
+| **Targets** | Lambda, Step Functions, Glue workflows, Kinesis, [Simple Queue Service [SQS]](00-data-basics-for-beginners.md#amazon-sqs), [Simple Notification Service [SNS]](00-data-basics-for-beginners.md#amazon-sns), [Elastic Container Service [ECS]](00-data-basics-for-beginners.md#amazon-ecs-eks-and-fargate) tasks, API destinations… |
 | **Scheduler** | Cron/rate/one-time schedules at large scale, with time zones, flexible windows, retries, Dead-Letter Queue (DLQ) |
 | **Archive & replay** | Store events and replay them later |
 | **Cross-account** | Send events to a bus in another account (central monitoring) |
 | **Input transformer** | Reshape the event before sending it to the target |
 
-Data-pipeline events you'll see: **Glue Job State Change**, **Glue Crawler State Change**, **Glue Data Quality evaluation results**, **EMR step status change**, **Step Functions execution status change**, **S3 Object Created**, **Redshift Data API statement status**.
+Data-pipeline events you'll see: **Glue Job State Change**, **Glue Crawler State Change**, **[Glue Data Quality](00-data-basics-for-beginners.md#aws-glue-data-quality) evaluation results**, **EMR step status change**, **Step Functions execution status change**, **S3 Object Created**, **Redshift Data API statement status**.
 
 ---
 
@@ -193,7 +195,7 @@ Data-pipeline events you'll see: **Glue Job State Change**, **Glue Crawler State
 - **Materialized views**: store results for speed (Redshift; Athena doesn't have classic materialized views over Glue tables, so use CTAS for that).
 - **Redshift late-binding views** (`CREATE VIEW … WITH NO SCHEMA BINDING`): not bound to underlying objects, so you can drop/recreate tables without breaking the view. **Required for views that reference Spectrum external tables.**
 - **Athena views** are stored in the Glue Data Catalog and can be queried by other Athena users.
-- Know `CREATE TABLE AS` in both, `UNLOAD` in both (Athena also has `UNLOAD` to write query results in Parquet/Optimized Row Columnar (ORC)/JSON).
+- Know `CREATE TABLE AS` in both, `UNLOAD` in both (Athena also has `UNLOAD` to write query results in [Parquet](00-data-basics-for-beginners.md#parquet)/[Optimized Row Columnar [ORC]](00-data-basics-for-beginners.md#orc)/JSON).
 
 ### Athena notebooks with Apache Spark (skill 3.2.4)
 
@@ -203,7 +205,7 @@ Data-pipeline events you'll see: **Glue Job State Change**, **Glue Crawler State
 
 ### Provisioned vs serverless trade-offs (skill 3.2.5)
 
-| | Provisioned (Redshift RA3 cluster, EMR on EC2, Managed Streaming for Apache Kafka (MSK) provisioned, DynamoDB provisioned, Kinesis Data Streams (KDS) provisioned) | Serverless (Redshift Serverless, Athena, EMR Serverless, Glue, MSK Serverless, DynamoDB on-demand, KDS on-demand, Lambda) |
+| | Provisioned (Redshift RA3 cluster, EMR on EC2, [Managed Streaming for Apache Kafka [MSK]](00-data-basics-for-beginners.md#amazon-msk) provisioned, [DynamoDB](00-data-basics-for-beginners.md#amazon-dynamodb) provisioned, Kinesis Data Streams [KDS] provisioned) | Serverless (Redshift Serverless, Athena, EMR Serverless, Glue, MSK Serverless, DynamoDB on-demand, KDS on-demand, Lambda) |
 |---|---|---|
 | Cost model | Pay for capacity whether used or not; **cheaper at steady, high utilization** (and with reservations) | Pay per use; **cheaper for spiky, intermittent, unpredictable** workloads |
 | Operations | You size, scale, sometimes patch | No capacity planning |
@@ -265,21 +267,21 @@ WHERE rn = 1;
 |---|---|---|
 | **AWS CloudTrail** | **API calls**: who, what, when, from where. **Management events** on by default (90-day event history); **data events** (S3 object-level, Lambda invokes, DynamoDB items…) must be enabled and cost extra | Audits: "who deleted the table / changed the bucket policy / ran the Glue job?" Use **trails** to S3 for long-term retention, an **organization trail** for all accounts, **log file integrity validation** to prove logs weren't altered |
 | **CloudTrail Lake** | Managed event data store with SQL queries over CloudTrail (and other) events, long retention | Centralized audit queries without building Athena tables |
-| **Amazon CloudWatch Logs** | Application and service logs (Lambda, Glue, EMR, MWAA, Step Functions, API Gateway, Virtual Private Cloud (VPC) Flow Logs) | Debugging, metric filters, subscriptions |
-| **Amazon CloudWatch metrics + alarms** | Numeric time series (Glue job metrics, KDS IteratorAge, Redshift Central Processing Unit (CPU), DynamoDB throttles) | Alerts and dashboards |
-| **AWS Config** | Resource configuration history and compliance | "What changed on this bucket/cluster?" (Domain 4) |
+| **Amazon CloudWatch Logs** | Application and service logs (Lambda, Glue, EMR, MWAA, Step Functions, API Gateway, [Virtual Private Cloud [VPC]](00-data-basics-for-beginners.md#amazon-vpc) Flow Logs) | Debugging, metric filters, subscriptions |
+| **Amazon CloudWatch metrics + alarms** | Numeric time series (Glue job metrics, KDS IteratorAge, Redshift Central Processing Unit [CPU], DynamoDB throttles) | Alerts and dashboards |
+| **[AWS Config](00-data-basics-for-beginners.md#aws-config)** | Resource configuration history and compliance | "What changed on this bucket/cluster?" (Domain 4) |
 | **Redshift audit logging** | **Connection log**, **user log**, **user activity log** (every query) to S3 or CloudWatch Logs | Database-level audit |
 | **S3 server access logs** | Requests to a bucket (best effort) | Access analysis, cheaper than data events for high volume |
-| **EMR logs** | Step, application (Yet Another Resource Negotiator (YARN), Spark) and node logs archived to S3 | Debugging cluster jobs |
+| **EMR logs** | Step, application ([Yet Another Resource Negotiator [YARN]](00-data-basics-for-beginners.md#yarn), Spark) and node logs archived to S3 | Debugging cluster jobs |
 
 **CloudWatch Logs configuration and automation (skill 3.3.7):**
 - **Log groups** (per app/job) and **log streams**; set **retention** per log group (never expire by default, which costs money).
 - **Metric filters**: turn log patterns (e.g., `"ERROR"`) into metrics → alarms.
-- **Subscription filters**: stream logs in real time to Lambda, **Firehose** (→ S3/OpenSearch), Kinesis, or OpenSearch.
+- **Subscription filters**: stream logs in real time to Lambda, **[Firehose](00-data-basics-for-beginners.md#amazon-data-firehose)** (→ S3/OpenSearch), Kinesis, or OpenSearch.
 - **Export** to S3 for archive and Athena analysis.
 - **CloudWatch agent** for EC2/on-prem log collection; embedded metric format for custom metrics from logs.
 - **Glue continuous logging** streams driver/executor logs in real time during a run.
-- Encrypt log groups with Key Management Service (KMS). Automate log group creation and retention with Infrastructure as Code (IaC).
+- Encrypt log groups with [Key Management Service [KMS]](00-data-basics-for-beginners.md#aws-kms). Automate log group creation and retention with Infrastructure as Code (IaC).
 
 ### Alerts (skill 3.3.3)
 
@@ -296,7 +298,7 @@ Glue Data Quality score < threshold ──► EventBridge ──► SNS / Lambda
 **AWS Glue:**
 - **Job run insights**: points to the failing line and suggests causes.
 - **Glue metrics / observability metrics** in CloudWatch: worker utilization, memory, shuffle, skew. Look for idle executors (over-provisioned) or memory near limit.
-- **Spark User Interface (UI)** (enable event logs to S3): stages, tasks, skew (one task far longer than the rest), shuffle spill.
+- **Spark User Interface [UI]** (enable event logs to S3): stages, tasks, skew (one task far longer than the rest), shuffle spill.
 - Typical fixes: bigger worker types, Auto Scaling, repartition/salting, pushdown predicates, file grouping, bookmarks, fewer User-Defined Functions (UDFs).
 
 **Amazon EMR:**
@@ -320,7 +322,7 @@ Glue Data Quality score < threshold ──► EventBridge ──► SNS / Lambda
 | Tool | Best for |
 |---|---|
 | **CloudWatch Logs Insights** | Fast interactive queries on CloudWatch log groups (`fields`, `filter`, `stats`, `sort`); no setup |
-| **Athena** | SQL on logs in S3 (CloudTrail, VPC Flow Logs, Application Load Balancer (ALB), S3 access logs). Use partition projection for date-partitioned logs. Cheap at scale. |
+| **Athena** | SQL on logs in S3 (CloudTrail, VPC Flow Logs, Application Load Balancer [ALB], S3 access logs). Use partition projection for date-partitioned logs. Cheap at scale. |
 | **Amazon OpenSearch Service** | Near-real-time log analytics, full-text search, dashboards (OpenSearch Dashboards); feed via Firehose or subscription filters |
 | **Amazon EMR** | **Very large volumes** of logs needing custom Spark processing |
 | **CloudTrail Lake** | SQL over CloudTrail events without managing tables |
@@ -368,7 +370,7 @@ Rules = [
 - Rules are evaluated during **profile jobs**. Results show pass/fail per rule; notify through EventBridge.
 - Better for analysts and no-code teams. Glue Data Quality is better for coded pipelines.
 
-**Other options:** custom checks in Lambda or Spark (e.g., `df.filter(col("x").isNull()).count()`), Athena validation queries in a Step Functions step, **Database Migration Service (DMS) data validation** for migrations.
+**Other options:** custom checks in Lambda or Spark (e.g., `df.filter(col("x").isNull()).count()`), Athena validation queries in a Step Functions step, **[Database Migration Service [DMS]](00-data-basics-for-beginners.md#aws-dms) data validation** for migrations.
 
 ### Investigating data consistency (skill 3.4.3)
 
@@ -442,7 +444,7 @@ AWS examples: DataBrew project sample settings (first N, random N, last N), Athe
 - Service features: Glue transforms + **FindMatches**; EMR steps; Redshift stored procedures, Materialized Views (MVs), MERGE, scheduled queries.
 - Data APIs: version, throttle, cache, monitor, secure.
 - Prep: **DataBrew** (recipes, profile jobs, no code), **SageMaker Unified Studio** (one workspace: SQL, notebooks, visual ETL, catalog).
-- **Athena**: workgroups (scan limits, result encryption), prepared statements, views, CTAS, UNLOAD, result reuse, provisioned capacity; **Athena for Spark** notebooks (Data Processing Unit hours (DPU-hours)).
+- **Athena**: workgroups (scan limits, result encryption), prepared statements, views, CTAS, UNLOAD, result reuse, provisioned capacity; **Athena for Spark** notebooks (Data Processing Unit hours [DPU-hours]).
 - **EventBridge**: buses, rules/patterns, targets, **Scheduler**, archive/replay, cross-account; Glue/EMR/Step Functions state-change events.
 - **QuickSight**: SPICE vs direct query, RLS, embedded dashboards, Amazon Q.
 - Clean/verify: Athena SQL, Lambda, notebooks, **Data Wrangler**, DataBrew.

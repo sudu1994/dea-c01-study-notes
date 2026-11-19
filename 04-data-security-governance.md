@@ -1,8 +1,10 @@
 # Domain 4: Data Security and Governance (18%)
 
+> 🔰 New to data? Each tool's first mention links to a plain-English explanation in [Data Basics for Beginners](00-data-basics-for-beginners.md). Abbreviations are listed in the [glossary](00-abbreviations-glossary.md).
+
 > **About 9 of the 50 scored questions.**
 >
-> This domain covers who can get in (authentication), what they can do (authorization), how data is protected (encryption and masking), how activity is recorded (audit logging), and how data is governed (privacy, Personally Identifiable Information (PII), sovereignty, sharing, SageMaker Catalog). The smallest domain, but its questions are often "two answers look right," so precision matters.
+> This domain covers who can get in (authentication), what they can do (authorization), how data is protected (encryption and masking), how activity is recorded (audit logging), and how data is governed (privacy, Personally Identifiable Information [PII], sovereignty, sharing, [SageMaker Catalog](00-data-basics-for-beginners.md#amazon-sagemaker-unified-studio-and-sagemaker-catalog)). The smallest domain, but its questions are often "two answers look right," so precision matters.
 
 ## Table of contents
 
@@ -20,40 +22,40 @@
 > Summarized from the official AWS Certified Data Engineer – Associate (DEA-C01) exam guide (v1.1). Exact wording: https://docs.aws.amazon.com/aws-certification/latest/data-engineer-associate-01/data-engineer-associate-01-domain4.html
 
 ### Task 4.1: Apply authentication mechanisms
-- **4.1.1** Update Virtual Private Cloud (VPC) security groups.
-- **4.1.2** Create/update Identity and Access Management (IAM) groups, roles, endpoints, and services.
-- **4.1.3** Create and rotate credentials (Secrets Manager).
-- **4.1.4** Set up IAM roles for access (Lambda, Application Programming Interface (API) Gateway, Amazon Web Services (AWS) Command Line Interface (CLI), CloudFormation).
-- **4.1.5** Apply IAM policies to roles, endpoints, services (Simple Storage Service (S3) Access Points, PrivateLink).
+- **4.1.1** Update [Virtual Private Cloud [VPC]](00-data-basics-for-beginners.md#amazon-vpc) security groups.
+- **4.1.2** Create/update [Identity and Access Management [IAM]](00-data-basics-for-beginners.md#aws-iam) groups, roles, endpoints, and services.
+- **4.1.3** Create and rotate credentials ([Secrets Manager](00-data-basics-for-beginners.md#aws-secrets-manager)).
+- **4.1.4** Set up IAM roles for access ([Lambda](00-data-basics-for-beginners.md#aws-lambda), [Application Programming Interface [API]](00-data-basics-for-beginners.md#api) Gateway, Amazon Web Services [AWS] Command Line Interface [CLI], [CloudFormation](00-data-basics-for-beginners.md#aws-cloudformation-cdk-and-sam)).
+- **4.1.5** Apply IAM policies to roles, endpoints, services ([Simple Storage Service [S3]](00-data-basics-for-beginners.md#amazon-s3) Access Points, PrivateLink).
 - **4.1.6** Describe managed vs unmanaged services.
 - **4.1.7** 🆕 Use domains, domain units, and projects in SageMaker Unified Studio.
 
 ### Task 4.2: Apply authorization mechanisms
 - **4.2.1** Write custom IAM policies when managed policies don't fit.
 - **4.2.2** Store application and database credentials (Secrets Manager, Parameter Store).
-- **4.2.3** Grant database users, groups, and roles access in a database (Redshift).
-- **4.2.4** Manage permissions with Lake Formation (for Redshift, Elastic MapReduce (EMR), Athena, S3).
+- **4.2.3** Grant database users, groups, and roles access in a database ([Redshift](00-data-basics-for-beginners.md#amazon-redshift)).
+- **4.2.4** Manage permissions with [Lake Formation](00-data-basics-for-beginners.md#aws-lake-formation) (for Redshift, [Elastic MapReduce [EMR]](00-data-basics-for-beginners.md#amazon-emr), [Athena](00-data-basics-for-beginners.md#amazon-athena), S3).
 - **4.2.5** Apply role-based, tag-based, and attribute-based authorization.
 - **4.2.6** Build custom least-privilege policies.
 
 ### Task 4.3: Ensure data encryption and masking
 - **4.3.1** Apply masking and anonymization for compliance/policy.
-- **4.3.2** Encrypt/decrypt with keys (Key Management Service (KMS)).
+- **4.3.2** Encrypt/decrypt with keys ([Key Management Service [KMS]](00-data-basics-for-beginners.md#aws-kms)).
 - **4.3.3** Configure encryption across account boundaries.
 - **4.3.4** Encrypt in transit or **before** transit.
 
 ### Task 4.4: Prepare logs for audit
-- **4.4.1** Track API calls with CloudTrail.
-- **4.4.2** Store application logs in CloudWatch Logs.
+- **4.4.1** Track API calls with [CloudTrail](00-data-basics-for-beginners.md#aws-cloudtrail).
+- **4.4.2** Store application logs in [CloudWatch](00-data-basics-for-beginners.md#amazon-cloudwatch) Logs.
 - **4.4.3** Query centrally with CloudTrail Lake.
-- **4.4.4** Analyze logs (Athena, CloudWatch Logs Insights, OpenSearch).
+- **4.4.4** Analyze logs (Athena, CloudWatch Logs Insights, [OpenSearch](00-data-basics-for-beginners.md#amazon-opensearch-service)).
 - **4.4.5** Integrate services for logging (e.g., EMR for large log volumes).
 
 ### Task 4.5: Understand data privacy and governance
 - **4.5.1** Grant permissions for data sharing (e.g., Redshift data sharing).
-- **4.5.2** Identify PII (Macie with Lake Formation).
+- **4.5.2** Identify PII ([Macie](00-data-basics-for-beginners.md#amazon-macie) with Lake Formation).
 - **4.5.3** Prevent backups/replication to disallowed Regions.
-- **4.5.4** View configuration changes (AWS Config).
+- **4.5.4** View configuration changes ([AWS Config](00-data-basics-for-beginners.md#aws-config)).
 - **4.5.5** Maintain data sovereignty.
 - **4.5.6** 🆕 Manage data access through SageMaker Catalog projects.
 - **4.5.7** 🆕 Describe governance frameworks and data sharing patterns.
@@ -66,22 +68,22 @@
 
 - **Authentication** = proving *who* you are. **Authorization** = deciding *what* you may do.
 - **Methods:**
-  - **Password-based**: database users, console passwords (+ **Multi-Factor Authentication (MFA)**).
+  - **Password-based**: database users, console passwords (+ **Multi-Factor Authentication [MFA]**).
   - **Certificate-based**: X.509 certificates, mutual Transport Layer Security (TLS), IoT devices, client certificates.
   - **Role-based**: assume an **IAM role** and get **temporary credentials** from AWS Security Token Service (STS). **This is the preferred method for AWS workloads.**
-- Workforce users sign in through **IAM Identity Center** (Single Sign-On (SSO), federated with Okta, Microsoft Entra ID, etc.). Avoid long-lived IAM user access keys.
+- Workforce users sign in through **IAM Identity Center** (Single Sign-On [SSO], federated with Okta, Microsoft Entra ID, etc.). Avoid long-lived IAM user access keys.
 
 ### VPC security groups (skill 4.1.1)
 
 | | Security group | Network Access Control List (ACL) |
 |---|---|---|
-| Level | Elastic Network Interface (ENI)/instance (Glue connection Elastic Network Interfaces (ENIs), Redshift, Relational Database Service (RDS), EMR, Lambda in VPC) | Subnet |
+| Level | Elastic Network Interface (ENI)/instance ([Glue](00-data-basics-for-beginners.md#aws-glue) connection Elastic Network Interfaces [ENIs], Redshift, [Relational Database Service [RDS]](00-data-basics-for-beginners.md#amazon-rds), EMR, Lambda in VPC) | Subnet |
 | State | **Stateful** (return traffic allowed automatically) | **Stateless** (allow both directions, incl. ephemeral ports) |
 | Rules | **Allow only** | Allow and deny, numbered order |
 | Sources | Classless Inter-Domain Routing ranges (CIDRs), prefix lists, **other security groups** | CIDRs only |
 
 Data-engineering patterns:
-- Database Security Group (SG) allows the port (5439 Redshift, 5432 PostgreSQL, 3306 MySQL) **from the application/Glue SG**, not from `0.0.0.0/0`.
+- Database Security Group (SG) allows the port (5439 Redshift, 5432 [PostgreSQL](00-data-basics-for-beginners.md#postgresql-mysql-oracle-and-sql-server), 3306 MySQL) **from the application/Glue SG**, not from `0.0.0.0/0`.
 - **Glue**: SG needs a **self-referencing inbound rule for all Transmission Control Protocol (TCP)**.
 - **EMR**: managed security groups for primary/core/task nodes; block public access setting.
 - Lambda in a VPC: outbound rules to reach databases; Network Address Translation (NAT) gateway or VPC endpoints for AWS Application Programming Interfaces (APIs).
@@ -95,33 +97,33 @@ Data-engineering patterns:
 |---|---|
 | **Lambda** | **Execution role** trusted by `lambda.amazonaws.com` (e.g., read S3, write logs) |
 | **Glue** | Service role trusted by `glue.amazonaws.com` (S3 paths, catalog, KMS, CloudWatch) |
-| **API Gateway** | Role for AWS service integrations (e.g., put to Kinesis); a resource-based permission on Lambda lets API Gateway invoke it; IAM authorization for callers |
+| **API Gateway** | Role for AWS service integrations (e.g., put to [Kinesis](00-data-basics-for-beginners.md#amazon-kinesis-data-streams)); a resource-based permission on Lambda lets API Gateway invoke it; IAM authorization for callers |
 | **AWS CLI** | Named profiles with `role_arn` + `source_profile` (or IAM Identity Center `sso` profiles) to assume roles |
 | **CloudFormation** | **Service role** CloudFormation uses to create resources, so users only need permission to pass that role (`iam:PassRole`) |
 | **Redshift** | IAM role attached to the cluster/workgroup for COPY/UNLOAD/Spectrum |
 | **EC2/EMR** | **Instance profile** (role for instances); EMR also has a service role |
 
 - **`iam:PassRole`**: required to hand a role to a service (e.g., a user creating a Glue job with role X needs `iam:PassRole` on X). It's a frequent permission-error answer.
-- **VPC endpoints**: **gateway endpoints** (S3, DynamoDB; route table entry; free) and **interface endpoints** (PrivateLink ENIs for most services: Glue, Athena, KMS, Secrets Manager, STS, Kinesis…). Traffic stays on the AWS network with no internet or NAT needed.
+- **VPC endpoints**: **gateway endpoints** (S3, [DynamoDB](00-data-basics-for-beginners.md#amazon-dynamodb); route table entry; free) and **interface endpoints** (PrivateLink ENIs for most services: Glue, Athena, KMS, Secrets Manager, STS, Kinesis…). Traffic stays on the AWS network with no internet or NAT needed.
 
 ### Credentials and rotation (skill 4.1.3)
 
-- **AWS Secrets Manager**: stores database (DB) credentials, API keys, tokens; **automatic rotation** on a schedule using Lambda rotation functions (managed rotation for RDS, Aurora, Redshift, DocumentDB); KMS-encrypted; resource policies for **cross-account** access; versioning (`AWSCURRENT`/`AWSPREVIOUS`).
+- **AWS Secrets Manager**: stores database (DB) credentials, API keys, tokens; **automatic rotation** on a schedule using Lambda rotation functions (managed rotation for RDS, [Aurora](00-data-basics-for-beginners.md#amazon-aurora), Redshift, DocumentDB); KMS-encrypted; resource policies for **cross-account** access; versioning (`AWSCURRENT`/`AWSPREVIOUS`).
 - **RDS/Aurora/Redshift managed master passwords** can live in Secrets Manager directly.
 - **Redshift temporary credentials**: `GetClusterCredentials` / IAM-based auth (or Redshift Serverless `GetCredentials`) gives short-lived database credentials, with no stored passwords.
 - **RDS IAM database authentication**: authenticate with an IAM token instead of a password.
 
 ### IAM policies on roles, endpoints, services (skill 4.1.5)
 
-- **Identity-based policies** (attached to users/groups/roles) vs **resource-based policies** (attached to the resource: S3 bucket policy, KMS key policy, Simple Queue Service (SQS) queue policy, Secrets Manager resource policy, Lambda permissions).
+- **Identity-based policies** (attached to users/groups/roles) vs **resource-based policies** (attached to the resource: S3 bucket policy, KMS key policy, [Simple Queue Service [SQS]](00-data-basics-for-beginners.md#amazon-sqs) queue policy, Secrets Manager resource policy, Lambda permissions).
 - **S3 Access Points**: named network endpoints on a bucket, each with **its own access point policy**. They simplify managing access for many teams/apps on a shared bucket. They can be **VPC-only** (network origin = VPC). The bucket policy can delegate control to access points.
 - **VPC endpoint policies**: restrict *which* resources/actions can be reached through the endpoint (e.g., only the company's buckets → data exfiltration protection).
 - Bucket policy conditions: `aws:SourceVpce` (only via a specific endpoint), `aws:SourceVpc`, `aws:PrincipalOrgID` (only principals in your organization), `aws:SecureTransport`.
-- **AWS PrivateLink** also lets you expose your own service (Network Load Balancer (NLB)) privately to other Virtual Private Clouds (VPCs)/accounts.
+- **AWS PrivateLink** also lets you expose your own service (Network Load Balancer [NLB]) privately to other Virtual Private Clouds (VPCs)/accounts.
 
 ### Managed vs unmanaged services (skill 4.1.6)
 
-| | Managed (Glue, Athena, Redshift Serverless, DynamoDB, Managed Streaming for Apache Kafka (MSK) Serverless, Firehose) | Unmanaged / self-managed (Kafka or Hadoop on Elastic Compute Cloud (EC2), DB on EC2) |
+| | Managed (Glue, Athena, Redshift Serverless, DynamoDB, [Managed Streaming for Apache Kafka [MSK]](00-data-basics-for-beginners.md#amazon-msk) Serverless, [Firehose](00-data-basics-for-beginners.md#amazon-data-firehose)) | Unmanaged / self-managed ([Kafka](00-data-basics-for-beginners.md#apache-kafka) or [Hadoop](00-data-basics-for-beginners.md#apache-hadoop) on Elastic Compute Cloud [EC2], DB on EC2) |
 |---|---|---|
 | Patching, Operating System (OS), High Availability (HA) | AWS | **You** |
 | Security responsibility | You configure IAM, encryption, network; AWS secures the infrastructure | You also secure the OS, software, patches, backups |
@@ -150,7 +152,7 @@ This is the **shared responsibility model**: the more managed the service, the m
 - **Inline policies**: embedded in one identity; strict 1:1 relationships.
 
 **Least-privilege policy techniques:**
-- Specific **actions** (no `s3:*`), specific **resource Amazon Resource Names (ARNs)** (bucket + prefix: `arn:aws:s3:::lake/curated/finance/*`).
+- Specific **actions** (no `s3:*`), specific **resource Amazon Resource Names [ARNs]** (bucket + prefix: `arn:aws:s3:::lake/curated/finance/*`).
 - **Conditions**: `s3:prefix`, `aws:PrincipalTag`, `aws:SourceVpce`, `aws:RequestedRegion`, `kms:ViaService`, `aws:MultiFactorAuthPresent`.
 - Remember that S3 needs **`s3:ListBucket` on the bucket Amazon Resource Name (ARN)** and **`s3:GetObject` on `bucket/*`**, two different resources.
 - **IAM Access Analyzer**: generates least-privilege policies **from CloudTrail activity**, validates policies, and finds resources shared outside your account.
@@ -167,11 +169,11 @@ This is the **shared responsibility model**: the more managed the service, the m
 | Cost | Per secret per month + API calls | **Standard tier free** |
 | Exam choice | "**Rotate automatically**", DB credentials for RDS/Redshift | Cheap config/flags, no rotation needed |
 
-Glue connections, Lambda, EMR, Managed Workflows for Apache Airflow (MWAA), and QuickSight can all read from Secrets Manager. **Never** put credentials in code, plain environment variables, or job parameters.
+Glue connections, Lambda, EMR, [Managed Workflows for Apache Airflow [MWAA]](00-data-basics-for-beginners.md#amazon-mwaa), and [QuickSight](00-data-basics-for-beginners.md#amazon-quicksight) can all read from Secrets Manager. **Never** put credentials in code, plain environment variables, or job parameters.
 
 ### Database-level authorization in Redshift (skill 4.2.3)
 
-- **Users** and **groups** (legacy) or **roles** (**Role-Based Access Control (RBAC)**: `CREATE ROLE analyst; GRANT SELECT ON ALL TABLES IN SCHEMA sales TO ROLE analyst; GRANT ROLE analyst TO alice;`). Roles can be nested and include system privileges.
+- **Users** and **groups** (legacy) or **roles** (**Role-Based Access Control [RBAC]**: `CREATE ROLE analyst; GRANT SELECT ON ALL TABLES IN SCHEMA sales TO ROLE analyst; GRANT ROLE analyst TO alice;`). Roles can be nested and include system privileges.
 - `GRANT`/`REVOKE` at **database, schema, table, column** levels (`GRANT SELECT (name, city) ON customers TO ROLE support;`).
 - **Default privileges** (`ALTER DEFAULT PRIVILEGES`) so new tables automatically get the right grants.
 - **Row-level security (RLS)** policies: `CREATE RLS POLICY … USING (region = current_user_region)` attached to tables and roles.
@@ -180,19 +182,19 @@ Glue connections, Lambda, EMR, Managed Workflows for Apache Airflow (MWAA), and 
 
 ### Lake Formation permissions (skill 4.2.4)
 
-**Why Lake Formation:** managing access to a data lake with S3 bucket policies + IAM gets unmanageable at table/column level. Lake Formation provides **database-style grants** on catalog resources and enforces them across engines.
+**Why Lake Formation:** managing access to a [data lake](00-data-basics-for-beginners.md#data-lake) with S3 bucket policies + IAM gets unmanageable at table/column level. Lake Formation provides **database-style grants** on catalog resources and enforces them across engines.
 
 **How it works:**
 1. **Register S3 locations** with Lake Formation (it then vends temporary credentials to integrated engines).
 2. Grant permissions on **databases, tables, columns** (`SELECT`, `INSERT`, `ALTER`, `DROP`, `DESCRIBE`, plus grantable options) to IAM principals, Identity Center users/groups, or external accounts.
-3. Engines that integrate (**Athena, Redshift Spectrum, EMR, Glue Extract, Transform, Load (ETL), QuickSight via Athena**) enforce those permissions.
+3. Engines that integrate (**Athena, Redshift Spectrum, EMR, Glue Extract, Transform, Load [ETL], QuickSight via Athena**) enforce those permissions.
 
 | Feature | Explanation |
 |---|---|
 | **Column-level security** | Include/exclude columns in the grant |
 | **Data filters** | **Row-level** (filter expression, e.g., `country = 'US'`) and **cell-level** (rows + columns) security |
-| **Lake Formation Tag-Based Access Control (LF-TBAC)** (tag-based access control) | Assign **Lake Formation tags (LF-tags)** (e.g., `classification=confidential`, `domain=sales`) to databases/tables/columns and grant on tag expressions. Scales to thousands of tables, and new tables inherit access when tagged. |
-| **Cross-account sharing** | Share databases/tables with other accounts (via AWS Resource Access Manager (RAM)). The consumer creates a **resource link**. |
+| **Lake Formation Tag-Based Access Control (LF-TBAC)** | Assign **Lake Formation tags [LF-tags]** (e.g., `classification=confidential`, `domain=sales`) to databases/tables/columns and grant on tag expressions. Scales to thousands of tables, and new tables inherit access when tagged. |
+| **Cross-account sharing** | Share databases/tables with other accounts (via AWS Resource Access Manager [RAM]). The consumer creates a **resource link**. |
 | **Data lake administrators** | Principals who manage permissions |
 | **Hybrid access mode / IAMAllowedPrincipals** | Transition from IAM-only to Lake Formation permissions without breaking existing users |
 
@@ -219,14 +221,14 @@ Glue connections, Lambda, EMR, Managed Workflows for Apache Airflow (MWAA), and 
 | **Tokenization** | Replace with a token; the mapping is stored securely | Yes, with the vault |
 | **Encryption** (deterministic or probabilistic) | Ciphertext; deterministic keeps joinability | Yes, with the key |
 | **Generalization** | Reduce precision (age → age band, ZIP → first 3 digits) | No |
-| **Pseudonymization** vs **anonymization** | Pseudonymized data can be re-identified with extra info (still personal data under General Data Protection Regulation (GDPR)); anonymized data cannot | — |
+| **Pseudonymization** vs **anonymization** | Pseudonymized data can be re-identified with extra info (still personal data under General Data Protection Regulation [GDPR]); anonymized data cannot | — |
 
 **AWS tools:**
-- **Redshift dynamic data masking**: masking policies applied at query time based on role (analysts see masked Social Security Number (SSN); auditors see full).
+- **Redshift dynamic data masking**: masking policies applied at query time based on role (analysts see masked Social Security Number [SSN]; auditors see full).
 - **Lake Formation**: exclude sensitive columns or use cell-level filters.
 - **Glue sensitive data detection**: find PII in ETL jobs and **redact/hash/replace** it.
-- **DataBrew**: masking, hashing, deterministic/probabilistic encryption, substitution transforms.
-- **Amazon Comprehend**: detect and redact PII in free text.
+- **[DataBrew](00-data-basics-for-beginners.md#aws-glue-databrew)**: masking, hashing, deterministic/probabilistic encryption, substitution transforms.
+- **[Amazon Comprehend](00-data-basics-for-beginners.md#amazon-comprehend)**: detect and redact PII in free text.
 - **QuickSight**: column-level security.
 - **Macie** **finds** PII in S3 but **does not mask** it.
 
@@ -241,7 +243,7 @@ Glue connections, Lambda, EMR, Managed Workflows for Apache Airflow (MWAA), and 
 | **Customer managed** | You | ✅ | ✅ | Optional automatic (configurable period) or manual |
 
 - **Envelope encryption**: KMS generates a **data key**, data is encrypted locally with the data key, and the data key is stored encrypted with the KMS key. This keeps large data out of KMS calls (KMS encrypts at most 4 KB directly).
-- **Grants**: temporary, programmatic permissions to use a key (used by services like Elastic Block Store (EBS), Redshift).
+- **Grants**: temporary, programmatic permissions to use a key (used by services like Elastic Block Store [EBS], Redshift).
 - **Multi-Region keys**: same key material in several Regions (for replicated encrypted data).
 - **Imported key material** / **external key store** for strict key-control requirements.
 
@@ -249,11 +251,11 @@ Glue connections, Lambda, EMR, Managed Workflows for Apache Airflow (MWAA), and 
 
 | Service | Options |
 |---|---|
-| **S3** | **Server-Side Encryption with S3-managed keys (SSE-S3)** (default for all new objects), **Server-Side Encryption with KMS keys (SSE-KMS)** (audit key use in CloudTrail, key policies), **DSSE-KMS** (dual-layer), **Server-Side Encryption with Customer-provided keys (SSE-C)** (customer-provided keys), client-side. **S3 Bucket Keys** cut KMS request costs for SSE-KMS. Enforce with default encryption + bucket policy. |
-| **Redshift** | KMS (or Hardware Security Module (HSM)) encryption for cluster, snapshots, backups; can encrypt an existing cluster |
+| **S3** | **Server-Side Encryption with S3-managed keys [SSE-S3]** (default for all new objects), **Server-Side Encryption with KMS keys [SSE-KMS]** (audit key use in CloudTrail, key policies), **DSSE-KMS** (dual-layer), **Server-Side Encryption with Customer-provided keys (SSE-C)**, client-side. **S3 Bucket Keys** cut KMS request costs for SSE-KMS. Enforce with default encryption + bucket policy. |
+| **Redshift** | KMS (or Hardware Security Module [HSM]) encryption for cluster, snapshots, backups; can encrypt an existing cluster |
 | **Glue** | **Security configurations** (encrypt S3 output, CloudWatch logs, job bookmarks) + **Data Catalog encryption** (metadata and connection passwords) |
-| **Athena** | Query results encryption (SSE-S3, SSE-KMS, Client-Side Encryption with KMS keys (CSE-KMS)), enforced by **workgroup** |
-| **EMR** | **Security configuration**: at-rest (EBS/local disk, EMR File System (EMRFS) S3), in-transit (TLS) |
+| **Athena** | Query results encryption (SSE-S3, SSE-KMS, Client-Side Encryption with KMS keys [CSE-KMS]), enforced by **workgroup** |
+| **EMR** | **Security configuration**: at-rest (EBS/local disk, EMR File System [EMRFS] S3), in-transit (TLS) |
 | **Kinesis / Firehose / MSK** | Server-side encryption with KMS |
 | **DynamoDB, RDS, Aurora** | KMS at rest (RDS encryption must be chosen at creation; to encrypt an existing DB, snapshot → copy encrypted → restore) |
 
@@ -271,9 +273,9 @@ Also: **cross-account S3 replication** of SSE-KMS objects needs the replication 
 
 **In transit (TLS):**
 - AWS service endpoints use Hypertext Transfer Protocol Secure (HTTPS)/TLS. **Enforce** it with bucket policies denying requests where **`aws:SecureTransport` = false**.
-- Redshift: parameter **`require_ssl = true`**. RDS PostgreSQL: **`rds.force_ssl = 1`**. MySQL: `REQUIRE SSL` per user. Java Database Connectivity (JDBC)/Open Database Connectivity (ODBC): Secure Sockets Layer (SSL) options.
+- Redshift: parameter **`require_ssl = true`**. RDS PostgreSQL: **`rds.force_ssl = 1`**. MySQL: `REQUIRE SSL` per user. Java Database Connectivity (JDBC)/[Open Database Connectivity [ODBC]](00-data-basics-for-beginners.md#jdbc-and-odbc): Secure Sockets Layer (SSL) options.
 - EMR security configuration: in-transit TLS between nodes.
-- Hybrid networks: Site-to-Site Virtual Private Network (VPN) (IPsec), Direct Connect (+ MACsec or VPN over Direct Connect (DX)).
+- Hybrid networks: Site-to-Site Virtual Private Network [VPN] (IPsec), Direct Connect (+ MACsec or VPN over Direct Connect [DX]).
 
 **Before transit (client-side encryption):**
 - Encrypt **before** data leaves the producer, so AWS only ever stores ciphertext.
@@ -295,13 +297,13 @@ Also: **cross-account S3 replication** of SSE-KMS objects needs the replication 
 ### CloudWatch Logs for application logs (skill 4.4.2)
 
 - Applications and services write to **log groups**. Set **retention**, **KMS encryption**, and **resource policies**.
-- Lambda, Glue, EMR (optional), MWAA, Step Functions, API Gateway, and Redshift audit logs can all send to CloudWatch Logs.
+- Lambda, Glue, EMR (optional), MWAA, [Step Functions](00-data-basics-for-beginners.md#aws-step-functions), API Gateway, and Redshift audit logs can all send to CloudWatch Logs.
 - Centralize across accounts with **subscription filters** → Firehose → S3 in a log archive account, or cross-account log sharing.
 
 ### CloudTrail Lake (skill 4.4.3)
 
 - A **managed, immutable event data store** for CloudTrail events (also AWS Config items, audit events from outside AWS) with long retention options.
-- Query with **Structured Query Language (SQL)** directly in the console or API. No S3 tables, partitions, or Athena setup required.
+- Query with **[Structured Query Language [SQL]](00-data-basics-for-beginners.md#sql)** directly in the console or API. No S3 tables, partitions, or Athena setup required.
 - Can collect from **all accounts in an organization** → centralized audit queries ("Which users called `DeleteTable` across all accounts in the last 6 months?").
 
 ### Analyzing logs (skills 4.4.4, 4.4.5)
@@ -312,7 +314,7 @@ Also: **cross-account S3 replication** of SSE-KMS objects needs the replication 
 | SQL over CloudTrail/VPC Flow/S3 access logs in S3 | **Athena** (create table from the CloudTrail console, use partition projection) |
 | Real-time search, dashboards, alerting on logs | **OpenSearch Service** (ingest with Firehose or OpenSearch Ingestion) |
 | SQL over CloudTrail events with no setup | **CloudTrail Lake** |
-| **Very large log volumes**, complex processing | **EMR** (Spark over logs in S3) |
+| **Very large log volumes**, complex processing | **EMR** ([Spark](00-data-basics-for-beginners.md#apache-spark) over logs in S3) |
 | Security findings correlation | Security Hub, GuardDuty (beyond core scope) |
 
 ---
@@ -324,7 +326,7 @@ Also: **cross-account S3 replication** of SSE-KMS objects needs the replication 
 **Redshift data sharing:**
 - The producer creates a **datashare**, adds schemas/tables/views/User-Defined Functions (UDFs), and grants it to a consumer **namespace** (same account), **AWS account** (cross-account: the producer account must **authorize** it and the consumer account must **associate** it), or Region.
 - The consumer creates a **database from the datashare** and queries **live data with no copies** and no ETL. Consumer compute pays for its queries.
-- Requires **RA3 or Redshift Serverless**. Can be **managed by Lake Formation** (centralized fine-grained permissions on the shared data) or shared via **AWS Data Exchange** (paid/licensed sharing).
+- Requires **RA3 or Redshift Serverless**. Can be **managed by Lake Formation** (centralized fine-grained permissions on the shared data) or shared via **[AWS Data Exchange](00-data-basics-for-beginners.md#aws-data-exchange)** (paid/licensed sharing).
 - Multi-warehouse **writes** are supported for workload isolation.
 
 **Other sharing mechanisms:** Lake Formation cross-account grants (via RAM), S3 bucket policies/Access Points, AWS Data Exchange (subscribe/license external data), **AWS Clean Rooms** (collaborative analysis without sharing raw data), SageMaker Catalog subscriptions.
@@ -335,7 +337,7 @@ Also: **cross-account S3 replication** of SSE-KMS objects needs the replication 
 - Uses Machine Learning (ML) and pattern matching to discover sensitive data **in S3**: **managed data identifiers** (names, addresses, credit cards, passport numbers, credentials…) plus **custom data identifiers** (regex + keywords for your own formats like employee IDs).
 - **Automated sensitive data discovery** (continuous sampling across buckets) or targeted **sensitive data discovery jobs** (one-time or scheduled).
 - Also evaluates bucket security (public, unencrypted, shared).
-- **Findings** go to EventBridge and Security Hub, which can trigger remediation.
+- **Findings** go to [EventBridge](00-data-basics-for-beginners.md#amazon-eventbridge) and Security Hub, which can trigger remediation.
 
 **Macie + Lake Formation pattern:**
 
@@ -352,7 +354,7 @@ Other PII detection: **Glue sensitive data detection** (inside ETL), **Comprehen
 - **SCPs** in AWS Organizations: deny all actions outside approved Regions using **`aws:RequestedRegion`** (exempt global services). This blocks creating resources, snapshot copies, and replicas elsewhere.
 - Deny specific actions: `s3:PutReplicationConfiguration` (or limit allowed destination buckets), `rds:CopyDBSnapshot`/cross-Region read replicas, `redshift:EnableSnapshotCopy`, DynamoDB global table replica creation, `backup:StartCopyJob` to disallowed vaults.
 - **AWS Backup**: organization **backup policies** that define where copies go; vault access policies.
-- **AWS Control Tower** Region deny control (applies the same Service Control Policy (SCP) approach at scale).
+- **AWS Control Tower** Region deny control (applies the same Service Control Policy [SCP] approach at scale).
 - **KMS**: single-Region customer managed keys mean data encrypted with them can't be decrypted elsewhere.
 
 ### Viewing configuration changes with AWS Config (skill 4.5.4)
@@ -371,8 +373,8 @@ Other PII detection: **Glue sensitive data detection** (inside ETL), **Comprehen
 How to maintain it on AWS:
 - Choose Regions in the required country; **restrict other Regions** with SCPs (`aws:RequestedRegion`).
 - Block cross-Region replication, snapshot copy, and global tables to other jurisdictions (see 4.5.3).
-- Keep **KMS keys in-Region** (or customer-controlled key stores/Hardware Security Modules (HSMs) for stricter control).
-- Watch for services that move data (cross-Region inference in Bedrock, CloudFront caching, global tables) and configure them for in-country use.
+- Keep **KMS keys in-Region** (or customer-controlled key stores/Hardware Security Modules [HSMs] for stricter control).
+- Watch for services that move data (cross-Region inference in [Bedrock](00-data-basics-for-beginners.md#amazon-bedrock), CloudFront caching, global tables) and configure them for in-country use.
 - Use **AWS Local Zones / Outposts / Dedicated Local Zones** when no Region exists in the required location.
 - Use AWS Config rules and Macie/CloudTrail to prove compliance.
 
@@ -407,7 +409,7 @@ Key points:
 | **Decentralized / data mesh** | **Domain teams own their data as products** (they publish to a catalog); a **central governance** layer sets standards (catalog, policies, security) | Scales with the organization; needs strong standards and a catalog |
 | **Federated / hub-and-spoke** | Central **governance/catalog account** + **producer** and **consumer** accounts; Lake Formation + RAM share tables across accounts; SageMaker Catalog for discovery and subscriptions | AWS's reference architecture for multi-account data platforms |
 
-A governance framework covers **ownership/stewardship**, **classification** (public, internal, confidential, PII), **access policies**, **quality standards**, **lineage**, **lifecycle/retention**, and **auditing**.
+A governance framework covers **ownership/stewardship**, **classification** (public, internal, confidential, PII), **access policies**, **quality standards**, **[lineage](00-data-basics-for-beginners.md#data-lineage)**, **lifecycle/retention**, and **auditing**.
 
 **Data sharing patterns:**
 
@@ -466,7 +468,7 @@ A governance framework covers **ownership/stewardship**, **classification** (pub
 - **Lake Formation**: register S3, grants on db/table/column, **data filters** (row/cell), **LF-tags (TBAC)**, cross-account via RAM + resource links, IAMAllowedPrincipals.
 - RBAC (roles) vs TBAC (LF-tags) vs **ABAC** (principal tag = resource tag).
 - Masking/anonymization: redact, hash, tokenize, encrypt, generalize; pseudonymized ≠ anonymized; tools = Redshift Dynamic Data Masking (DDM), Lake Formation (LF), Glue sensitive data detection, DataBrew, Comprehend.
-- **KMS**: AWS owned / AWS managed / **customer managed** (only Customer Managed Key (CMK) is shareable cross-account, editable policy); envelope encryption; grants; multi-Region keys.
+- **KMS**: AWS owned / AWS managed / **customer managed** (only Customer Managed Key [CMK] is shareable cross-account, editable policy); envelope encryption; grants; multi-Region keys.
 - S3 at rest: **SSE-S3 default**, SSE-KMS (+ **Bucket Keys**), DSSE-KMS, SSE-C, client-side.
 - Service encryption: Glue security configurations + catalog encryption, Athena workgroup result encryption, EMR security configurations, Redshift KMS, RDS at creation only.
 - Cross-account: CMK key policy + consumer IAM + resource policy; Redshift snapshot copy grant.
