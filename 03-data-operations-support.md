@@ -2,7 +2,7 @@
 
 > **About 11 of the 50 scored questions.**
 >
-> This domain is about running pipelines in production: automating processing with AWS services and SDKs, analyzing data with SQL and visualization tools, monitoring/logging/troubleshooting pipelines, and making sure the data is correct (data quality, consistency, sampling, skew).
+> This domain is about running pipelines in production: automating processing with Amazon Web Services (AWS) services and Software Development Kits (SDKs), analyzing data with Structured Query Language (SQL) and visualization tools, monitoring/logging/troubleshooting pipelines, and making sure the data is correct (data quality, consistency, sampling, skew).
 
 ## Table of contents
 
@@ -16,14 +16,14 @@
 
 ## Exam tasks and skills
 
-> Summarized from the official DEA-C01 exam guide (v1.1). Exact wording: https://docs.aws.amazon.com/aws-certification/latest/data-engineer-associate-01/data-engineer-associate-01-domain3.html
+> Summarized from the official AWS Certified Data Engineer – Associate (DEA-C01) exam guide (v1.1). Exact wording: https://docs.aws.amazon.com/aws-certification/latest/data-engineer-associate-01/data-engineer-associate-01-domain3.html
 
 ### Task 3.1: Automate data processing by using AWS services
-- **3.1.1** Orchestrate pipelines (MWAA, Step Functions).
+- **3.1.1** Orchestrate pipelines (Managed Workflows for Apache Airflow (MWAA), Step Functions).
 - **3.1.2** Troubleshoot Amazon managed workflows.
 - **3.1.3** Call SDKs to use AWS features from code.
-- **3.1.4** Use service features to process data (EMR, Redshift, Glue).
-- **3.1.5** Consume and maintain data APIs.
+- **3.1.4** Use service features to process data (Elastic MapReduce (EMR), Redshift, Glue).
+- **3.1.5** Consume and maintain data Application Programming Interfaces (APIs).
 - **3.1.6** Prepare data for transformation (Glue DataBrew, 🆕 SageMaker Unified Studio).
 - **3.1.7** Query data (Athena).
 - **3.1.8** Automate processing with Lambda.
@@ -42,7 +42,7 @@
 - **3.3.2** Deploy logging/monitoring for auditing and traceability.
 - **3.3.3** Send alerts from monitoring.
 - **3.3.4** Troubleshoot performance issues.
-- **3.3.5** Track API calls with CloudTrail.
+- **3.3.5** Track Application Programming Interface (API) calls with CloudTrail.
 - **3.3.6** Troubleshoot and maintain pipelines (Glue, EMR).
 - **3.3.7** Log application data with CloudWatch Logs (configuration and automation).
 - **3.3.8** Analyze logs (Athena, EMR, OpenSearch, CloudWatch Logs Insights, big data app logs).
@@ -64,7 +64,7 @@ Domain 1 covers *choosing* an orchestrator. Here the focus is *running* them.
 
 | | Step Functions | Amazon MWAA |
 |---|---|---|
-| Definition | JSON/YAML (Amazon States Language), visual Workflow Studio | Python DAG files in S3 |
+| Definition | JavaScript Object Notation (JSON)/YAML Ain't Markup Language (YAML) (Amazon States Language), visual Workflow Studio | Python Directed Acyclic Graph (DAG) files in Simple Storage Service (S3) |
 | Waiting for jobs | `.sync` integration (e.g., `glue:startJobRun.sync`) | Operators/sensors (GlueJobOperator, S3KeySensor) |
 | Error handling | `Retry` (interval, backoff rate, max attempts) and `Catch` per state | Task `retries`, `retry_delay`, `on_failure_callback` |
 | Scaling | Automatic | Environment class + min/max workers (auto scales workers) |
@@ -77,19 +77,19 @@ Domain 1 covers *choosing* an orchestrator. Here the focus is *running* them.
 - **Execution history** in the console shows every state's input, output, and error (e.g., `States.TaskFailed`, `States.Timeout`, `States.Permissions`).
 - Enable **CloudWatch Logs** for the state machine (`ALL`, `ERROR`, or `FATAL`). **Express workflows only keep history in CloudWatch Logs**, so you must enable logging to debug them.
 - **X-Ray** tracing shows latency across services.
-- Common fixes: missing IAM permissions on the state machine role, `TimeoutSeconds`/`HeartbeatSeconds` too low, payload over the 256 KB limit (pass S3 references instead), no `Retry` for transient errors.
+- Common fixes: missing Identity and Access Management (IAM) permissions on the state machine role, `TimeoutSeconds`/`HeartbeatSeconds` too low, payload over the 256 KB limit (pass S3 references instead), no `Retry` for transient errors.
 
 **MWAA:**
 - Logs in CloudWatch: **DAG processing, scheduler, web server, worker, task** logs. Turn on the levels you need.
 - **DAG doesn't appear** → Python import error (check DAG processing logs), wrong S3 path, or a `requirements.txt` dependency that failed to install (check the environment's requirements install log).
 - **Tasks queued but not running** → too few workers / environment class too small, or pool/concurrency limits.
-- **Can't reach AWS services** → execution role permissions, or a private network with no NAT/VPC endpoints.
+- **Can't reach AWS services** → execution role permissions, or a private network with no Network Address Translation (NAT)/VPC endpoints.
 - Update requirements/plugins by uploading new versions to S3 and updating the environment.
 
 ### Calling SDKs (skill 3.1.3)
 
 - **AWS SDKs** (boto3 for Python, SDKs for Java, JavaScript, Go…) call AWS APIs from code (Lambda, Glue, containers, notebooks).
-- **Credentials** come from the **IAM role** of the compute (Lambda execution role, Glue job role, EC2 instance profile). Never hardcode keys.
+- **Credentials** come from the **IAM role** of the compute (Lambda execution role, Glue job role, Elastic Compute Cloud (EC2) instance profile). Never hardcode keys.
 - **Paginators** for list operations that return pages (`list_objects_v2`, `get_query_results`).
 - **Waiters** to wait for a state (e.g., wait until a Redshift cluster is available).
 - **Retries**: SDKs retry throttling errors automatically. Configure `standard` or `adaptive` retry mode and max attempts.
@@ -99,7 +99,7 @@ Domain 1 covers *choosing* an orchestrator. Here the focus is *running* them.
 
 | Service | Processing features worth knowing |
 |---|---|
-| **Glue** | Built-in transforms (ApplyMapping, Filter, Join, DropNullFields, Relationalize), **FindMatches ML transform** (fuzzy deduplication/record matching without exact keys), sensitive data detection, Data Quality, job bookmarks |
+| **Glue** | Built-in transforms (ApplyMapping, Filter, Join, DropNullFields, Relationalize), **FindMatches Machine Learning (ML) transform** (fuzzy deduplication/record matching without exact keys), sensitive data detection, Data Quality, job bookmarks |
 | **EMR** | **Steps** (submit Spark/Hive jobs to a cluster), bootstrap actions, EMR Serverless applications, EMR Studio notebooks |
 | **Redshift** | Stored procedures, materialized views, `MERGE`, scheduled queries, Redshift ML (`CREATE MODEL`), streaming ingestion, user-defined functions (SQL/Lambda) |
 
@@ -116,12 +116,12 @@ Maintaining data APIs means operating them, not just creating them:
 ### Preparing data for transformation (skill 3.1.6)
 
 **AWS Glue DataBrew** (no-code data prep):
-- **Datasets** (S3, Glue Catalog, Redshift, RDS, Snowflake…) → **projects** (interactive session on a sample) → **recipes** (saved list of transform steps) → **recipe jobs** (run the recipe on the full dataset, output to S3) and **profile jobs** (statistics and quality).
-- 250+ transforms: remove duplicates, fill/flag missing values, split/merge columns, standardize formats, pivot/unpivot, mask/redact/encrypt PII, join datasets.
+- **Datasets** (S3, Glue Catalog, Redshift, Relational Database Service (RDS), Snowflake…) → **projects** (interactive session on a sample) → **recipes** (saved list of transform steps) → **recipe jobs** (run the recipe on the full dataset, output to S3) and **profile jobs** (statistics and quality).
+- 250+ transforms: remove duplicates, fill/flag missing values, split/merge columns, standardize formats, pivot/unpivot, mask/redact/encrypt Personally Identifiable Information (PII), join datasets.
 - Best for **analysts or data stewards who don't write code**.
 
 🆕 **Amazon SageMaker Unified Studio**:
-- A **single web environment** for data and AI work: SQL query editor (Athena and Redshift), Jupyter notebooks (Spark, Python), **visual ETL** (Glue), data prep, model building, generative AI app building with Bedrock, plus the **SageMaker Catalog**.
+- A **single web environment** for data and Artificial Intelligence (AI) work: SQL query editor (Athena and Redshift), Jupyter notebooks (Spark, Python), **visual Extract, Transform, Load (ETL)** (Glue), data prep, model building, generative AI app building with Bedrock, plus the **SageMaker Catalog**.
 - Organized by **domains → domain units → projects** (Domain 4 covers this). A project gives a team shared data, compute, and permissions.
 - Choose it when the scenario wants **one governed workspace** where engineers, analysts, and data scientists collaborate on the same data.
 
@@ -130,9 +130,9 @@ Maintaining data APIs means operating them, not just creating them:
 - Standard SQL (Trino engine) over the Glue Data Catalog; results written to an S3 location (set per **workgroup**).
 - **Workgroups**: separate teams/apps, enforce result location and encryption, **per-query and per-workgroup data scan limits**, cost tracking with tags.
 - **Saved queries**, **prepared statements** (parameterized queries; also help prevent SQL injection), **views**.
-- **CTAS** and `INSERT INTO` to create transformed and partitioned tables.
+- **CREATE TABLE AS SELECT (CTAS)** and `INSERT INTO` to create transformed and partitioned tables.
 - **Query result reuse** avoids rescanning for repeated identical queries.
-- **Provisioned capacity** (reserved DPUs) for predictable concurrency instead of per-TB pricing.
+- **Provisioned capacity** (reserved Data Processing Units (DPUs)) for predictable concurrency instead of per-TB pricing.
 
 ### Automating with Lambda (skill 3.1.8)
 
@@ -141,7 +141,7 @@ Typical automation patterns:
 - **Scheduled Lambda** (EventBridge Scheduler): call an API, run housekeeping (e.g., refresh a materialized view through the Redshift Data API).
 - **Stream processing**: KDS/DynamoDB Streams/SQS → Lambda (see the event source mapping settings in Domain 1).
 - **Glue between steps** inside Step Functions.
-- Keep functions small, idempotent, with DLQs/on-failure destinations and structured logging.
+- Keep functions small, idempotent, with Dead-Letter Queues (DLQs)/on-failure destinations and structured logging.
 
 ### Managing events and schedulers (skill 3.1.9)
 
@@ -149,10 +149,10 @@ Typical automation patterns:
 
 | Component | Purpose |
 |---|---|
-| **Event buses** | Default bus (AWS service events), custom buses (your apps), partner buses (SaaS) |
+| **Event buses** | Default bus (AWS service events), custom buses (your apps), partner buses (Software as a Service (SaaS)) |
 | **Rules** | Match events by **event pattern** (source, detail-type, fields) → up to 5 targets per rule |
-| **Targets** | Lambda, Step Functions, Glue workflows, Kinesis, SQS, SNS, ECS tasks, API destinations… |
-| **Scheduler** | Cron/rate/one-time schedules at large scale, with time zones, flexible windows, retries, DLQ |
+| **Targets** | Lambda, Step Functions, Glue workflows, Kinesis, Simple Queue Service (SQS), Simple Notification Service (SNS), Elastic Container Service (ECS) tasks, API destinations… |
+| **Scheduler** | Cron/rate/one-time schedules at large scale, with time zones, flexible windows, retries, Dead-Letter Queue (DLQ) |
 | **Archive & replay** | Store events and replay them later |
 | **Cross-account** | Send events to a bus in another account (central monitoring) |
 | **Input transformer** | Reshape the event before sending it to the target |
@@ -166,8 +166,8 @@ Data-pipeline events you'll see: **Glue Job State Change**, **Glue Crawler State
 ### Visualizing data (skill 3.2.1)
 
 **Amazon QuickSight:**
-- Serverless BI: dashboards, analyses, paginated reports, **embedded dashboards** in apps.
-- **SPICE**: in-memory engine. Import data for fast, scalable dashboards; schedule full or **incremental refreshes**. **Direct query** hits the source live (always fresh, slower, loads the source).
+- Serverless Business Intelligence (BI): dashboards, analyses, paginated reports, **embedded dashboards** in apps.
+- **Super-fast, Parallel, In-memory Calculation Engine (SPICE)**: in-memory engine. Import data for fast, scalable dashboards; schedule full or **incremental refreshes**. **Direct query** hits the source live (always fresh, slower, loads the source).
 - Data sources: Athena, Redshift, RDS/Aurora, S3, OpenSearch, Snowflake, SaaS…
 - **Row-level security (RLS)** and column-level security per user/group.
 - **Amazon Q in QuickSight**: ask questions in natural language, build visuals and data stories.
@@ -188,22 +188,22 @@ Data-pipeline events you'll see: **Glue Job State Change**, **Glue Crawler State
 
 ### SQL in Redshift and Athena (skill 3.2.3)
 
-- Both are ANSI SQL engines: joins, CTEs, window functions, `CASE`, aggregate functions.
+- Both are American National Standards Institute (ANSI) SQL engines: joins, Common Table Expressions (CTEs), window functions, `CASE`, aggregate functions.
 - **Views**: saved queries, no stored data, always current.
 - **Materialized views**: store results for speed (Redshift; Athena doesn't have classic materialized views over Glue tables, so use CTAS for that).
 - **Redshift late-binding views** (`CREATE VIEW … WITH NO SCHEMA BINDING`): not bound to underlying objects, so you can drop/recreate tables without breaking the view. **Required for views that reference Spectrum external tables.**
 - **Athena views** are stored in the Glue Data Catalog and can be queried by other Athena users.
-- Know `CREATE TABLE AS` in both, `UNLOAD` in both (Athena also has `UNLOAD` to write query results in Parquet/ORC/JSON).
+- Know `CREATE TABLE AS` in both, `UNLOAD` in both (Athena also has `UNLOAD` to write query results in Parquet/Optimized Row Columnar (ORC)/JSON).
 
 ### Athena notebooks with Apache Spark (skill 3.2.4)
 
 - **Amazon Athena for Apache Spark**: interactive **Jupyter-compatible notebooks** in the Athena console; a Spark session starts in about a second, with no clusters to configure.
-- Uses a **Spark-enabled workgroup**; billed by **DPU-hour** of session use.
+- Uses a **Spark-enabled workgroup**; billed by **Data Processing Unit hour (DPU-hour)** of session use.
 - Use for exploratory PySpark on lake data (complex transformations, Python libraries) when SQL alone isn't enough.
 
 ### Provisioned vs serverless trade-offs (skill 3.2.5)
 
-| | Provisioned (Redshift RA3 cluster, EMR on EC2, MSK provisioned, DynamoDB provisioned, KDS provisioned) | Serverless (Redshift Serverless, Athena, EMR Serverless, Glue, MSK Serverless, DynamoDB on-demand, KDS on-demand, Lambda) |
+| | Provisioned (Redshift RA3 cluster, EMR on EC2, Managed Streaming for Apache Kafka (MSK) provisioned, DynamoDB provisioned, Kinesis Data Streams (KDS) provisioned) | Serverless (Redshift Serverless, Athena, EMR Serverless, Glue, MSK Serverless, DynamoDB on-demand, KDS on-demand, Lambda) |
 |---|---|---|
 | Cost model | Pay for capacity whether used or not; **cheaper at steady, high utilization** (and with reservations) | Pay per use; **cheaper for spiky, intermittent, unpredictable** workloads |
 | Operations | You size, scale, sometimes patch | No capacity planning |
@@ -265,12 +265,12 @@ WHERE rn = 1;
 |---|---|---|
 | **AWS CloudTrail** | **API calls**: who, what, when, from where. **Management events** on by default (90-day event history); **data events** (S3 object-level, Lambda invokes, DynamoDB items…) must be enabled and cost extra | Audits: "who deleted the table / changed the bucket policy / ran the Glue job?" Use **trails** to S3 for long-term retention, an **organization trail** for all accounts, **log file integrity validation** to prove logs weren't altered |
 | **CloudTrail Lake** | Managed event data store with SQL queries over CloudTrail (and other) events, long retention | Centralized audit queries without building Athena tables |
-| **Amazon CloudWatch Logs** | Application and service logs (Lambda, Glue, EMR, MWAA, Step Functions, API Gateway, VPC Flow Logs) | Debugging, metric filters, subscriptions |
-| **Amazon CloudWatch metrics + alarms** | Numeric time series (Glue job metrics, KDS IteratorAge, Redshift CPU, DynamoDB throttles) | Alerts and dashboards |
+| **Amazon CloudWatch Logs** | Application and service logs (Lambda, Glue, EMR, MWAA, Step Functions, API Gateway, Virtual Private Cloud (VPC) Flow Logs) | Debugging, metric filters, subscriptions |
+| **Amazon CloudWatch metrics + alarms** | Numeric time series (Glue job metrics, KDS IteratorAge, Redshift Central Processing Unit (CPU), DynamoDB throttles) | Alerts and dashboards |
 | **AWS Config** | Resource configuration history and compliance | "What changed on this bucket/cluster?" (Domain 4) |
 | **Redshift audit logging** | **Connection log**, **user log**, **user activity log** (every query) to S3 or CloudWatch Logs | Database-level audit |
 | **S3 server access logs** | Requests to a bucket (best effort) | Access analysis, cheaper than data events for high volume |
-| **EMR logs** | Step, application (YARN, Spark) and node logs archived to S3 | Debugging cluster jobs |
+| **EMR logs** | Step, application (Yet Another Resource Negotiator (YARN), Spark) and node logs archived to S3 | Debugging cluster jobs |
 
 **CloudWatch Logs configuration and automation (skill 3.3.7):**
 - **Log groups** (per app/job) and **log streams**; set **retention** per log group (never expire by default, which costs money).
@@ -279,7 +279,7 @@ WHERE rn = 1;
 - **Export** to S3 for archive and Athena analysis.
 - **CloudWatch agent** for EC2/on-prem log collection; embedded metric format for custom metrics from logs.
 - **Glue continuous logging** streams driver/executor logs in real time during a run.
-- Encrypt log groups with KMS. Automate log group creation and retention with IaC.
+- Encrypt log groups with Key Management Service (KMS). Automate log group creation and retention with Infrastructure as Code (IaC).
 
 ### Alerts (skill 3.3.3)
 
@@ -296,8 +296,8 @@ Glue Data Quality score < threshold ──► EventBridge ──► SNS / Lambda
 **AWS Glue:**
 - **Job run insights**: points to the failing line and suggests causes.
 - **Glue metrics / observability metrics** in CloudWatch: worker utilization, memory, shuffle, skew. Look for idle executors (over-provisioned) or memory near limit.
-- **Spark UI** (enable event logs to S3): stages, tasks, skew (one task far longer than the rest), shuffle spill.
-- Typical fixes: bigger worker types, Auto Scaling, repartition/salting, pushdown predicates, file grouping, bookmarks, fewer UDFs.
+- **Spark User Interface (UI)** (enable event logs to S3): stages, tasks, skew (one task far longer than the rest), shuffle spill.
+- Typical fixes: bigger worker types, Auto Scaling, repartition/salting, pushdown predicates, file grouping, bookmarks, fewer User-Defined Functions (UDFs).
 
 **Amazon EMR:**
 - Logs in S3 (enable at cluster creation), Spark History Server, YARN ResourceManager UI, CloudWatch EMR metrics (`YARNMemoryAvailablePercentage`, `ContainerPending`, `HDFSUtilization`).
@@ -307,7 +307,7 @@ Glue Data Quality score < threshold ──► EventBridge ──► SNS / Lambda
 **Amazon Redshift:**
 - **`EXPLAIN`** plan: watch for `DS_BCAST_INNER` / `DS_DIST_BOTH` (data redistribution → poor dist keys), nested loop joins (missing join condition).
 - System views: `SYS_QUERY_HISTORY`, `STL_ALERT_EVENT_LOG` (missing stats, nested loops), `SVL_QUERY_SUMMARY` (disk-based steps = not enough memory), `SVV_TABLE_INFO` (skew, unsorted %, stats_off).
-- Fixes: better dist/sort keys, `ANALYZE` (stats), `VACUUM` (sort/reclaim), WLM queues/priorities, concurrency scaling, materialized views, Advisor recommendations.
+- Fixes: better dist/sort keys, `ANALYZE` (stats), `VACUUM` (sort/reclaim), Workload Management (WLM) queues/priorities, concurrency scaling, materialized views, Advisor recommendations.
 
 **Amazon Athena:**
 - Use query stats (data scanned, planning vs execution time) and `EXPLAIN ANALYZE`.
@@ -320,7 +320,7 @@ Glue Data Quality score < threshold ──► EventBridge ──► SNS / Lambda
 | Tool | Best for |
 |---|---|
 | **CloudWatch Logs Insights** | Fast interactive queries on CloudWatch log groups (`fields`, `filter`, `stats`, `sort`); no setup |
-| **Athena** | SQL on logs in S3 (CloudTrail, VPC Flow Logs, ALB, S3 access logs). Use partition projection for date-partitioned logs. Cheap at scale. |
+| **Athena** | SQL on logs in S3 (CloudTrail, VPC Flow Logs, Application Load Balancer (ALB), S3 access logs). Use partition projection for date-partitioned logs. Cheap at scale. |
 | **Amazon OpenSearch Service** | Near-real-time log analytics, full-text search, dashboards (OpenSearch Dashboards); feed via Firehose or subscription filters |
 | **Amazon EMR** | **Very large volumes** of logs needing custom Spark processing |
 | **CloudTrail Lake** | SQL over CloudTrail events without managing tables |
@@ -368,7 +368,7 @@ Rules = [
 - Rules are evaluated during **profile jobs**. Results show pass/fail per rule; notify through EventBridge.
 - Better for analysts and no-code teams. Glue Data Quality is better for coded pipelines.
 
-**Other options:** custom checks in Lambda or Spark (e.g., `df.filter(col("x").isNull()).count()`), Athena validation queries in a Step Functions step, **DMS data validation** for migrations.
+**Other options:** custom checks in Lambda or Spark (e.g., `df.filter(col("x").isNull()).count()`), Athena validation queries in a Step Functions step, **Database Migration Service (DMS) data validation** for migrations.
 
 ### Investigating data consistency (skill 3.4.3)
 
@@ -399,7 +399,7 @@ AWS examples: DataBrew project sample settings (first N, random N, last N), Athe
 
 | Where | Symptom | Mechanism |
 |---|---|---|
-| **Spark (Glue/EMR)** | One task runs much longer; executor OOM | **Salting** (append a random number to hot keys, aggregate twice), **repartition** on a better key, **broadcast join** small tables, **Adaptive Query Execution** skew-join handling (Spark 3), filter out null/default keys before joins |
+| **Spark (Glue/EMR)** | One task runs much longer; executor Out Of Memory (OOM) | **Salting** (append a random number to hot keys, aggregate twice), **repartition** on a better key, **broadcast join** small tables, **Adaptive Query Execution** skew-join handling (Spark 3), filter out null/default keys before joins |
 | **Redshift** | Slices with far more rows (`SVV_TABLE_INFO.skew_rows`) | Choose a high-cardinality `DISTKEY`, or `EVEN`/`AUTO` |
 | **Kinesis / DynamoDB** | Hot shard/partition, throttling | High-cardinality partition key, random suffixes (write sharding) |
 | **S3 partitions** | One partition much bigger than others | Rethink partition columns; add bucketing |
@@ -429,7 +429,7 @@ AWS examples: DataBrew project sample settings (first N, random N, last N), Athe
 - **Log groups never expire by default** → set retention.
 - **Redshift `DS_BCAST_INNER` / `DS_DIST_BOTH` in EXPLAIN** → bad distribution keys.
 - **Fail the job or quarantine bad rows based on rules in a Glue pipeline** → **Glue Data Quality** (Evaluate Data Quality transform).
-- **One Spark task takes forever** → skew → **salting / broadcast join / AQE**.
+- **One Spark task takes forever** → skew → **salting / broadcast join / Adaptive Query Execution (AQE)**.
 - **Representative sample that keeps small groups** → **stratified sampling**.
 
 ---
@@ -437,12 +437,12 @@ AWS examples: DataBrew project sample settings (first N, random N, last N), Athe
 ## Quick-recall summary
 
 - Domain weight **22%**. Tasks: automate (3.1), analyze (3.2), maintain/monitor (3.3), data quality (3.4).
-- Step Functions: `.sync`, Retry/Catch, execution history, **CloudWatch Logs required for Express**, X-Ray. MWAA: DAGs + requirements in S3, CloudWatch logs per component, worker scaling.
+- Step Functions: `.sync`, Retry/Catch, execution history, **CloudWatch Logs required for Express**, X-Ray. MWAA: Directed Acyclic Graphs (DAGs) + requirements in S3, CloudWatch logs per component, worker scaling.
 - SDKs: role-based credentials, paginators, waiters, retry modes; **poll** Athena/Redshift Data API/Glue runs.
-- Service features: Glue transforms + **FindMatches**; EMR steps; Redshift stored procedures, MVs, MERGE, scheduled queries.
+- Service features: Glue transforms + **FindMatches**; EMR steps; Redshift stored procedures, Materialized Views (MVs), MERGE, scheduled queries.
 - Data APIs: version, throttle, cache, monitor, secure.
 - Prep: **DataBrew** (recipes, profile jobs, no code), **SageMaker Unified Studio** (one workspace: SQL, notebooks, visual ETL, catalog).
-- **Athena**: workgroups (scan limits, result encryption), prepared statements, views, CTAS, UNLOAD, result reuse, provisioned capacity; **Athena for Spark** notebooks (DPU-hours).
+- **Athena**: workgroups (scan limits, result encryption), prepared statements, views, CTAS, UNLOAD, result reuse, provisioned capacity; **Athena for Spark** notebooks (Data Processing Unit hours (DPU-hours)).
 - **EventBridge**: buses, rules/patterns, targets, **Scheduler**, archive/replay, cross-account; Glue/EMR/Step Functions state-change events.
 - **QuickSight**: SPICE vs direct query, RLS, embedded dashboards, Amazon Q.
 - Clean/verify: Athena SQL, Lambda, notebooks, **Data Wrangler**, DataBrew.

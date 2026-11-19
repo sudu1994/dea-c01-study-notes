@@ -2,7 +2,7 @@
 
 > **The largest domain. Roughly 17 of the 50 scored questions.**
 >
-> This domain tests how data gets *into* AWS (streaming and batch), how it gets *reshaped* (Glue, EMR, Lambda, Redshift, containers, LLMs), how the steps are *orchestrated* (Step Functions, MWAA, Glue workflows, EventBridge), and the *programming practices* behind it (Lambda tuning, IaC, SAM, CI/CD, distributed computing). Most questions are "pick the right service/configuration with the least operational overhead."
+> This domain tests how data gets *into* Amazon Web Services (AWS) (streaming and batch), how it gets *reshaped* (Glue, Elastic MapReduce (EMR), Lambda, Redshift, containers, Large Language Models (LLMs)), how the steps are *orchestrated* (Step Functions, Managed Workflows for Apache Airflow (MWAA), Glue workflows, EventBridge), and the *programming practices* behind it (Lambda tuning, Infrastructure as Code (IaC), Serverless Application Model (SAM), Continuous Integration / Continuous Delivery (CI/CD), distributed computing). Most questions are "pick the right service/configuration with the least operational overhead."
 
 ## Table of contents
 
@@ -16,49 +16,49 @@
 
 ## Exam tasks and skills
 
-> Summarized from the official DEA-C01 exam guide (v1.1). Read the exact wording at https://docs.aws.amazon.com/aws-certification/latest/data-engineer-associate-01/data-engineer-associate-01-domain1.html
+> Summarized from the official AWS Certified Data Engineer – Associate (DEA-C01) exam guide (v1.1). Read the exact wording at https://docs.aws.amazon.com/aws-certification/latest/data-engineer-associate-01/data-engineer-associate-01-domain1.html
 
 ### Task 1.1: Perform data ingestion
-- **1.1.1** Read from streaming sources (Kinesis, MSK, DynamoDB Streams, DMS, Glue, Redshift).
-- **1.1.2** Read from batch sources (S3, Glue, EMR, DMS, Redshift, Lambda, AppFlow).
+- **1.1.1** Read from streaming sources (Kinesis, Managed Streaming for Apache Kafka (MSK), DynamoDB Streams, Database Migration Service (DMS), Glue, Redshift).
+- **1.1.2** Read from batch sources (Simple Storage Service (S3), Glue, EMR, DMS, Redshift, Lambda, AppFlow).
 - **1.1.3** Configure batch ingestion appropriately.
-- **1.1.4** Consume data APIs.
+- **1.1.4** Consume data Application Programming Interfaces (APIs).
 - **1.1.5** Set up schedulers (EventBridge, Airflow, time-based schedules for jobs and crawlers).
 - **1.1.6** Set up event triggers (S3 Event Notifications, EventBridge).
 - **1.1.7** Invoke Lambda from Kinesis.
-- **1.1.8** Create IP allowlists so connections to data sources are permitted.
-- **1.1.9** Handle throttling and rate limits (DynamoDB, RDS, Kinesis).
+- **1.1.8** Create Internet Protocol (IP) allowlists so connections to data sources are permitted.
+- **1.1.9** Handle throttling and rate limits (DynamoDB, Relational Database Service (RDS), Kinesis).
 - **1.1.10** Manage fan-in and fan-out for streaming distribution.
 - **1.1.11** Describe replayability of ingestion pipelines.
 - **1.1.12** Define stateful vs stateless data transactions.
 
 ### Task 1.2: Transform and process data
-- **1.2.1** Optimize container usage for performance (EKS, ECS).
-- **1.2.2** Connect to data sources (JDBC, ODBC).
+- **1.2.1** Optimize container usage for performance (Elastic Kubernetes Service (EKS), Elastic Container Service (ECS)).
+- **1.2.2** Connect to data sources (Java Database Connectivity (JDBC), Open Database Connectivity (ODBC)).
 - **1.2.3** Integrate data from multiple sources.
 - **1.2.4** Optimize processing costs.
 - **1.2.5** Choose transformation services by requirement (EMR, Glue, Lambda, Redshift).
-- **1.2.6** Convert between formats (e.g., CSV → Parquet).
+- **1.2.6** Convert between formats (e.g., Comma-Separated Values (CSV) → Parquet).
 - **1.2.7** Troubleshoot transformation failures and performance issues.
 - **1.2.8** Create data APIs that expose data to other systems.
 - **1.2.9** Define volume, velocity, and variety (structured vs unstructured).
 - **1.2.10** 🆕 Integrate LLMs for data processing.
 
 ### Task 1.3: Orchestrate data pipelines
-- **1.3.1** Build ETL workflows with orchestration services (Lambda, EventBridge, MWAA, Step Functions, Glue workflows).
+- **1.3.1** Build Extract, Transform, Load (ETL) workflows with orchestration services (Lambda, EventBridge, MWAA, Step Functions, Glue workflows).
 - **1.3.2** Build pipelines for performance, availability, scalability, resiliency, fault tolerance.
 - **1.3.3** Implement and maintain serverless workflows.
-- **1.3.4** Send alerts with notification services (SNS, SQS).
+- **1.3.4** Send alerts with notification services (Simple Notification Service (SNS), Simple Queue Service (SQS)).
 
 ### Task 1.4: Apply programming concepts
 - **1.4.1** Optimize code to reduce ingestion/transformation runtime.
 - **1.4.2** Configure Lambda for concurrency and performance.
-- **1.4.3** Use data engineering languages and frameworks (Python, SQL, Scala, R, Java, Bash, PowerShell).
+- **1.4.3** Use data engineering languages and frameworks (Python, Structured Query Language (SQL), Scala, R, Java, Bash, PowerShell).
 - **1.4.4** Apply software engineering practices (version control, testing, logging, monitoring).
 - **1.4.5** Deploy data engineering solutions with IaC.
 - **1.4.6** Package and deploy serverless pipelines with AWS SAM.
 - **1.4.7** Use and mount storage volumes in Lambda.
-- **1.4.8** Use IaC (CloudFormation, CDK) for repeatable deployments.
+- **1.4.8** Use IaC (CloudFormation, Cloud Development Kit (CDK)) for repeatable deployments.
 - **1.4.9** Describe CI/CD for data pipelines.
 - **1.4.10** Define distributed computing.
 - **1.4.11** Describe data structures and algorithms (graphs, trees).
@@ -75,24 +75,24 @@
 2. **Streaming: do you need custom consumers, multiple consumers, ordering, or replay?** → **Kinesis Data Streams**. Do you just need to land it somewhere with no code? → **Amazon Data Firehose**. Do you need Kafka APIs or existing Kafka clients? → **Amazon MSK**.
 3. **Batch: where is the source?**
    - Relational/NoSQL database → **AWS DMS** (or **zero-ETL** to Redshift if supported)
-   - SaaS app (Salesforce, ServiceNow, Zendesk…) → **Amazon AppFlow**
-   - On-prem file shares (NFS/SMB/HDFS) → **AWS DataSync**
-   - Partners pushing files over SFTP → **AWS Transfer Family**
+   - Software as a Service (SaaS) app (Salesforce, ServiceNow, Zendesk…) → **Amazon AppFlow**
+   - On-prem file shares (NFS/Server Message Block (SMB)/HDFS) → **AWS DataSync**
+   - Partners pushing files over SSH File Transfer Protocol (SFTP) → **AWS Transfer Family**
    - Petabytes, little bandwidth → **AWS Snow Family**
    - Third-party/commercial datasets → **AWS Data Exchange**
 4. **How is the job started?** Schedule → EventBridge Scheduler / MWAA / Glue trigger. Event → S3 Event Notifications / EventBridge rule.
-5. **Must it be reprocessable?** → keep raw data in S3 and/or use a retained stream (KDS, MSK).
+5. **Must it be reprocessable?** → keep raw data in S3 and/or use a retained stream (Kinesis Data Streams (KDS), MSK).
 
 ### Streaming sources (skill 1.1.1)
 
 | Service | Model | Latency | Scaling | Replay | Choose when |
 |---|---|---|---|---|---|
 | **Kinesis Data Streams (KDS)** | Ordered shards; you write consumers | ~200 ms (~70 ms with enhanced fan-out) | Shards (provisioned) or **on-demand** | ✅ 24 h default, up to 365 days | Real time, multiple consumers, custom processing, ordering per key |
-| **Amazon Data Firehose** | Managed delivery, buffered | Near real time (buffer by size/time; zero buffering option) | Automatic | ❌ | Land data in S3, Redshift, OpenSearch, Splunk, Snowflake, HTTP, **Iceberg tables** with no code |
+| **Amazon Data Firehose** | Managed delivery, buffered | Near real time (buffer by size/time; zero buffering option) | Automatic | ❌ | Land data in S3, Redshift, OpenSearch, Splunk, Snowflake, Hypertext Transfer Protocol (HTTP), **Iceberg tables** with no code |
 | **Amazon MSK** (provisioned / Serverless) | Kafka topics & partitions | Real time | Brokers/partitions or serverless | ✅ topic retention | Kafka compatibility, existing Kafka apps, Kafka Connect (**MSK Connect**) |
-| **DynamoDB Streams** | Item-level change log | Near real time | Automatic | ❌ only 24 h | React to DynamoDB inserts/updates/deletes (CDC from DynamoDB) |
+| **DynamoDB Streams** | Item-level change log | Near real time | Automatic | ❌ only 24 h | React to DynamoDB inserts/updates/deletes (Change Data Capture (CDC) from DynamoDB) |
 | **Kinesis Data Streams for DynamoDB** | DynamoDB changes into a KDS stream | Near real time | KDS | ✅ (KDS retention) | DynamoDB CDC with longer retention or more consumers |
-| **AWS DMS (CDC)** | Reads DB transaction logs | Seconds | Replication instance or DMS Serverless | ❌ (re-run task) | Ongoing replication from RDS/Aurora/Oracle/SQL Server/on-prem |
+| **AWS DMS (CDC)** | Reads database (DB) transaction logs | Seconds | Replication instance or DMS Serverless | ❌ (re-run task) | Ongoing replication from RDS/Aurora/Oracle/SQL Server/on-prem |
 | **AWS Glue streaming ETL** | Spark Structured Streaming micro-batches from KDS/MSK | Seconds | Workers (G.025X for low volume) | via source | Transform streams with Spark, write to S3/Iceberg |
 | **Redshift streaming ingestion** | Materialized view over KDS/MSK | Seconds | Redshift | via source | Get stream data into Redshift **without staging in S3** |
 
@@ -122,7 +122,7 @@
 #### Amazon Data Firehose deep dive
 
 - **Buffering:** delivers when either the size (1–128 MiB) or interval threshold is hit. Bigger buffers → fewer, larger S3 files (better for Athena). Smaller → lower latency.
-- **Record format conversion:** JSON → **Parquet or ORC** using a schema from a **Glue Data Catalog table**. Most common "least operational effort" answer for "convert streaming JSON to Parquet".
+- **Record format conversion:** JavaScript Object Notation (JSON) → **Parquet or Optimized Row Columnar (ORC)** using a schema from a **Glue Data Catalog table**. Most common "least operational effort" answer for "convert streaming JSON to Parquet".
 - **Lambda transformation:** enrich/clean records in flight (blueprints available).
 - **Dynamic partitioning:** writes into S3 prefixes based on record fields (e.g., `customer_id=…/year=…/`) → Athena-friendly partitions.
 - **Redshift destination:** Firehose writes to S3, then issues a `COPY` into Redshift.
@@ -140,25 +140,25 @@
 
 | Source / need | Service | Key configuration options |
 |---|---|---|
-| Files already in S3 | **Glue jobs / crawlers**, **Athena CTAS**, **Redshift COPY** | Partitioned prefixes, file sizing, compression, manifest files |
-| Relational DB snapshot + ongoing changes | **AWS DMS** | Task type (**full load**, **full load + CDC**, **CDC only**), table mappings, transformation rules, LOB settings, data validation |
+| Files already in S3 | **Glue jobs / crawlers**, **Athena CREATE TABLE AS SELECT (CTAS)**, **Redshift COPY** | Partitioned prefixes, file sizing, compression, manifest files |
+| Relational DB snapshot + ongoing changes | **AWS DMS** | Task type (**full load**, **full load + CDC**, **CDC only**), table mappings, transformation rules, Large Object (LOB) settings, data validation |
 | Operational DB → Redshift with no pipeline | **Zero-ETL integrations** | Aurora MySQL/PostgreSQL, RDS MySQL, DynamoDB → Redshift |
 | SaaS apps | **Amazon AppFlow** | Trigger: on demand / scheduled / event; field mapping, filtering, masking, validation; destinations S3, Redshift, Snowflake |
 | On-prem file systems | **AWS DataSync** | Agent on-prem, scheduled tasks, bandwidth throttling, integrity verification, filters |
-| Hadoop/Spark on large datasets | **Amazon EMR** | Reads from S3 (EMRFS), HDFS, HBase |
+| Hadoop/Spark on large datasets | **Amazon EMR** | Reads from S3 (EMR File System (EMRFS)), Hadoop Distributed File System (HDFS), HBase |
 | Small custom pulls | **AWS Lambda** | Scheduled with EventBridge, ≤15 min runtime |
 | Data warehouse exports | **Redshift `UNLOAD`** | To S3 in Parquet, partitioned, parallel |
 
 **DMS details the exam likes:**
 - **Components:** replication instance (or DMS Serverless), source/target **endpoints**, **replication task**.
-- **CDC prerequisites:** the source must expose change logs. MySQL needs **binary logging with `binlog_format=ROW`**. Oracle needs **supplemental logging**. PostgreSQL needs **logical replication**. SQL Server needs MS-CDC/MS-Replication.
+- **CDC prerequisites:** the source must expose change logs. MySQL needs **binary logging with `binlog_format=ROW`**. Oracle needs **supplemental logging**. PostgreSQL needs **logical replication**. SQL Server needs Microsoft SQL Server Change Data Capture (MS-CDC)/MS-Replication.
 - **DMS does light transforms only** (rename, add/drop columns, filter rows). Heavy logic goes downstream in Glue/EMR.
 - **S3 target**: can write CSV or **Parquet**; CDC files land with an operation column (`I`/`U`/`D`), which you later merge (Iceberg `MERGE` is a great fit).
-- **DMS Schema Conversion** (inside DMS) converts schemas for heterogeneous migrations. The standalone AWS SCT is no longer in scope.
+- **DMS Schema Conversion** (inside DMS) converts schemas for heterogeneous migrations. The standalone AWS Schema Conversion Tool (SCT) is no longer in scope.
 
 ### Consuming data APIs (skill 1.1.4)
 
-Pattern: **EventBridge Scheduler → Lambda (or Glue Python shell) → call REST API → write raw JSON to S3 → crawler/Glue job.**
+Pattern: **EventBridge Scheduler → Lambda (or Glue Python shell) → call REST Application Programming Interface (API) → write raw JSON to S3 → crawler/Glue job.**
 
 Things to handle:
 - **Authentication:** store API keys/OAuth secrets in **AWS Secrets Manager**, never in code or plain environment variables.
@@ -171,11 +171,11 @@ Things to handle:
 
 | Mechanism | Use |
 |---|---|
-| **EventBridge Scheduler** | Cron/rate schedules with time zones, one-time schedules, retries + DLQ; can target almost any AWS API |
+| **EventBridge Scheduler** | Cron/rate schedules with time zones, one-time schedules, retries + Dead-Letter Queue (DLQ); can target almost any AWS API |
 | **EventBridge rules (schedule)** | Older way to schedule; still valid |
 | **Glue triggers** | Scheduled, on-demand, or conditional (start job B when job A succeeds) |
 | **Crawler schedules** | Cron schedule on the crawler itself |
-| **MWAA (Airflow)** | `schedule` on a DAG; best when the pipeline is already Airflow |
+| **MWAA (Airflow)** | `schedule` on a Directed Acyclic Graph (DAG); best when the pipeline is already Airflow |
 | **Redshift scheduled queries** | Run SQL on a schedule (Redshift Data API under the hood) |
 
 **S3 Event Notifications vs EventBridge:**
@@ -213,19 +213,19 @@ Lambda reads KDS through an **event source mapping** (Lambda polls the stream; y
 
 Common scenario: an **external** database or API only accepts connections from approved IP addresses.
 
-- AWS services in a VPC (Glue jobs, Lambda, EMR, ECS) reach the internet through a **NAT gateway**. Give the partner the **NAT gateway's Elastic IP** to allowlist. This gives a fixed, known IP.
-- Lambda/Glue **without** a VPC uses random AWS IPs, which can't be reliably allowlisted.
-- Inbound allowlisting to *your* resources: security groups (stateful) or network ACLs (stateless). For AWS services that connect *to* your resources (e.g., Firehose → Redshift/Splunk, QuickSight → RDS), allow that service's **published IP ranges / CIDR for the Region**.
-- **Glue JDBC connections** run in your VPC subnet. The security group needs a **self-referencing inbound rule (all TCP)** so Glue workers can talk to each other, and the subnet needs a route to the data source (or a NAT gateway / VPC endpoint for S3).
+- AWS services in a Virtual Private Cloud (VPC) (Glue jobs, Lambda, EMR, ECS) reach the internet through a **Network Address Translation (NAT) gateway**. Give the partner the **NAT gateway's Elastic IP** to allowlist. This gives a fixed, known IP.
+- Lambda/Glue **without** a VPC uses random AWS Internet Protocol addresses (IPs), which can't be reliably allowlisted.
+- Inbound allowlisting to *your* resources: security groups (stateful) or network Access Control Lists (ACLs) (stateless). For AWS services that connect *to* your resources (e.g., Firehose → Redshift/Splunk, QuickSight → RDS), allow that service's **published IP ranges / Classless Inter-Domain Routing (CIDR) for the Region**.
+- **Glue JDBC connections** run in your VPC subnet. The security group needs a **self-referencing inbound rule (all Transmission Control Protocol (TCP))** so Glue workers can talk to each other, and the subnet needs a route to the data source (or a NAT gateway / VPC endpoint for S3).
 
 ### Throttling and rate limits (skill 1.1.9)
 
 | Source | Symptom | Fixes |
 |---|---|---|
-| **DynamoDB** | `ProvisionedThroughputExceededException`, `ThrottlingException` | On-demand mode or auto scaling, better partition key (avoid hot keys), `BatchWriteItem` with retries of `UnprocessedItems`, exponential backoff, SQS buffer in front, DAX for read-heavy traffic |
+| **DynamoDB** | `ProvisionedThroughputExceededException`, `ThrottlingException` | On-demand mode or auto scaling, better partition key (avoid hot keys), `BatchWriteItem` with retries of `UnprocessedItems`, exponential backoff, SQS buffer in front, DynamoDB Accelerator (DAX) for read-heavy traffic |
 | **RDS / Aurora** | "Too many connections" from many Lambdas | **RDS Proxy** (connection pooling), reserved concurrency to cap Lambda, read replicas for reads |
 | **Kinesis** | `ProvisionedThroughputExceededException` on put or get | More shards / on-demand, high-cardinality partition key, `PutRecords` batching, KPL aggregation, enhanced fan-out for readers |
-| **Any AWS API** | `ThrottlingException`, `Rate exceeded` | SDK retries with **exponential backoff and jitter**, request quota increase |
+| **Any AWS API** | `ThrottlingException`, `Rate exceeded` | Software Development Kit (SDK) retries with **exponential backoff and jitter**, request quota increase |
 | **External APIs** | HTTP 429 | Backoff, honor `Retry-After`, queue requests in SQS, limit concurrency |
 
 ### Fan-in and fan-out (skill 1.1.10)
@@ -269,7 +269,7 @@ Replayability = the ability to **re-run ingestion/processing over past data** af
 | AWS tools | Lambda per record, Firehose Lambda transform | **Managed Service for Apache Flink** (checkpoints, savepoints), Glue streaming with checkpoints, **Lambda tumbling windows**, KCL with DynamoDB checkpoints |
 | Scaling | Easy, any worker can process any record | Must preserve state; partition by key so related records hit the same worker |
 
-**Transactions:** "stateful/transactional" may also mean **ACID guarantees**: all-or-nothing writes (Redshift, Aurora, **Apache Iceberg** commits) vs eventually consistent, append-only writes (plain S3 files).
+**Transactions:** "stateful/transactional" may also mean **Atomicity, Consistency, Isolation, Durability (ACID) guarantees**: all-or-nothing writes (Redshift, Aurora, **Apache Iceberg** commits) vs eventually consistent, append-only writes (plain S3 files).
 
 ---
 
@@ -281,12 +281,12 @@ Replayability = the ability to **re-run ingestion/processing over past data** af
 |---|---|---|
 | Serverless Spark ETL integrated with the Data Catalog, minimal ops | **AWS Glue** | No clusters; bookmarks, crawlers, Data Quality built in |
 | Visual / no-code cleaning and profiling for analysts | **Glue DataBrew** | 250+ point-and-click transforms, profile jobs |
-| Full Hadoop ecosystem (Spark, Hive, Presto/Trino, HBase, Hudi), custom versions, tuning, Spot | **Amazon EMR** (on EC2) | Full control; cheapest at large scale with Spot task nodes |
+| Full Hadoop ecosystem (Spark, Hive, Presto/Trino, HBase, Hudi), custom versions, tuning, Spot | **Amazon EMR** (on Elastic Compute Cloud (EC2)) | Full control; cheapest at large scale with Spot task nodes |
 | Spark without managing clusters, but EMR runtime | **EMR Serverless** | Pay per vCPU/GB-second, auto scale |
 | Spark on existing Kubernetes | **EMR on EKS** | Shares EKS cluster with other apps |
 | Lightweight per-event transforms (< 15 min) | **AWS Lambda** | Event-driven, no servers |
 | SQL transforms on S3 data | **Athena CTAS / INSERT INTO** | Serverless SQL, no ETL code |
-| SQL transforms inside the warehouse (ELT) | **Amazon Redshift** | Stored procedures, materialized views, `MERGE` |
+| SQL transforms inside the warehouse (Extract, Load, Transform (ELT)) | **Amazon Redshift** | Stored procedures, materialized views, `MERGE` |
 | Real-time, stateful stream processing | **Managed Service for Apache Flink** | Windows, joins, exactly-once state |
 | Long-running containerized jobs beyond Lambda limits | **ECS/EKS on Fargate**, **AWS Batch** | Any runtime, any duration |
 
@@ -302,12 +302,12 @@ Replayability = the ability to **re-run ingestion/processing over past data** af
 | **Auto Scaling** | Adds/removes workers during the run; pay only for what's used |
 | **Flex execution** | Runs on spare capacity at a lower price; start time not guaranteed → **non-urgent jobs only** |
 | **Glue Studio** | Visual job authoring that generates code |
-| **Glue connections** | JDBC (RDS, Redshift, on-prem DBs), MongoDB, Kafka, plus marketplace/custom connectors |
-| **Glue Data Quality** | Rules in DQDL (see Domain 3) |
+| **Glue connections** | JDBC (RDS, Redshift, on-prem databases (DBs)), MongoDB, Kafka, plus marketplace/custom connectors |
+| **Glue Data Quality** | Rules in Data Quality Definition Language (DQDL) (see Domain 3) |
 
 #### Amazon EMR essentials
 
-- **Node types:** **Primary** (coordinates; one per cluster, or 3 for HA), **Core** (runs tasks **and stores HDFS data**), **Task** (compute only, **no HDFS** → perfect for **Spot**).
+- **Node types:** **Primary** (coordinates; one per cluster, or 3 for High Availability (HA)), **Core** (runs tasks **and stores HDFS data**), **Task** (compute only, **no HDFS** → perfect for **Spot**).
 - **Persistent vs transient:** transient clusters spin up for a job and terminate → keep data in **S3 via EMRFS**, not HDFS.
 - **Instance fleets** let you mix instance types and On-Demand/Spot with allocation strategies.
 - **Managed scaling** resizes the cluster automatically.
@@ -324,17 +324,17 @@ Replayability = the ability to **re-run ingestion/processing over past data** af
 Optimization levers:
 - Right-size task CPU/memory (CloudWatch Container Insights shows actual usage).
 - **Fargate Spot** / EC2 Spot for interruptible batch work.
-- Graviton (ARM) images for cheaper compute.
+- Graviton (Advanced RISC Machine (ARM)) images for cheaper compute.
 - Horizontal scaling (more tasks/pods) for parallelizable work; cluster autoscaler or Karpenter for EKS nodes.
 - Keep images small for faster startup.
 
 ### Connecting to data sources (skill 1.2.2)
 
-- **JDBC** (Java Database Connectivity) and **ODBC** (Open Database Connectivity) are standard database driver APIs. Glue, EMR/Spark, and Athena federated connectors use JDBC. BI tools (Excel, Tableau, Power BI) often use ODBC.
-- **Glue connection** = JDBC URL + credentials (Secrets Manager) + VPC subnet + security group.
+- **JDBC** (Java Database Connectivity) and **ODBC** (Open Database Connectivity) are standard database driver APIs. Glue, EMR/Spark, and Athena federated connectors use JDBC. Business Intelligence (BI) tools (Excel, Tableau, Power BI) often use ODBC.
+- **Glue connection** = JDBC Uniform Resource Locator (URL) + credentials (Secrets Manager) + VPC subnet + security group.
 - Custom/newer drivers: upload the JDBC driver JAR to S3 and reference it in the job.
 - **Redshift** and **Athena** provide JDBC/ODBC drivers for client tools.
-- **Redshift Data API** and **Athena API** avoid drivers entirely (HTTPS calls, good for Lambda).
+- **Redshift Data API** and **Athena API** avoid drivers entirely (Hypertext Transfer Protocol Secure (HTTPS) calls, good for Lambda).
 
 ### Integrating multiple sources (skill 1.2.3)
 
@@ -366,7 +366,7 @@ Optimization levers:
 | **ORC** | Columnar | ✅ | Hive-based analytics |
 | **Avro** | Row, schema in file | ✅ | Streaming, Kafka, schema evolution, write-heavy |
 
-**Compression codecs:** **Snappy** (fast, default for Parquet), **GZIP** (high compression; a gzipped CSV/JSON file is **not splittable**, so one worker per file), **ZSTD** (good balance), **BZIP2** (splittable but slow), **LZO** (splittable with index).
+**Compression codecs:** **Snappy** (fast, default for Parquet), **GZIP** (high compression; a gzipped CSV/JSON file is **not splittable**, so one worker per file), **Zstandard (ZSTD)** (good balance), **BZIP2** (splittable but slow), **LZO** (splittable with index).
 
 **Ways to convert CSV/JSON → Parquet:**
 1. **Firehose record format conversion** (streaming, no code)
@@ -379,16 +379,16 @@ Optimization levers:
 
 | Symptom | Likely cause | Fix |
 |---|---|---|
-| Glue/Spark **driver** OOM | `collect()` to driver, or millions of small files tracked by driver | Avoid `collect`, use `groupFiles`/`groupSize` to group small files, bigger worker type |
+| Glue/Spark **driver** Out Of Memory (OOM) | `collect()` to driver, or millions of small files tracked by driver | Avoid `collect`, use `groupFiles`/`groupSize` to group small files, bigger worker type |
 | **Executor** OOM / one task runs forever | **Data skew**: one key has most rows | Salt the key, repartition, broadcast join the small table, larger workers |
 | Job slow reading S3 | Many tiny files, no partition pruning, GZIP CSV | Compact files (128 MB–1 GB), pushdown predicates, Parquet |
-| Glue job can't reach RDS | Networking | Glue connection in correct VPC/subnet, self-referencing SG rule, route/NAT, DB SG allows Glue SG |
+| Glue job can't reach RDS | Networking | Glue connection in correct VPC/subnet, self-referencing Security Group (SG) rule, route/NAT, DB SG allows Glue SG |
 | Athena `HIVE_PARTITION_SCHEMA_MISMATCH` | Partition schema differs from table schema | Update partitions / recrawl with "update all partitions from table" |
 | Athena doesn't see new partitions | Partitions not registered | `MSCK REPAIR TABLE`, `ALTER TABLE ADD PARTITION`, **partition projection**, or rerun crawler |
 | Redshift `COPY` fails | Bad rows, type mismatch, wrong delimiter | Check `STL_LOAD_ERRORS` / `SYS_LOAD_ERROR_DETAIL`; use `MAXERROR` carefully |
 | Crawler creates many tables instead of one | Inconsistent schemas or folder structure | "Create a single schema for each S3 path" option, consistent formats, set table level |
 
-**Where to look:** CloudWatch Logs (driver and executor logs), **Glue job metrics / job run insights**, **Spark UI** (Glue and EMR) for stages, skew, shuffle size, EMR step logs in S3.
+**Where to look:** CloudWatch Logs (driver and executor logs), **Glue job metrics / job run insights**, **Spark User Interface (UI)** (Glue and EMR) for stages, skew, shuffle size, EMR step logs in S3.
 
 ### Creating data APIs (skill 1.2.8)
 
@@ -400,7 +400,7 @@ Optimization levers:
 | **AWS AppSync** (GraphQL) | Flexible client-defined queries across multiple data sources |
 | **Redshift data sharing / Data Exchange** | Share data with other teams/customers without building an API |
 
-Add: API keys/usage plans or Cognito/IAM auth, caching in API Gateway, throttling limits.
+Add: API keys/usage plans or Cognito/Identity and Access Management (IAM) auth, caching in API Gateway, throttling limits.
 
 ### Volume, velocity, variety (skill 1.2.9)
 
@@ -408,7 +408,7 @@ Add: API keys/usage plans or Cognito/IAM auth, caching in API Gateway, throttlin
 |---|---|---|
 | **Volume** | How much data (GB → PB) | Distributed processing (Spark/EMR/Glue), columnar storage, partitioning |
 | **Velocity** | How fast it arrives (batch → real time) | Batch jobs vs streaming (KDS/MSK/Flink) |
-| **Variety** | Types of data | **Structured** (tables, fixed schema: RDS/Redshift), **semi-structured** (JSON, XML, Avro: S3 + Glue, Redshift `SUPER`), **unstructured** (images, PDFs, audio, free text: S3 + AI services/LLMs) |
+| **Variety** | Types of data | **Structured** (tables, fixed schema: RDS/Redshift), **semi-structured** (JSON, Extensible Markup Language (XML), Avro: S3 + Glue, Redshift `SUPER`), **unstructured** (images, Portable Document Format files (PDFs), audio, free text: S3 + Artificial Intelligence (AI) services/LLMs) |
 
 ### 🆕 Integrating LLMs for data processing (skill 1.2.10)
 
@@ -434,8 +434,8 @@ S3 raw documents ──► Glue / Lambda (chunk & clean, mask PII)
 | **Lambda or Glue calling Amazon Bedrock** | Per-record enrichment in an existing pipeline |
 | **Step Functions optimized Bedrock integration** | Orchestrated workflow; call a model directly from a state, no Lambda needed |
 | **Bedrock batch inference** | Large datasets, not latency-sensitive → **lower cost than on-demand**, avoids throttling |
-| **Redshift ML + Bedrock** (`CREATE EXTERNAL MODEL`) | Analysts call an LLM from SQL inside Redshift |
-| **Amazon Comprehend** | Standard NLP (sentiment, entities, PII, language) without prompts. Often simpler and cheaper for those specific tasks. |
+| **Redshift Machine Learning (ML) + Bedrock** (`CREATE EXTERNAL MODEL`) | Analysts call a Large Language Model (LLM) from SQL inside Redshift |
+| **Amazon Comprehend** | Standard Natural Language Processing (NLP) (sentiment, entities, Personally Identifiable Information (PII), language) without prompts. Often simpler and cheaper for those specific tasks. |
 | **Amazon Q** (in QuickSight / Redshift query editor) | Natural language → SQL or insights for people, not pipeline processing |
 
 **Design considerations:**
@@ -452,8 +452,8 @@ S3 raw documents ──► Glue / Lambda (chunk & clean, mask PII)
 
 | Service | Best for | Key facts |
 |---|---|---|
-| **AWS Step Functions** | Serverless workflows calling many AWS services | Visual state machines (ASL JSON); **Standard** (up to 1 year, exactly-once, full history) vs **Express** (up to 5 min, very high volume, at-least-once, cheaper); `.sync` waits for Glue/EMR/Athena/Batch jobs to finish; **Retry**/**Catch** per state; **Parallel**, **Choice**, **Wait**, **Map**; **Distributed Map** processes millions of S3 objects in parallel |
-| **Amazon MWAA** | Apache Airflow DAGs written in Python | Pick when the team already uses Airflow, needs many third-party/open-source operators, or complex dependency scheduling. DAGs and plugins/requirements live in an S3 bucket. |
+| **AWS Step Functions** | Serverless workflows calling many AWS services | Visual state machines (Amazon States Language (ASL) JSON); **Standard** (up to 1 year, exactly-once, full history) vs **Express** (up to 5 min, very high volume, at-least-once, cheaper); `.sync` waits for Glue/EMR/Athena/Batch jobs to finish; **Retry**/**Catch** per state; **Parallel**, **Choice**, **Wait**, **Map**; **Distributed Map** processes millions of S3 objects in parallel |
+| **Amazon MWAA** | Apache Airflow Directed Acyclic Graphs (DAGs) written in Python | Pick when the team already uses Airflow, needs many third-party/open-source operators, or complex dependency scheduling. DAGs and plugins/requirements live in an S3 bucket. |
 | **AWS Glue workflows** | Chains of Glue crawlers and jobs only | Triggers (scheduled, on-demand, conditional on success/failure/completion); simplest for Glue-only pipelines |
 | **Amazon EventBridge** | Event-driven starts and schedules | Starts any of the above on S3 events, schedules, or custom events |
 | **AWS Lambda** | Glue code between steps | Not an orchestrator by itself (15 min limit, no state) |
@@ -498,10 +498,10 @@ Maintenance points: version the state machine definition in Git and deploy with 
 | | Amazon SNS | Amazon SQS |
 |---|---|---|
 | Model | **Push**, pub/sub | **Pull**, queue |
-| Use | Alerts to email/SMS/HTTP/Lambda; fan-out to many subscribers | Buffer work, decouple producers/consumers, DLQ for failures |
+| Use | Alerts to email/Short Message Service (SMS)/HTTP/Lambda; fan-out to many subscribers | Buffer work, decouple producers/consumers, DLQ for failures |
 | Typical exam use | "Notify the team when the Glue job fails" | "Hold failed messages for later reprocessing", "smooth spikes into a database" |
 
-Common alert wiring: **Glue job state change → EventBridge rule → SNS**; **CloudWatch alarm → SNS**; **Step Functions Catch → SNS publish**. Use **SNS FIFO + SQS FIFO** when order and exactly-once delivery matter.
+Common alert wiring: **Glue job state change → EventBridge rule → SNS**; **CloudWatch alarm → SNS**; **Step Functions Catch → SNS publish**. Use **SNS First-In, First-Out (FIFO) + SQS FIFO** when order and exactly-once delivery matter.
 
 ---
 
@@ -510,7 +510,7 @@ Common alert wiring: **Glue job state change → EventBridge rule → SNS**; **C
 ### Optimizing code (skill 1.4.1)
 
 - **Read less:** partition pruning, column pruning (`SELECT` only needed columns), predicate pushdown, columnar formats.
-- **Spark specifics:** prefer built-in functions over Python UDFs (UDFs are slow and block optimization); broadcast small tables in joins; `repartition`/`coalesce` to control file counts; cache only reused DataFrames; avoid `collect()`.
+- **Spark specifics:** prefer built-in functions over Python User-Defined Functions (UDFs) (UDFs are slow and block optimization); broadcast small tables in joins; `repartition`/`coalesce` to control file counts; cache only reused DataFrames; avoid `collect()`.
 - **Batching:** batch API calls (`PutRecords`, `BatchWriteItem`) instead of one call per record.
 - **Connection reuse:** in Lambda, create SDK clients and DB connections **outside the handler** so warm invocations reuse them.
 - **SQL:** filter early, avoid `SELECT *`, use window functions instead of self-joins, use `UNION ALL` instead of `UNION` when duplicates are impossible.
@@ -519,7 +519,7 @@ Common alert wiring: **Glue job state change → EventBridge rule → SNS**; **C
 
 | Setting | Range / behavior | Exam angle |
 |---|---|---|
-| **Memory** | 128 MB – 10,240 MB; **CPU scales with memory** | CPU-bound job slow → increase memory |
+| **Memory** | 128 MB – 10,240 MB; **Central Processing Unit (CPU) scales with memory** | CPU-bound job slow → increase memory |
 | **Timeout** | Up to **15 minutes** | Longer work → Glue, ECS/Fargate, Step Functions |
 | **Ephemeral storage (/tmp)** | 512 MB – 10 GB | Temporary large files |
 | **Reserved concurrency** | Guarantees **and caps** concurrency for a function | Protect a downstream DB from too many connections; ensure critical function always has capacity |
@@ -527,13 +527,13 @@ Common alert wiring: **Glue job state change → EventBridge rule → SNS**; **C
 | **Account concurrency** | Regional quota (1,000 default, can be raised) | Throttling across all functions |
 | **Layers** | Shared libraries/dependencies | Reuse pandas/pyarrow across functions |
 | **Architecture** | x86_64 or **arm64 (Graviton)** | Better price/performance |
-| **VPC** | Needed to reach private resources (RDS, EFS) | Internet access then requires a NAT gateway (or VPC endpoints for AWS services) |
+| **VPC** | Needed to reach private resources (RDS, Elastic File System (EFS)) | Internet access then requires a NAT gateway (or VPC endpoints for AWS services) |
 
 ### Languages and frameworks (skill 1.4.3)
 
 You need **concepts, not exact syntax**: Python (PySpark, pandas, boto3), **SQL** (most important), Scala/Java (Spark, Flink, Kafka), R (statistics), Bash/PowerShell (automation and scripts).
 
-**SQL you should be fluent in:** `JOIN` types, `GROUP BY`/`HAVING`, window functions (`ROW_NUMBER() OVER (PARTITION BY … ORDER BY …)` for deduplication, `LAG`/`LEAD`, running totals), CTEs (`WITH`), `CASE`, `MERGE`/upsert, `CREATE VIEW`/materialized views.
+**SQL you should be fluent in:** `JOIN` types, `GROUP BY`/`HAVING`, window functions (`ROW_NUMBER() OVER (PARTITION BY … ORDER BY …)` for deduplication, `LAG`/`LEAD`, running totals), Common Table Expressions (CTEs) (`WITH`), `CASE`, `MERGE`/upsert, `CREATE VIEW`/materialized views.
 
 ### Software engineering best practices (skill 1.4.4)
 
@@ -546,9 +546,9 @@ You need **concepts, not exact syntax**: Python (PySpark, pandas, boto3), **SQL*
 
 | Tool | What it is | Choose when |
 |---|---|---|
-| **AWS CloudFormation** | Declarative YAML/JSON templates → stacks; change sets preview changes; drift detection; **StackSets** deploy across accounts/Regions | Standard repeatable infra for any AWS resource |
+| **AWS CloudFormation** | Declarative YAML Ain't Markup Language (YAML)/JSON templates → stacks; change sets preview changes; drift detection; **StackSets** deploy across accounts/Regions | Standard repeatable infra for any AWS resource |
 | **AWS CDK** | Define infra in Python/TypeScript/Java/etc. using constructs → synthesizes CloudFormation | Developers prefer real programming languages, loops, reusable components |
-| **AWS SAM** | CloudFormation extension for serverless (`AWS::Serverless::Function`, `::StateMachine`, `::SimpleTable`, `::Api`); CLI: `sam build`, `sam deploy`, `sam local invoke` | **Package and deploy serverless pipelines** (Lambda + Step Functions + DynamoDB), test Lambda locally |
+| **AWS SAM** | CloudFormation extension for serverless (`AWS::Serverless::Function`, `::StateMachine`, `::SimpleTable`, `::Api`); Command Line Interface (CLI): `sam build`, `sam deploy`, `sam local invoke` | **Package and deploy serverless pipelines** (Lambda + Step Functions + DynamoDB), test Lambda locally |
 
 > Exam signal: "repeatable deployments across dev/test/prod" → IaC. "Serverless pipeline, local testing, package Lambda code" → **SAM**. "Developers want TypeScript/Python for infra" → **CDK**.
 
@@ -561,7 +561,7 @@ You need **concepts, not exact syntax**: Python (PySpark, pandas, boto3), **SQL*
 | **S3** | Unlimited | Persistent | Input/output objects (not mounted, accessed by API) |
 | **Layers / container image** | Up to 250 MB unzipped / 10 GB image | Read-only | Libraries and static assets |
 
-**EFS requirements:** the Lambda must be in the **same VPC** (subnets with mount targets), use an **EFS access point**, and the security groups must allow NFS (TCP 2049).
+**EFS requirements:** the Lambda must be in the **same VPC** (subnets with mount targets), use an **EFS access point**, and the security groups must allow Network File System (NFS) (TCP 2049).
 
 ### CI/CD for data pipelines (skill 1.4.9)
 
@@ -577,7 +577,7 @@ Git push ──► CodePipeline
 
 - **Continuous integration:** every commit is built and tested automatically.
 - **Continuous delivery/deployment:** tested artifacts are released to environments automatically (with or without a manual approval gate).
-- Keep environment-specific values in parameters (SSM Parameter Store), not in code.
+- Keep environment-specific values in parameters (Systems Manager (SSM) Parameter Store), not in code.
 
 ### Distributed computing (skill 1.4.10)
 
@@ -646,7 +646,7 @@ Know Big-O basics: a lookup in a hash table is O(1) on average; a sort is O(n lo
 - Transform service picks: **Glue** (serverless Spark), **DataBrew** (no code), **EMR** (full control, Spot task nodes), **Lambda** (small, ≤15 min), **Athena CTAS** (SQL on S3), **Redshift** (ELT), **Flink** (streams), **ECS/EKS/Batch** (containers).
 - Glue: DynamicFrame, **bookmarks**, **pushdown predicates**, worker types, Auto Scaling, **Flex**, Python shell.
 - Formats: **Parquet** = default analytics answer; Avro = streaming/schema evolution; GZIP text = not splittable.
-- Troubleshoot: skew → salt/broadcast; small files → group/compact; partitions missing → MSCK REPAIR / projection; COPY errors → `STL_LOAD_ERRORS`.
+- Troubleshoot: skew → salt/broadcast; small files → group/compact; partitions missing → Metastore Consistency Check (MSCK) REPAIR / projection; COPY errors → `STL_LOAD_ERRORS`.
 - Data APIs: API Gateway + Lambda + DynamoDB / **Redshift Data API** / Athena; AppSync for GraphQL.
 - 3 Vs: volume, velocity, variety (structured, semi-structured, unstructured).
 - LLMs: **Bedrock** via Lambda/Glue/Step Functions; **batch inference** for bulk; Redshift ML for SQL; Comprehend for standard NLP; mask PII first.

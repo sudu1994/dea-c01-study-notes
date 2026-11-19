@@ -6,10 +6,10 @@
 
 **1.** A company ingests clickstream events at 4,000 records/second, each 1.5 KB. Three applications must each read every event in real time, and the data must be reprocessable for 7 days. What is the most cost-effective design?
 
-- A. Amazon Data Firehose delivering to S3 with three Lambda transformations
+- A. Amazon Data Firehose delivering to Simple Storage Service (S3) with three Lambda transformations
 - B. Kinesis Data Streams with 6 shards, 7-day retention, and enhanced fan-out consumers
 - C. Kinesis Data Streams with 4 shards and default retention
-- D. Amazon SQS standard queue with three consumers
+- D. Amazon Simple Queue Service (SQS) standard queue with three consumers
 
 <details><summary>Answer</summary>
 
@@ -18,12 +18,12 @@
 
 ---
 
-**2.** JSON events arrive continuously and must land in S3 as Parquet, partitioned by `customer_id`, with the least operational overhead.
+**2.** JavaScript Object Notation (JSON) events arrive continuously and must land in S3 as Parquet, partitioned by `customer_id`, with the least operational overhead.
 
 - A. Kinesis Data Streams + Lambda converting to Parquet
 - B. Firehose with record format conversion (Glue table schema) and dynamic partitioning
-- C. Glue streaming job writing CSV, then a nightly crawler
-- D. MSK + MSK Connect S3 sink in JSON format
+- C. Glue streaming job writing Comma-Separated Values (CSV), then a nightly crawler
+- D. Managed Streaming for Apache Kafka (MSK) + MSK Connect S3 sink in JSON format
 
 <details><summary>Answer</summary>
 
@@ -67,7 +67,7 @@
 - B. Partition by date
 - C. Increase the Athena workgroup data limit
 - D. Add `LIMIT 100` to queries
-- E. Move the data to S3 Standard-IA
+- E. Move the data to S3 Standard-Infrequent Access (Standard-IA)
 
 <details><summary>Answer</summary>
 
@@ -90,12 +90,12 @@
 
 ---
 
-**7.** A company needs to delete individual customers' records from its S3 data lake within 30 days of request (GDPR) without rewriting entire partitions manually. What should it use?
+**7.** A company needs to delete individual customers' records from its S3 data lake within 30 days of request (General Data Protection Regulation (GDPR)) without rewriting entire partitions manually. What should it use?
 
 - A. S3 Lifecycle expiration rules
 - B. Apache Iceberg tables with `DELETE` statements in Athena, followed by snapshot expiration
 - C. S3 Object Lock governance mode
-- D. DynamoDB TTL
+- D. DynamoDB Time To Live (TTL)
 
 <details><summary>Answer</summary>
 
@@ -106,9 +106,9 @@
 
 **8.** An application needs semantic search over product descriptions stored alongside relational order data, with high recall and low latency. Memory is not a concern. What should the data engineer choose?
 
-- A. Aurora PostgreSQL with pgvector and an HNSW index
+- A. Aurora PostgreSQL with pgvector and a Hierarchical Navigable Small World (HNSW) index
 - B. Aurora PostgreSQL with pgvector and an IVFFlat index trained on a small sample
-- C. DynamoDB with a GSI on the embedding
+- C. DynamoDB with a Global Secondary Index (GSI) on the embedding
 - D. Athena over Parquet embeddings
 
 <details><summary>Answer</summary>
@@ -135,9 +135,9 @@
 **10.** A team wants Kafka producers to stop publishing messages whose Avro schema would break existing consumers. What should be used?
 
 - A. Glue crawler with schema change policy "update the table definition"
-- B. AWS Glue Schema Registry with BACKWARD compatibility
-- C. Lake Formation LF-tags
-- D. DMS Schema Conversion
+- B. Amazon Web Services (AWS) Glue Schema Registry with BACKWARD compatibility
+- C. Lake Formation tags (LF-tags)
+- D. Database Migration Service (DMS) Schema Conversion
 
 <details><summary>Answer</summary>
 
@@ -160,10 +160,10 @@
 
 ---
 
-**12.** A Glue ETL job must stop loading data into Redshift when more than 5% of `email` values are null, and route bad rows to a quarantine prefix otherwise. What should be used?
+**12.** A Glue Extract, Transform, Load (ETL) job must stop loading data into Redshift when more than 5% of `email` values are null, and route bad rows to a quarantine prefix otherwise. What should be used?
 
 - A. A DataBrew profile job run weekly
-- B. Glue Data Quality's Evaluate Data Quality transform with DQDL rules inside the job
+- B. Glue Data Quality's Evaluate Data Quality transform with Data Quality Definition Language (DQDL) rules inside the job
 - C. Athena queries scheduled by EventBridge
 - D. Macie sensitive data discovery
 
@@ -174,7 +174,7 @@
 
 ---
 
-**13.** A Spark job on EMR has one task running 40 minutes while others finish in 2 minutes. The join key `country` has 70% of rows with value `US`. Which mechanisms reduce the problem? (Choose TWO.)
+**13.** A Spark job on Elastic MapReduce (EMR) has one task running 40 minutes while others finish in 2 minutes. The join key `country` has 70% of rows with value `US`. Which mechanisms reduce the problem? (Choose TWO.)
 
 - A. Salt the `country` key and aggregate in two stages
 - B. Broadcast the smaller table in the join
@@ -198,7 +198,7 @@
 
 <details><summary>Answer</summary>
 
-**B.** Object-level API calls like `DeleteObject` are data events, which aren't recorded by default. Server access logs also capture requests.
+**B.** Object-level Application Programming Interface (API) calls like `DeleteObject` are data events, which aren't recorded by default. Server access logs also capture requests.
 </details>
 
 ---
@@ -206,9 +206,9 @@
 **15.** Account B's Athena users can't read S3 objects in account A, even though the bucket policy grants account B access. Objects are encrypted with the `aws/s3` key. What is the fix?
 
 - A. Add account B to the `aws/s3` key policy
-- B. Re-encrypt the objects with a customer managed KMS key whose key policy allows account B, and grant `kms:Decrypt` in account B's IAM policies
+- B. Re-encrypt the objects with a customer managed Key Management Service (KMS) key whose key policy allows account B, and grant `kms:Decrypt` in account B's Identity and Access Management (IAM) policies
 - C. Enable S3 Bucket Keys
-- D. Switch to SSE-C
+- D. Switch to Server-Side Encryption with Customer-provided keys (SSE-C)
 
 <details><summary>Answer</summary>
 
@@ -226,7 +226,7 @@
 
 <details><summary>Answer</summary>
 
-**C.** LF-TBAC grants on tag expressions, and newly tagged tables and columns inherit the access rules.
+**C.** Lake Formation Tag-Based Access Control (LF-TBAC) grants on tag expressions, and newly tagged tables and columns inherit the access rules.
 </details>
 
 ---
@@ -240,7 +240,7 @@
 
 <details><summary>Answer</summary>
 
-**B.** An SCP **prevents** the actions. Config only detects them after the fact.
+**B.** A Service Control Policy (SCP) **prevents** the actions. Config only detects them after the fact.
 </details>
 
 ---
@@ -254,7 +254,7 @@
 
 <details><summary>Answer</summary>
 
-**B.** Data sharing gives live, zero-copy access across accounts. Federated query targets RDS/Aurora, not other Redshift warehouses.
+**B.** Data sharing gives live, zero-copy access across accounts. Federated query targets Relational Database Service (RDS)/Aurora, not other Redshift warehouses.
 </details>
 
 ---
@@ -273,11 +273,11 @@
 
 ---
 
-**20.** A pipeline must classify 20 million archived support tickets by topic with an LLM. Results are needed within 2 days, and cost must be minimized. What is the best approach?
+**20.** A pipeline must classify 20 million archived support tickets by topic with a Large Language Model (LLM). Results are needed within 2 days, and cost must be minimized. What is the best approach?
 
 - A. Lambda invoking Bedrock on-demand for each ticket via S3 events
-- B. Prepare JSONL input in S3 and run an Amazon Bedrock batch inference job, then load the output with Glue
-- C. Host an open-source model on EC2 GPU instances
+- B. Prepare JSON Lines (JSONL) input in S3 and run an Amazon Bedrock batch inference job, then load the output with Glue
+- C. Host an open-source model on Elastic Compute Cloud (EC2) Graphics Processing Unit (GPU) instances
 - D. Use Amazon Q in QuickSight
 
 <details><summary>Answer</summary>

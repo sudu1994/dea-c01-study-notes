@@ -2,7 +2,7 @@
 
 > **About 13 of the 50 scored questions.**
 >
-> This domain tests whether you can pick the right store for a cost/performance/access-pattern requirement, catalog the data so others can find and query it, manage its lifecycle (load/unload, tiering, expiry, deletion, resiliency), and model it well (schemas, schema evolution, lineage, partitioning, vectors). Expect lots of Redshift, S3, Athena, DynamoDB, Glue Data Catalog, and, new in v1.1, **Apache Iceberg, vector indexes, and SageMaker Catalog**.
+> This domain tests whether you can pick the right store for a cost/performance/access-pattern requirement, catalog the data so others can find and query it, manage its lifecycle (load/unload, tiering, expiry, deletion, resiliency), and model it well (schemas, schema evolution, lineage, partitioning, vectors). Expect lots of Redshift, Simple Storage Service (S3), Athena, DynamoDB, Glue Data Catalog, and, new in v1.1, **Apache Iceberg, vector indexes, and SageMaker Catalog**.
 
 ## Table of contents
 
@@ -16,17 +16,17 @@
 
 ## Exam tasks and skills
 
-> Summarized from the official DEA-C01 exam guide (v1.1). Exact wording: https://docs.aws.amazon.com/aws-certification/latest/data-engineer-associate-01/data-engineer-associate-01-domain2.html
+> Summarized from the official AWS Certified Data Engineer – Associate (DEA-C01) exam guide (v1.1). Exact wording: https://docs.aws.amazon.com/aws-certification/latest/data-engineer-associate-01/data-engineer-associate-01-domain2.html
 
 ### Task 2.1: Choose a data store
-- **2.1.1** Pick storage services that meet cost and performance needs (Redshift, EMR, Lake Formation, RDS, DynamoDB, KDS, MSK).
+- **2.1.1** Pick storage services that meet cost and performance needs (Redshift, Elastic MapReduce (EMR), Lake Formation, Relational Database Service (RDS), DynamoDB, Kinesis Data Streams (KDS), Managed Streaming for Apache Kafka (MSK)).
 - **2.1.2** Configure storage for specific access patterns.
-- **2.1.3** Match storage to use cases (e.g., **HNSW indexes on Aurora PostgreSQL**, **MemoryDB** for fast key/value).
+- **2.1.3** Match storage to use cases (e.g., **Hierarchical Navigable Small World (HNSW) indexes on Aurora PostgreSQL**, **MemoryDB** for fast key/value).
 - **2.1.4** Integrate migration tools (e.g., Transfer Family).
 - **2.1.5** Use migration/remote-access methods (Redshift federated queries, materialized views, Spectrum).
 - **2.1.6** Manage locks (Redshift, RDS).
 - **2.1.7** 🆕 Manage open table formats (Apache Iceberg).
-- **2.1.8** 🆕 Describe vector index types (HNSW, IVF).
+- **2.1.8** 🆕 Describe vector index types (HNSW, Inverted File index (IVF)).
 
 ### Task 2.2: Understand data cataloging systems
 - **2.2.1** Use catalogs to consume data from its source.
@@ -40,15 +40,15 @@
 - **2.3.1** Load and unload between S3 and Redshift.
 - **2.3.2** Use S3 Lifecycle to change storage tiers.
 - **2.3.3** Use S3 Lifecycle to expire data by age.
-- **2.3.4** Manage S3 versioning and DynamoDB TTL.
+- **2.3.4** Manage S3 versioning and DynamoDB Time To Live (TTL).
 - **2.3.5** Delete data for business and legal requirements.
 - **2.3.6** Protect data with appropriate resiliency and availability.
 
 ### Task 2.4: Design data models and schema evolution
 - **2.4.1** Design schemas for Redshift, DynamoDB, Lake Formation.
 - **2.4.2** Handle changes in data characteristics.
-- **2.4.3** Convert schemas (AWS SCT, DMS Schema Conversion).
-- **2.4.4** Establish lineage (SageMaker ML Lineage Tracking, SageMaker Catalog).
+- **2.4.3** Convert schemas (Amazon Web Services (AWS) Schema Conversion Tool (SCT), Database Migration Service (DMS) Schema Conversion).
+- **2.4.4** Establish lineage (SageMaker Machine Learning (ML) Lineage Tracking, SageMaker Catalog).
 - **2.4.5** Apply indexing, partitioning, compression, and other optimizations.
 - **2.4.6** 🆕 Describe vectorization (e.g., Bedrock Knowledge Bases).
 
@@ -69,17 +69,17 @@ Every store question is answered by four questions:
 | Requirement | Store | Why |
 |---|---|---|
 | Cheap, durable storage for any format; data lake | **Amazon S3** | 11 nines durability, storage classes, decoupled from compute |
-| Lake tables with ACID, updates/deletes, time travel | **Apache Iceberg** on S3 / **Amazon S3 Tables** | Open table format; S3 Tables adds automatic maintenance |
-| PB-scale SQL analytics, BI dashboards, complex joins | **Amazon Redshift** | Columnar MPP warehouse |
+| Lake tables with Atomicity, Consistency, Isolation, Durability (ACID), updates/deletes, time travel | **Apache Iceberg** on S3 / **Amazon S3 Tables** | Open table format; S3 Tables adds automatic maintenance |
+| PB-scale Structured Query Language (SQL) analytics, Business Intelligence (BI) dashboards, complex joins | **Amazon Redshift** | Columnar Massively Parallel Processing (MPP) warehouse |
 | Ad-hoc SQL on S3, infrequent queries, no infrastructure | **Amazon Athena** | Serverless, pay per TB scanned |
 | Single-digit ms key/value or document at any scale | **Amazon DynamoDB** | Serverless NoSQL, predictable latency |
-| **Microsecond** reads in front of DynamoDB | **DAX** | Write-through in-memory cache for DynamoDB |
-| **Durable** in-memory key/value as a primary database | **Amazon MemoryDB** | Redis/Valkey API + Multi-AZ transaction log (data survives node failure) |
+| **Microsecond** reads in front of DynamoDB | **DynamoDB Accelerator (DAX)** | Write-through in-memory cache for DynamoDB |
+| **Durable** in-memory key/value as a primary database | **Amazon MemoryDB** | Redis/Valkey Application Programming Interface (API) + Multi-AZ transaction log (data survives node failure) |
 | In-memory cache (data can be rebuilt) | **Amazon ElastiCache** | Lower cost cache, not a durable system of record |
-| Relational OLTP with transactions | **Amazon RDS / Aurora** | ACID, joins, constraints |
+| Relational Online Transaction Processing (OLTP) with transactions | **Amazon RDS / Aurora** | ACID, joins, constraints |
 | Vector similarity search next to relational data | **Aurora PostgreSQL + pgvector** (HNSW / IVFFlat) | Keep embeddings with business data, use SQL |
-| Full-text search, log analytics, vector search at scale | **Amazon OpenSearch Service / Serverless** | Inverted index + k-NN engine |
-| Highly connected data (fraud rings, recommendations) | **Amazon Neptune** | Graph DB (Gremlin, openCypher, SPARQL) |
+| Full-text search, log analytics, vector search at scale | **Amazon OpenSearch Service / Serverless** | Inverted index + k-Nearest Neighbors (k-NN) engine |
+| Highly connected data (fraud rings, recommendations) | **Amazon Neptune** | Graph database (DB) (Gremlin, openCypher, SPARQL) |
 | Big data processing with HDFS/HBase | **Amazon EMR** | Hadoop ecosystem storage and compute |
 | Data retained as a stream (hours to a year) | **Kinesis Data Streams / MSK** | Streams are storage too: ordered, replayable |
 | Governed data lake permissions | **AWS Lake Formation** (over S3 + Glue Catalog) | Fine-grained access, not a storage engine itself |
@@ -92,8 +92,8 @@ Every store question is answered by four questions:
 |---|---|---|---|
 | **Standard** | ms | — | Hot data |
 | **Intelligent-Tiering** | ms (archive tiers optional) | — | **Unknown or changing access patterns**; auto-moves objects, small monitoring fee |
-| **Standard-IA** | ms | 30 days | Infrequent access, multi-AZ |
-| **One Zone-IA** | ms | 30 days | Re-creatable infrequent data, one AZ |
+| **Standard-Infrequent Access (Standard-IA)** | ms | 30 days | Infrequent access, multi-AZ |
+| **One Zone-Infrequent Access (One Zone-IA)** | ms | 30 days | Re-creatable infrequent data, one Availability Zone (AZ) |
 | **Glacier Instant Retrieval** | ms | 90 days | Archive accessed about once a quarter |
 | **Glacier Flexible Retrieval** | minutes–hours (expedited 1–5 min, standard 3–5 h, bulk 5–12 h) | 90 days | Backups, archives |
 | **Glacier Deep Archive** | 12–48 h | 180 days | Compliance archives, cheapest |
@@ -103,7 +103,7 @@ Every store question is answered by four questions:
 
 ### Amazon Redshift essentials
 
-**Architecture:** leader node (parses, plans, aggregates) + compute nodes, each split into **slices** that work in parallel. **RA3** nodes separate compute from **Redshift Managed Storage** (S3-backed). **Redshift Serverless** bills by RPU-hours with no clusters to manage. Use it for unpredictable or intermittent workloads.
+**Architecture:** leader node (parses, plans, aggregates) + compute nodes, each split into **slices** that work in parallel. **RA3** nodes separate compute from **Redshift Managed Storage** (S3-backed). **Redshift Serverless** bills by Redshift Processing Unit hours (RPU-hours) with no clusters to manage. Use it for unpredictable or intermittent workloads.
 
 **Distribution styles:**
 
@@ -127,30 +127,30 @@ Every store question is answered by four questions:
 |---|---|
 | **Concurrency scaling** | Bursts of many concurrent queries → transient extra clusters |
 | **Elastic resize** | Change node count in minutes |
-| **WLM (automatic)** | Query queues, priorities, **Short Query Acceleration** |
+| **Workload Management (WLM) (automatic)** | Query queues, priorities, **Short Query Acceleration** |
 | **Materialized views** | Precompute expensive joins/aggregations; incremental and auto refresh |
 | **Data sharing** | Live read (and write) access across clusters/workgroups/accounts/Regions **with no copies** |
 | **Redshift Spectrum** | Query S3 (Glue Catalog external tables) from Redshift |
 | **Federated query** | Query live RDS/Aurora PostgreSQL & MySQL |
 | **Zero-ETL** | Near-real-time replication from Aurora/RDS/DynamoDB |
-| **SUPER type + PartiQL** | Store and query semi-structured JSON |
+| **SUPER type + PartiQL** | Store and query semi-structured JavaScript Object Notation (JSON) |
 
 ### Amazon DynamoDB essentials
 
 - **Primary key:** partition key only, or partition key + sort key. Choose a **high-cardinality** partition key with evenly spread traffic.
-- **Indexes:** **GSI** (different partition/sort key, add anytime, eventually consistent, own capacity) vs **LSI** (same partition key, different sort key, **only at table creation**, supports strongly consistent reads, 10 GB per partition key value limit).
-- **Capacity:** **on-demand** (spiky/unknown traffic) vs **provisioned + auto scaling** (steady traffic, cheaper). RCU = 1 strongly consistent read/s of up to 4 KB (or 2 eventually consistent); WCU = 1 write/s of up to 1 KB.
+- **Indexes:** **Global Secondary Index (GSI)** (different partition/sort key, add anytime, eventually consistent, own capacity) vs **Local Secondary Index (LSI)** (same partition key, different sort key, **only at table creation**, supports strongly consistent reads, 10 GB per partition key value limit).
+- **Capacity:** **on-demand** (spiky/unknown traffic) vs **provisioned + auto scaling** (steady traffic, cheaper). Read Capacity Unit (RCU) = 1 strongly consistent read/s of up to 4 KB (or 2 eventually consistent); Write Capacity Unit (WCU) = 1 write/s of up to 1 KB.
 - **Item limit:** 400 KB. Store larger payloads in S3 and keep a pointer.
-- **Streams, TTL, PITR, global tables, export to S3, zero-ETL** are covered under lifecycle and ingestion.
+- **Streams, TTL, Point-In-Time Recovery (PITR), global tables, export to S3, zero-ETL** are covered under lifecycle and ingestion.
 
 ### Migration tools (skill 2.1.4)
 
 | Tool | Moves |
 |---|---|
-| **AWS Transfer Family** | Files via **SFTP/FTPS/FTP/AS2** into S3/EFS. Partners keep using their existing SFTP clients; managed workflows can post-process files. |
-| **AWS DataSync** | Large online file transfers (NFS/SMB/HDFS/object) with scheduling and verification |
+| **AWS Transfer Family** | Files via **SFTP/File Transfer Protocol Secure (FTPS)/File Transfer Protocol (FTP)/Applicability Statement 2 (AS2)** into S3/Elastic File System (EFS). Partners keep using their existing SSH File Transfer Protocol (SFTP) clients; managed workflows can post-process files. |
+| **AWS DataSync** | Large online file transfers (Network File System (NFS)/Server Message Block (SMB)/HDFS/object) with scheduling and verification |
 | **AWS Snow Family** | Offline bulk transfer |
-| **AWS DMS** | Databases (homogeneous and heterogeneous), full load + CDC |
+| **AWS DMS** | Databases (homogeneous and heterogeneous), full load + Change Data Capture (CDC) |
 | **S3 Batch Operations** | Bulk actions on billions of existing objects (copy, tag, restore, invoke Lambda) |
 
 ### Remote access instead of copying (skill 2.1.5)
@@ -158,7 +158,7 @@ Every store question is answered by four questions:
 | Method | What it does | When |
 |---|---|---|
 | **Redshift Spectrum** | External tables over S3 via Glue Catalog; Spectrum layer scans S3 in parallel | Join warehouse data with **cold/large lake data** without loading it |
-| **Redshift federated query** | Pushes queries down to **live** Aurora/RDS PostgreSQL or MySQL | Join operational data with warehouse data without ETL |
+| **Redshift federated query** | Pushes queries down to **live** Aurora/RDS PostgreSQL or MySQL | Join operational data with warehouse data without Extract, Transform, Load (ETL) |
 | **Redshift materialized views** | Store the result of a query (can include Spectrum/federated sources) | Speed up repeated expensive queries; refresh on schedule or automatically |
 | **Athena federated query** | Lambda connectors to DynamoDB, RDS, CloudWatch, others | SQL across many sources from Athena |
 
@@ -170,7 +170,7 @@ Every store question is answered by four questions:
 |---|---|---|
 | **AccessShareLock** | `SELECT` | Only AccessExclusiveLock |
 | **ShareRowExclusiveLock** | `INSERT`, `UPDATE`, `DELETE`, `COPY` | Other writes on the same table (and exclusive locks) |
-| **AccessExclusiveLock** | DDL: `ALTER TABLE`, `DROP`, `TRUNCATE`, some `VACUUM` | **Everything**, including reads |
+| **AccessExclusiveLock** | Data Definition Language (DDL): `ALTER TABLE`, `DROP`, `TRUNCATE`, some `VACUUM` | **Everything**, including reads |
 
 - Find blockers: `STV_LOCKS`, `SVV_TRANSACTIONS`, `STV_RECENTS`; end the session with `PG_TERMINATE_BACKEND(pid)`.
 - Use the explicit `LOCK table_name;` command to serialize concurrent writers (avoids serializable isolation errors).
@@ -201,7 +201,7 @@ Each commit creates a **new snapshot** atomically, so readers always see a consi
 | Feature | Meaning |
 |---|---|
 | **ACID transactions** | Concurrent readers/writers safe; atomic commits |
-| **Row-level `UPDATE` / `DELETE` / `MERGE INTO`** | Upserts and CDC merges, GDPR deletes |
+| **Row-level `UPDATE` / `DELETE` / `MERGE INTO`** | Upserts and CDC merges, General Data Protection Regulation (GDPR) deletes |
 | **Schema evolution** | Add, drop, rename, reorder columns **without rewriting data** (column IDs, not names) |
 | **Hidden partitioning** | Partition by transforms (e.g., `day(ts)`), so queries don't need to reference partition columns |
 | **Partition evolution** | Change partitioning scheme without rewriting old data |
@@ -217,7 +217,7 @@ Each commit creates a **new snapshot** atomically, so readers always see a consi
 
 **Other formats you may see as distractors:** **Apache Hudi** (upserts/incremental pulls, CoW/MoR, strong on EMR) and **Delta Lake** (Databricks-origin). AWS analytics services support all three, but Iceberg is the one the exam guide names.
 
-**Engines that work with Iceberg on AWS:** Athena (read/write, DML, time travel), Glue ETL, EMR (Spark, Trino, Flink), Redshift (read), Firehose (write), Managed Service for Apache Flink.
+**Engines that work with Iceberg on AWS:** Athena (read/write, Data Manipulation Language (DML), time travel), Glue ETL, EMR (Spark, Trino, Flink), Redshift (read), Firehose (write), Managed Service for Apache Flink.
 
 ### 🆕 Vector index types (skills 2.1.3, 2.1.8)
 
@@ -238,7 +238,7 @@ Each commit creates a **new snapshot** atomically, so readers always see a consi
 | Store | Notes |
 |---|---|
 | **Aurora PostgreSQL / RDS PostgreSQL + pgvector** | `CREATE INDEX … USING hnsw` or `ivfflat`; vectors next to relational data; SQL filtering |
-| **OpenSearch Service / Serverless** | k-NN plugin (HNSW, IVF via FAISS/Lucene engines); hybrid keyword + vector search; default store for Bedrock Knowledge Bases quick create |
+| **OpenSearch Service / Serverless** | k-NN plugin (HNSW, IVF via Facebook AI Similarity Search (FAISS)/Lucene engines); hybrid keyword + vector search; default store for Bedrock Knowledge Bases quick create |
 | **MemoryDB** | In-memory vector search with very low latency (and durable) |
 | **Neptune Analytics, DocumentDB** | Vector search alongside graph/document data |
 
@@ -260,7 +260,7 @@ A **data catalog** stores **metadata**: table names, columns and types, partitio
 - **Hive-metastore compatible**, used by **Athena, Redshift Spectrum, EMR, Glue ETL, Lake Formation, QuickSight (via Athena)**.
 - Supports Iceberg, Hudi, and Delta table metadata; **partition indexes** speed up queries on tables with many partitions; **column statistics** help query planning.
 - EMR can use the Glue Data Catalog **as its Hive metastore** (recommended for shared, persistent metadata) instead of a cluster-local or RDS-hosted Hive metastore.
-- Can be encrypted (catalog encryption settings with KMS) and governed by Lake Formation.
+- Can be encrypted (catalog encryption settings with Key Management Service (KMS)) and governed by Lake Formation.
 
 **Consuming data through the catalog:** once a table is cataloged, Athena runs `SELECT * FROM db.table`, Redshift creates `CREATE EXTERNAL SCHEMA … FROM DATA CATALOG`, and Glue jobs use `from_catalog(database, table_name)`. You get one definition shared by many engines.
 
@@ -270,11 +270,11 @@ A **crawler** connects to a data store, uses **classifiers** to infer schema, an
 
 | Setting | Explanation |
 |---|---|
-| **Data sources** | S3, JDBC (RDS, Redshift, on-prem), DynamoDB, MongoDB/DocumentDB, Delta/Iceberg/Hudi tables |
-| **Classifiers** | Built-in (CSV, JSON, Parquet, Avro, ORC, XML…) + **custom** (Grok, XML, JSON path, CSV) for unusual formats; first classifier that matches with certainty wins |
+| **Data sources** | S3, Java Database Connectivity (JDBC) (RDS, Redshift, on-prem), DynamoDB, MongoDB/DocumentDB, Delta/Iceberg/Hudi tables |
+| **Classifiers** | Built-in (Comma-Separated Values (CSV), JSON, Parquet, Avro, Optimized Row Columnar (ORC), Extensible Markup Language (XML)…) + **custom** (Grok, XML, JSON path, CSV) for unusual formats; first classifier that matches with certainty wins |
 | **Include/exclude patterns** | Skip folders/files (e.g., `_temporary`, `*.metadata`) |
 | **Schema change policy** | Update table definition / add new columns only / ignore changes and log; deleted objects → delete, mark deprecated, or ignore |
-| **Recrawl policy** | Crawl all folders, **crawl new folders only** (incremental), or **S3 event mode** (crawl only changed objects from SQS events) |
+| **Recrawl policy** | Crawl all folders, **crawl new folders only** (incremental), or **S3 event mode** (crawl only changed objects from Simple Queue Service (SQS) events) |
 | **Grouping** | "Create a single schema for each S3 path" avoids one table per folder when schemas are compatible |
 | **Schedule** | On demand, cron, or as part of a Glue workflow |
 
@@ -295,11 +295,11 @@ New partition folders in S3 (e.g., `year=2026/month=11/day=19/`) are invisible t
 
 ### Connections for cataloging (skill 2.2.5)
 
-A **Glue connection** holds what a crawler or job needs to reach a source/target: type (**JDBC**, MongoDB, Kafka, **Network**, marketplace/custom connectors), endpoint URL, credentials (preferably **Secrets Manager**), and **VPC, subnet, security group**. Remember the self-referencing security group rule and a route to the source (NAT gateway for the internet, **S3 gateway endpoint** for S3 from a private subnet).
+A **Glue connection** holds what a crawler or job needs to reach a source/target: type (**JDBC**, MongoDB, Kafka, **Network**, marketplace/custom connectors), endpoint Uniform Resource Locator (URL), credentials (preferably **Secrets Manager**), and **Virtual Private Cloud (VPC), subnet, security group**. Remember the self-referencing security group rule and a route to the source (Network Address Translation (NAT) gateway for the internet, **S3 gateway endpoint** for S3 from a private subnet).
 
 ### 🆕 Business data catalogs: Amazon SageMaker Catalog (skill 2.2.6)
 
-**SageMaker Catalog** (built on Amazon DataZone, part of **SageMaker Unified Studio**) is where people **find, understand, request, and govern** data and AI assets.
+**SageMaker Catalog** (built on Amazon DataZone, part of **SageMaker Unified Studio**) is where people **find, understand, request, and govern** data and Artificial Intelligence (AI) assets.
 
 | Concept | Meaning |
 |---|---|
@@ -319,9 +319,9 @@ A **Glue connection** holds what a crawler or job needs to reach a source/target
 ### Load and unload between S3 and Redshift (skill 2.3.1)
 
 **COPY (load):**
-- Loads in **parallel**, with each slice reading files. **Split data into multiple files** (ideally a multiple of the number of slices), similar sizes (1 MB–1 GB compressed), compressed (GZIP, ZSTD, BZIP2, LZOP) or columnar (Parquet/ORC).
+- Loads in **parallel**, with each slice reading files. **Split data into multiple files** (ideally a multiple of the number of slices), similar sizes (1 MB–1 GB compressed), compressed (GZIP, Zstandard (ZSTD), BZIP2, LZOP) or columnar (Parquet/ORC).
 - Use a **manifest file** to load an exact list of files (avoids loading partial or wrong files).
-- Authorize with an **IAM role** attached to the cluster (`IAM_ROLE 'arn:…'`), not access keys.
+- Authorize with an **Identity and Access Management (IAM) role** attached to the cluster (`IAM_ROLE 'arn:…'`), not access keys.
 - Useful options: `FORMAT AS PARQUET|JSON|CSV`, `COMPUPDATE`, `STATUPDATE`, `MAXERROR`, `REGION`, `TIMEFORMAT`.
 - **Errors** → `STL_LOAD_ERRORS` / `SYS_LOAD_ERROR_DETAIL`.
 - **Upserts:** COPY into a **staging table**, then `MERGE` (or delete + insert) into the target in one transaction.
@@ -343,7 +343,7 @@ A **lifecycle configuration** is a set of rules scoped by **prefix and/or object
 
 Rules to remember:
 - Objects must stay **30 days** in Standard before transitioning to Standard-IA/One Zone-IA via lifecycle.
-- Minimum storage duration charges apply (IA 30, Glacier IR/Flexible 90, Deep Archive 180 days). Deleting early still bills the minimum.
+- Minimum storage duration charges apply (Infrequent Access (IA) 30, Glacier Instant Retrieval (Glacier IR)/Flexible 90, Deep Archive 180 days). Deleting early still bills the minimum.
 - Lifecycle runs asynchronously (not at an exact minute).
 - **Unknown access pattern** → use Intelligent-Tiering instead of guessing transition days.
 
@@ -353,7 +353,7 @@ Rules to remember:
 - Keeps every version of an object; protects against accidental overwrite/delete.
 - A delete without a version ID adds a **delete marker** (the object "disappears" but old versions remain). Deleting the marker restores it.
 - Once enabled, it can only be **suspended**, never fully disabled.
-- Required for **replication** and **Object Lock**. Combine with **MFA Delete** for extra protection.
+- Required for **replication** and **Object Lock**. Combine with **Multi-Factor Authentication (MFA) Delete** for extra protection.
 - Control cost with noncurrent-version lifecycle rules.
 
 **DynamoDB TTL:**
@@ -368,7 +368,7 @@ Rules to remember:
 | Delete after retention period | S3 Lifecycle expiration, DynamoDB TTL, Redshift scheduled `DELETE`/`TRUNCATE`, CloudWatch Logs retention settings |
 | **Right to be forgotten** (GDPR) on a data lake | Use **Iceberg** (`DELETE FROM … WHERE user_id = …` in Athena/Glue) instead of rewriting Parquet partitions by hand; then expire snapshots so old files are removed |
 | Find where personal data lives first | **Amazon Macie** (S3), catalog tags, lineage |
-| **Must not be deleted** for N years (WORM) | **S3 Object Lock**: **compliance mode** (no one, including root, can delete or shorten retention) vs **governance mode** (privileged users with special permission can override); **legal hold** (indefinite until removed). Glacier **Vault Lock** for vaults. |
+| **Must not be deleted** for N years (Write Once, Read Many (WORM)) | **S3 Object Lock**: **compliance mode** (no one, including root, can delete or shorten retention) vs **governance mode** (privileged users with special permission can override); **legal hold** (indefinite until removed). Glacier **Vault Lock** for vaults. |
 | Prove deletion | CloudTrail data events, S3 server access logs |
 
 > ⚠️ With versioning on, "deleting" an object only adds a delete marker. Truly removing data requires deleting **all versions** (or a lifecycle rule for noncurrent versions).
@@ -380,12 +380,12 @@ Rules to remember:
 | **S3** | Multi-AZ by default (except One Zone classes); **Cross-Region / Same-Region Replication** (versioning required; **Replication Time Control** = 99.99% of objects in 15 min); AWS Backup for S3 |
 | **DynamoDB** | **PITR** (restore to any second in the last 35 days), on-demand backups, **global tables** (multi-Region active-active) |
 | **Redshift** | **Automated snapshots** (default 1-day retention, up to 35 days), manual snapshots (kept until deleted), **cross-Region snapshot copy**, **Multi-AZ** deployments (RA3), relocation to another AZ |
-| **RDS / Aurora** | **Multi-AZ** (failover), read replicas (scale reads, cross-Region DR), automated backups + snapshots, **Aurora Global Database** (cross-Region, <1 s lag) |
-| **KDS / MSK** | Data replicated across 3 AZs (KDS); MSK multi-AZ brokers, MSK Replicator for cross-cluster/Region |
-| **EMR** | Store data in **S3, not HDFS**, so cluster loss doesn't lose data; multi-primary nodes for HA |
+| **RDS / Aurora** | **Multi-AZ** (failover), read replicas (scale reads, cross-Region Disaster Recovery (DR)), automated backups + snapshots, **Aurora Global Database** (cross-Region, <1 s lag) |
+| **KDS / MSK** | Data replicated across 3 Availability Zones (AZs) (KDS); MSK multi-AZ brokers, MSK Replicator for cross-cluster/Region |
+| **EMR** | Store data in **S3, not Hadoop Distributed File System (HDFS)**, so cluster loss doesn't lose data; multi-primary nodes for High Availability (HA) |
 | **Centralized** | **AWS Backup** policies across services and accounts; backup vault lock for immutability |
 
-Know the difference: **high availability** (survive an AZ failure with no or brief interruption: Multi-AZ) vs **disaster recovery** (recover in another Region: replication, snapshot copy, global tables), measured by **RPO** (how much data you can lose) and **RTO** (how long recovery takes).
+Know the difference: **high availability** (survive an AZ failure with no or brief interruption: Multi-AZ) vs **disaster recovery** (recover in another Region: replication, snapshot copy, global tables), measured by **Recovery Point Objective (RPO)** (how much data you can lose) and **Recovery Time Objective (RTO)** (how long recovery takes).
 
 ---
 
@@ -404,13 +404,13 @@ Know the difference: **high availability** (survive an AZ failure with no or bri
 - List **access patterns first**, then design keys. There are no joins, so you design for queries, not normalization.
 - **Composite sort keys** (e.g., `ORDER#2026-11-19#123`) enable `begins_with` and range queries.
 - **Single-table design**: several entity types in one table with generic `PK`/`SK` (e.g., `CUSTOMER#1` / `ORDER#…`) for efficient one-query fetches of related items.
-- **GSIs** for alternate access patterns; **sparse indexes** (only items with the attribute appear) for efficient filtering.
+- **Global Secondary Indexes (GSIs)** for alternate access patterns; **sparse indexes** (only items with the attribute appear) for efficient filtering.
 - Avoid hot keys: add a random/calculated suffix (**write sharding**) when one key gets too much traffic.
 
 **Lake Formation / data lake:**
 - Organize S3 into zones: **raw (bronze)** → **cleaned (silver)** → **curated (gold)**, each as Glue databases.
 - Partition by query filters (usually date), use Parquet/Iceberg, consistent naming.
-- Design for permissions: separate sensitive columns or use **LF-tags** and **data filters** (Domain 4).
+- Design for permissions: separate sensitive columns or use **Lake Formation tags (LF-tags)** and **data filters** (Domain 4).
 
 ### Handling changing data characteristics: schema evolution (skill 2.4.2)
 
@@ -458,7 +458,7 @@ Know the difference: **high availability** (survive an AZ failure with no or bri
 
 **Indexing:**
 - **RDS/Aurora**: B-tree indexes on filter/join columns; avoid over-indexing write-heavy tables.
-- **DynamoDB**: GSIs/LSIs (indexes cost extra writes and storage).
+- **DynamoDB**: GSIs/Local Secondary Indexes (LSIs) (indexes cost extra writes and storage).
 - **Redshift**: no traditional indexes. **Sort keys + zone maps** play that role.
 - **OpenSearch**: inverted index (text) and k-NN index (vectors).
 
@@ -484,7 +484,7 @@ Key concepts:
 - **Embedding dimensions**: more dimensions capture more nuance but cost more storage and compute. The **same embedding model** must be used for documents and queries.
 - **Metadata filtering**: store attributes (department, date) with vectors to filter results.
 - **Sync**: re-run knowledge base ingestion when source data changes (only changed documents are re-embedded).
-- **Hybrid search**: combine keyword (BM25) and vector similarity for better relevance (supported with OpenSearch).
+- **Hybrid search**: combine keyword (Best Matching 25 (BM25)) and vector similarity for better relevance (supported with OpenSearch).
 
 ---
 
@@ -508,7 +508,7 @@ Key concepts:
 - **Lifecycle to Standard-IA** needs **30 days** in Standard first.
 - **Delete in a versioned bucket** only adds a delete marker.
 - **WORM, nobody can delete, not even root** → **Object Lock compliance mode**.
-- **DynamoDB TTL** isn't immediate and doesn't consume WCUs. Expired items flow to Streams.
+- **DynamoDB TTL** isn't immediate and doesn't consume Write Capacity Units (WCUs). Expired items flow to Streams.
 - **LSI** can only be created **at table creation**.
 - **Producers changing Avro/JSON schemas break consumers** → **Glue Schema Registry** with compatibility mode.
 - **Heterogeneous DB migration** → **DMS Schema Conversion / SCT**, then DMS.
@@ -521,7 +521,7 @@ Key concepts:
 
 - Domain weight **26%**. Tasks: choose store (2.1), catalogs (2.2), lifecycle (2.3), modeling and evolution (2.4).
 - **S3** for the lake; storage classes by access frequency; 3,500 writes / 5,500 reads per second **per prefix**.
-- **Redshift**: leader + compute slices; RA3 / Serverless; dist styles **AUTO/KEY/ALL/EVEN**; compound sort keys + zone maps; COPY in parallel; Spectrum, federated query, MVs, data sharing, concurrency scaling, zero-ETL.
+- **Redshift**: leader + compute slices; RA3 / Serverless; dist styles **AUTO/KEY/ALL/EVEN**; compound sort keys + zone maps; COPY in parallel; Spectrum, federated query, Materialized Views (MVs), data sharing, concurrency scaling, zero-ETL.
 - **Athena**: serverless SQL; partitions, Parquet, compression, file sizing, **partition projection**; supports Iceberg DML.
 - **DynamoDB**: high-cardinality partition key; GSI anytime / LSI at creation; on-demand vs provisioned; 400 KB items; DAX for microseconds.
 - **MemoryDB** = durable in-memory; **ElastiCache** = cache.
@@ -537,7 +537,7 @@ Key concepts:
 - **Versioning**: delete markers; suspend not disable; needed for replication and Object Lock.
 - **TTL**: epoch seconds, free, delayed deletes, shows in Streams.
 - **Legal**: Iceberg deletes for GDPR; **Object Lock** compliance/governance/legal hold for retention.
-- **Resiliency**: S3 replication (+RTC), DynamoDB PITR/global tables, Redshift snapshots + cross-Region copy + Multi-AZ, RDS Multi-AZ/replicas, Aurora Global Database, AWS Backup.
+- **Resiliency**: S3 replication (+Replication Time Control (RTC)), DynamoDB PITR/global tables, Redshift snapshots + cross-Region copy + Multi-AZ, RDS Multi-AZ/replicas, Aurora Global Database, AWS Backup.
 - **Modeling**: star schema, SCD types 1/2/3; DynamoDB access-pattern-first and single-table design; lake zones raw/clean/curated.
 - **Schema evolution**: crawler policies, **Glue Schema Registry** (BACKWARD default), Iceberg, `ResolveChoice`, late-binding views.
 - **Schema conversion**: DMS Schema Conversion / SCT → DMS data move.
