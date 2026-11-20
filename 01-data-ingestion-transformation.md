@@ -4,7 +4,7 @@
 
 > **The largest domain. Roughly 17 of the 50 scored questions.**
 >
-> <b>Th</b>is <b>dom</b>ain <b>tes</b>ts <b>h</b>ow <b>da</b>ta <b>ge</b>ts *<b>in</b>to* <b>Ama</b>zon <b>W</b>eb <b>Serv</b>ices [AWS] (<b>strea</b>ming <b>a</b>nd <b>bat</b>ch), <b>h</b>ow <b>i</b>t <b>ge</b>ts *<b>resh</b>aped* ([<b>Gl</b>ue](00-data-basics-for-beginners.md#aws-glue), [<b>Elas</b>tic <b>MapRe</b>duce [EMR]](00-data-basics-for-beginners.md#amazon-emr), [<b>Lam</b>bda](00-data-basics-for-beginners.md#aws-lambda), [<b>Reds</b>hift](00-data-basics-for-beginners.md#amazon-redshift), <b>conta</b>iners, <b>Lar</b>ge <b>Lang</b>uage <b>Mod</b>els [LLMs]), <b>h</b>ow <b>t</b>he <b>ste</b>ps <b>a</b>re *<b>orches</b>trated* ([<b>St</b>ep <b>Funct</b>ions](00-data-basics-for-beginners.md#aws-step-functions), [<b>Mana</b>ged <b>Workf</b>lows <b>f</b>or <b>Apa</b>che <b>Airf</b>low [MWAA]](00-data-basics-for-beginners.md#amazon-mwaa), <b>Gl</b>ue <b>workf</b>lows, [<b>EventB</b>ridge](00-data-basics-for-beginners.md#amazon-eventbridge)), <b>a</b>nd <b>t</b>he *<b>progra</b>mming <b>pract</b>ices* <b>beh</b>ind <b>i</b>t (<b>Lam</b>bda <b>tun</b>ing, <b>Infrast</b>ructure <b>a</b>s <b>Co</b>de [<b>I</b>aC], [<b>Serve</b>rless <b>Applic</b>ation <b>Mod</b>el [SAM]](00-data-basics-for-beginners.md#aws-cloudformation-cdk-and-sam), <b>Conti</b>nuous <b>Integr</b>ation / <b>Conti</b>nuous <b>Deli</b>very [CI/CD], <b>distri</b>buted <b>compu</b>ting). <b>Mo</b>st <b>quest</b>ions <b>a</b>re "<b>pi</b>ck <b>t</b>he <b>rig</b>ht <b>serv</b>ice/<b>configu</b>ration <b>wi</b>th <b>t</b>he <b>lea</b>st <b>operat</b>ional <b>over</b>head."
+> <b>Th</b>is <b>dom</b>ain <b>tes</b>ts <b>h</b>ow <b>da</b>ta <b>ge</b>ts *<b>in</b>to* <b>Ama</b>zon <b>W</b>eb <b>Serv</b>ices [AWS] (<b>strea</b>ming <b>a</b>nd <b>bat</b>ch), <b>h</b>ow <b>i</b>t <b>ge</b>ts *<b>resh</b>aped* ([<b>Gl</b>ue](00-data-basics-for-beginners.md#aws-glue), [<b>Elas</b>tic <b>MapRe</b>duce [EMR]](00-data-basics-for-beginners.md#amazon-emr), [<b>Lam</b>bda](00-data-basics-for-beginners.md#aws-lambda), [<b>Reds</b>hift](00-data-basics-for-beginners.md#amazon-redshift), <b>conta</b>iners, <b>Lar</b>ge <b>Lang</b>uage <b>Mod</b>els [LLMs]), <b>h</b>ow <b>t</b>he <b>ste</b>ps <b>a</b>re *<b>orches</b>trated* ([<b>St</b>ep <b>Funct</b>ions](00-data-basics-for-beginners.md#aws-step-functions), [<b>Mana</b>ged <b>Workf</b>lows <b>f</b>or <b>Apa</b>che <b>Airf</b>low [MWAA]](00-data-basics-for-beginners.md#amazon-mwaa), <b>Gl</b>ue <b>workf</b>lows, [<b>EventB</b>ridge](00-data-basics-for-beginners.md#amazon-eventbridge)), <b>a</b>nd <b>t</b>he *<b>progra</b>mming <b>pract</b>ices* <b>beh</b>ind <b>i</b>t (<b>Lam</b>bda <b>tun</b>ing, <b>Infrast</b>ructure <b>a</b>s <b>Co</b>de [IaC], [<b>Serve</b>rless <b>Applic</b>ation <b>Mod</b>el [SAM]](00-data-basics-for-beginners.md#aws-cloudformation-cdk-and-sam), <b>Conti</b>nuous <b>Integr</b>ation / <b>Conti</b>nuous <b>Deli</b>very [CI/CD], <b>distri</b>buted <b>compu</b>ting). <b>Mo</b>st <b>quest</b>ions <b>a</b>re "<b>pi</b>ck <b>t</b>he <b>rig</b>ht <b>serv</b>ice/<b>configu</b>ration <b>wi</b>th <b>t</b>he <b>lea</b>st <b>operat</b>ional <b>over</b>head."
 
 ## Table of contents
 
@@ -57,10 +57,10 @@
 - **1.4.2** <b>Confi</b>gure <b>Lam</b>bda <b>f</b>or <b>concur</b>rency <b>a</b>nd <b>perfor</b>mance.
 - **1.4.3** <b>U</b>se <b>da</b>ta <b>engine</b>ering <b>langu</b>ages <b>a</b>nd <b>frame</b>works (<b>Pyt</b>hon, [<b>Struc</b>tured <b>Que</b>ry <b>Lang</b>uage [SQL]](00-data-basics-for-beginners.md#sql), <b>Sca</b>la, <b>R</b>, <b>Ja</b>va, <b>Ba</b>sh, <b>Power</b>Shell).
 - **1.4.4** <b>App</b>ly <b>soft</b>ware <b>engine</b>ering <b>pract</b>ices (<b>vers</b>ion <b>cont</b>rol, <b>test</b>ing, <b>logg</b>ing, <b>monit</b>oring).
-- **1.4.5** <b>Dep</b>loy <b>da</b>ta <b>engine</b>ering <b>solut</b>ions <b>wi</b>th <b>I</b>aC.
+- **1.4.5** <b>Dep</b>loy <b>da</b>ta <b>engine</b>ering <b>solut</b>ions <b>wi</b>th IaC.
 - **1.4.6** <b>Pack</b>age <b>a</b>nd <b>dep</b>loy <b>serve</b>rless <b>pipel</b>ines <b>wi</b>th AWS SAM.
 - **1.4.7** <b>U</b>se <b>a</b>nd <b>mou</b>nt <b>stor</b>age <b>volu</b>mes <b>i</b>n <b>Lam</b>bda.
-- **1.4.8** <b>U</b>se <b>I</b>aC (<b>CloudFo</b>rmation, <b>Clo</b>ud <b>Develo</b>pment <b>K</b>it [CDK]) <b>f</b>or <b>repea</b>table <b>deploy</b>ments.
+- **1.4.8** <b>U</b>se IaC (<b>CloudFo</b>rmation, <b>Clo</b>ud <b>Develo</b>pment <b>K</b>it [CDK]) <b>f</b>or <b>repea</b>table <b>deploy</b>ments.
 - **1.4.9** <b>Desc</b>ribe CI/CD <b>f</b>or <b>da</b>ta <b>pipel</b>ines.
 - **1.4.10** <b>Def</b>ine <b>distri</b>buted <b>compu</b>ting.
 - **1.4.11** <b>Desc</b>ribe <b>da</b>ta <b>struc</b>tures <b>a</b>nd <b>algor</b>ithms (<b>gra</b>phs, <b>tre</b>es).
@@ -76,8 +76,8 @@
 1. **Is the data arriving continuously (events, clicks, IoT, logs)?** → <b>Strea</b>ming. <b>Other</b>wise <b>bat</b>ch.
 2. **Streaming: do you need custom consumers, multiple consumers, ordering, or replay?** → **Kinesis Data Streams**. <b>D</b>o <b>y</b>ou <b>ju</b>st <b>ne</b>ed <b>t</b>o <b>la</b>nd <b>i</b>t <b>somew</b>here <b>wi</b>th <b>n</b>o <b>co</b>de? → **[Amazon Data Firehose](00-data-basics-for-beginners.md#amazon-data-firehose)**. <b>D</b>o <b>y</b>ou <b>ne</b>ed [<b>Kaf</b>ka](00-data-basics-for-beginners.md#apache-kafka) APIs <b>o</b>r <b>exis</b>ting <b>Kaf</b>ka <b>clie</b>nts? → **Amazon MSK**.
 3. **Batch: where is the source?**
-   - <b>Relat</b>ional/<b>NoS</b>QL <b>data</b>base → **AWS DMS** (<b>o</b>r **zero-ETL** <b>t</b>o <b>Reds</b>hift <b>i</b>f <b>suppo</b>rted)
-   - <b>Soft</b>ware <b>a</b>s <b>a</b> <b>Serv</b>ice (<b>Sa</b>aS) <b>a</b>pp ([<b>Sales</b>force](00-data-basics-for-beginners.md#snowflake-splunk-and-salesforce), <b>Servi</b>ceNow, <b>Zend</b>esk…) → **Amazon AppFlow**
+   - <b>Relat</b>ional/NoSQL <b>data</b>base → **AWS DMS** (<b>o</b>r **zero-ETL** <b>t</b>o <b>Reds</b>hift <b>i</b>f <b>suppo</b>rted)
+   - <b>Soft</b>ware <b>a</b>s <b>a</b> <b>Serv</b>ice (SaaS) <b>a</b>pp ([<b>Sales</b>force](00-data-basics-for-beginners.md#snowflake-splunk-and-salesforce), <b>Servi</b>ceNow, <b>Zend</b>esk…) → **Amazon AppFlow**
    - <b>O</b>n-<b>pr</b>em <b>fi</b>le <b>sha</b>res (NFS/<b>Ser</b>ver <b>Mess</b>age <b>Blo</b>ck [SMB]/HDFS) → **[AWS DataSync](00-data-basics-for-beginners.md#aws-datasync)**
    - <b>Part</b>ners <b>push</b>ing <b>fil</b>es <b>ov</b>er SSH <b>Fi</b>le <b>Tran</b>sfer <b>Prot</b>ocol (SFTP) → **[AWS Transfer Family](00-data-basics-for-beginners.md#aws-transfer-family)**
    - <b>Petab</b>ytes, <b>lit</b>tle <b>bandw</b>idth → **[AWS Snow Family](00-data-basics-for-beginners.md#aws-snow-family)**
@@ -123,7 +123,7 @@
 
 #### Amazon Data Firehose deep dive
 
-- **Buffering:** <b>deli</b>vers <b>wh</b>en <b>eit</b>her <b>t</b>he <b>si</b>ze (1–128 <b>M</b>iB) <b>o</b>r <b>inte</b>rval <b>thres</b>hold <b>i</b>s <b>h</b>it. <b>Big</b>ger <b>buff</b>ers → <b>few</b>er, <b>lar</b>ger S3 <b>fil</b>es (<b>bet</b>ter <b>f</b>or [<b>Ath</b>ena](00-data-basics-for-beginners.md#amazon-athena)). <b>Smal</b>ler → <b>low</b>er <b>late</b>ncy.
+- **Buffering:** <b>deli</b>vers <b>wh</b>en <b>eit</b>her <b>t</b>he <b>si</b>ze (1–128 MiB) <b>o</b>r <b>inte</b>rval <b>thres</b>hold <b>i</b>s <b>h</b>it. <b>Big</b>ger <b>buff</b>ers → <b>few</b>er, <b>lar</b>ger S3 <b>fil</b>es (<b>bet</b>ter <b>f</b>or [<b>Ath</b>ena](00-data-basics-for-beginners.md#amazon-athena)). <b>Smal</b>ler → <b>low</b>er <b>late</b>ncy.
 - **Record format conversion:** [<b>JavaS</b>cript <b>Obj</b>ect <b>Nota</b>tion [JSON]](00-data-basics-for-beginners.md#json) → **Parquet or [Optimized Row Columnar [ORC]](00-data-basics-for-beginners.md#orc)** <b>usi</b>ng <b>a</b> <b>sch</b>ema <b>fr</b>om <b>a</b> **Glue Data Catalog table**. <b>Mo</b>st <b>com</b>mon "<b>lea</b>st <b>operat</b>ional <b>eff</b>ort" <b>ans</b>wer <b>f</b>or "<b>conv</b>ert <b>strea</b>ming JSON <b>t</b>o <b>Parq</b>uet".
 - **Lambda transformation:** <b>enr</b>ich/<b>cle</b>an <b>reco</b>rds <b>i</b>n <b>fli</b>ght (<b>bluep</b>rints <b>avail</b>able).
 - **Dynamic partitioning:** <b>wri</b>tes <b>in</b>to S3 <b>pref</b>ixes <b>bas</b>ed <b>o</b>n <b>rec</b>ord <b>fie</b>lds (<b>e</b>.g., `customer_id=…/year=…/`) → <b>Ath</b>ena-<b>frie</b>ndly <b>parti</b>tions.
@@ -144,8 +144,8 @@
 |---|---|---|
 | <b>Fil</b>es <b>alre</b>ady <b>i</b>n S3 | **Glue jobs / crawlers**, **Athena CREATE TABLE AS SELECT (CTAS)**, **Redshift COPY** | <b>Partit</b>ioned <b>pref</b>ixes, <b>fi</b>le <b>siz</b>ing, <b>compre</b>ssion, <b>mani</b>fest <b>fil</b>es |
 | <b>Relat</b>ional DB <b>snap</b>shot + <b>ongo</b>ing <b>chan</b>ges | **AWS DMS** | <b>Ta</b>sk <b>ty</b>pe (**full load**, **full load + CDC**, **CDC only**), <b>tab</b>le <b>mapp</b>ings, <b>transfo</b>rmation <b>rul</b>es, <b>Lar</b>ge <b>Obj</b>ect (LOB) <b>sett</b>ings, <b>da</b>ta <b>valid</b>ation |
-| <b>Operat</b>ional DB → <b>Reds</b>hift <b>wi</b>th <b>n</b>o <b>pipe</b>line | **[Zero-ETL](00-data-basics-for-beginners.md#zero-etl-integrations) integrations** | [<b>Aur</b>ora](00-data-basics-for-beginners.md#amazon-aurora) [<b>MyS</b>QL](00-data-basics-for-beginners.md#postgresql-mysql-oracle-and-sql-server)/<b>Postg</b>reSQL, RDS <b>MyS</b>QL, <b>Dyna</b>moDB → <b>Reds</b>hift |
-| <b>Sa</b>aS <b>ap</b>ps | **Amazon AppFlow** | <b>Trig</b>ger: <b>o</b>n <b>dem</b>and / <b>sched</b>uled / <b>eve</b>nt; <b>fie</b>ld <b>mapp</b>ing, <b>filte</b>ring, <b>mask</b>ing, <b>valid</b>ation; <b>destin</b>ations S3, <b>Reds</b>hift, <b>Snowf</b>lake |
+| <b>Operat</b>ional DB → <b>Reds</b>hift <b>wi</b>th <b>n</b>o <b>pipe</b>line | **[Zero-ETL](00-data-basics-for-beginners.md#zero-etl-integrations) integrations** | [<b>Aur</b>ora](00-data-basics-for-beginners.md#amazon-aurora) [MySQL](00-data-basics-for-beginners.md#postgresql-mysql-oracle-and-sql-server)/<b>Postg</b>reSQL, RDS MySQL, <b>Dyna</b>moDB → <b>Reds</b>hift |
+| SaaS <b>ap</b>ps | **Amazon AppFlow** | <b>Trig</b>ger: <b>o</b>n <b>dem</b>and / <b>sched</b>uled / <b>eve</b>nt; <b>fie</b>ld <b>mapp</b>ing, <b>filte</b>ring, <b>mask</b>ing, <b>valid</b>ation; <b>destin</b>ations S3, <b>Reds</b>hift, <b>Snowf</b>lake |
 | <b>O</b>n-<b>pr</b>em <b>fi</b>le <b>syst</b>ems | **AWS DataSync** | <b>Age</b>nt <b>o</b>n-<b>pr</b>em, <b>sched</b>uled <b>tas</b>ks, <b>bandw</b>idth <b>throt</b>tling, <b>integ</b>rity <b>verifi</b>cation, <b>filt</b>ers |
 | [<b>Had</b>oop](00-data-basics-for-beginners.md#apache-hadoop)/<b>Spa</b>rk <b>o</b>n <b>lar</b>ge <b>data</b>sets | **Amazon EMR** | <b>Rea</b>ds <b>fr</b>om S3 (EMR <b>Fi</b>le <b>Sys</b>tem [EMRFS]), [<b>Had</b>oop <b>Distri</b>buted <b>Fi</b>le <b>Sys</b>tem [HDFS]](00-data-basics-for-beginners.md#hdfs), [<b>HBa</b>se](00-data-basics-for-beginners.md#apache-hbase) |
 | <b>Sma</b>ll <b>cus</b>tom <b>pul</b>ls | **AWS Lambda** | <b>Sched</b>uled <b>wi</b>th <b>EventB</b>ridge, ≤15 <b>m</b>in <b>runt</b>ime |
@@ -153,7 +153,7 @@
 
 **DMS details the exam likes:**
 - **Components:** <b>replic</b>ation <b>inst</b>ance (<b>o</b>r DMS <b>Serve</b>rless), <b>sou</b>rce/<b>tar</b>get **endpoints**, **replication task**.
-- **CDC prerequisites:** <b>t</b>he <b>sou</b>rce <b>mu</b>st <b>exp</b>ose <b>cha</b>nge <b>lo</b>gs. <b>MyS</b>QL <b>nee</b>ds **binary logging with `binlog_format=ROW`**. <b>Ora</b>cle <b>nee</b>ds **supplemental logging**. <b>Postg</b>reSQL <b>nee</b>ds **logical replication**. SQL <b>Ser</b>ver <b>nee</b>ds <b>Micro</b>soft SQL <b>Ser</b>ver <b>Cha</b>nge <b>Da</b>ta <b>Capt</b>ure (MS-CDC)/MS-<b>Replic</b>ation.
+- **CDC prerequisites:** <b>t</b>he <b>sou</b>rce <b>mu</b>st <b>exp</b>ose <b>cha</b>nge <b>lo</b>gs. MySQL <b>nee</b>ds **binary logging with `binlog_format=ROW`**. <b>Ora</b>cle <b>nee</b>ds **supplemental logging**. <b>Postg</b>reSQL <b>nee</b>ds **logical replication**. SQL <b>Ser</b>ver <b>nee</b>ds <b>Micro</b>soft SQL <b>Ser</b>ver <b>Cha</b>nge <b>Da</b>ta <b>Capt</b>ure (MS-CDC)/MS-<b>Replic</b>ation.
 - **DMS does light transforms only** (<b>ren</b>ame, <b>a</b>dd/<b>dr</b>op <b>colu</b>mns, <b>fil</b>ter <b>ro</b>ws). <b>Hea</b>vy <b>log</b>ic <b>go</b>es <b>downs</b>tream <b>i</b>n <b>Gl</b>ue/EMR.
 - **S3 target**: <b>c</b>an <b>wri</b>te CSV <b>o</b>r **Parquet**; CDC <b>fil</b>es <b>la</b>nd <b>wi</b>th <b>a</b>n <b>opera</b>tion <b>col</b>umn (`I`/`U`/`D`), <b>whi</b>ch <b>y</b>ou <b>lat</b>er <b>mer</b>ge (<b>Iceb</b>erg `MERGE` <b>i</b>s <b>a</b> <b>gre</b>at <b>f</b>it).
 - **DMS Schema Conversion** (<b>ins</b>ide DMS) <b>conv</b>erts <b>sche</b>mas <b>f</b>or <b>heterog</b>eneous <b>migra</b>tions. <b>T</b>he <b>stand</b>alone AWS <b>Sch</b>ema <b>Conve</b>rsion <b>To</b>ol (SCT) <b>i</b>s <b>n</b>o <b>lon</b>ger <b>i</b>n <b>sco</b>pe.
@@ -284,7 +284,7 @@ Producers ──► KDS ──► Firehose ──► S3 (Parquet) ──► Athe
 | <b>Serve</b>rless <b>Spa</b>rk ETL <b>integ</b>rated <b>wi</b>th <b>t</b>he <b>Da</b>ta <b>Cata</b>log, <b>mini</b>mal <b>o</b>ps | **AWS Glue** | <b>N</b>o <b>clus</b>ters; <b>bookm</b>arks, <b>craw</b>lers, <b>Da</b>ta <b>Qual</b>ity <b>bui</b>lt <b>i</b>n |
 | <b>Vis</b>ual / <b>n</b>o-<b>co</b>de <b>clea</b>ning <b>a</b>nd <b>profi</b>ling <b>f</b>or <b>anal</b>ysts | **[Glue DataBrew](00-data-basics-for-beginners.md#aws-glue-databrew)** | 250+ <b>poi</b>nt-<b>a</b>nd-<b>cli</b>ck <b>trans</b>forms, <b>prof</b>ile <b>jo</b>bs |
 | <b>Fu</b>ll <b>Had</b>oop <b>ecosy</b>stem (<b>Spa</b>rk, [<b>Hi</b>ve](00-data-basics-for-beginners.md#apache-hive), [<b>Pre</b>sto](00-data-basics-for-beginners.md#presto-and-trino)/<b>Tri</b>no, <b>HBa</b>se, [<b>Hu</b>di](00-data-basics-for-beginners.md#apache-hudi)), <b>cus</b>tom <b>vers</b>ions, <b>tun</b>ing, <b>Sp</b>ot | **Amazon EMR** (<b>o</b>n <b>Elas</b>tic <b>Comp</b>ute <b>Clo</b>ud [EC2]) | <b>Fu</b>ll <b>cont</b>rol; <b>chea</b>pest <b>a</b>t <b>lar</b>ge <b>sca</b>le <b>wi</b>th <b>Sp</b>ot <b>ta</b>sk <b>nod</b>es |
-| <b>Spa</b>rk <b>with</b>out <b>mana</b>ging <b>clus</b>ters, <b>b</b>ut EMR <b>runt</b>ime | **EMR Serverless** | <b>P</b>ay <b>p</b>er <b>vC</b>PU/GB-<b>sec</b>ond, <b>au</b>to <b>sca</b>le |
+| <b>Spa</b>rk <b>with</b>out <b>mana</b>ging <b>clus</b>ters, <b>b</b>ut EMR <b>runt</b>ime | **EMR Serverless** | <b>P</b>ay <b>p</b>er vCPU/GB-<b>sec</b>ond, <b>au</b>to <b>sca</b>le |
 | <b>Spa</b>rk <b>o</b>n <b>exis</b>ting [<b>Kuber</b>netes](00-data-basics-for-beginners.md#kubernetes) | **EMR on EKS** | <b>Sha</b>res EKS <b>clus</b>ter <b>wi</b>th <b>oth</b>er <b>ap</b>ps |
 | <b>Lightw</b>eight <b>p</b>er-<b>eve</b>nt <b>trans</b>forms (< 15 <b>m</b>in) | **AWS Lambda** | <b>Eve</b>nt-<b>dri</b>ven, <b>n</b>o <b>serv</b>ers |
 | SQL <b>trans</b>forms <b>o</b>n S3 <b>da</b>ta | **Athena CTAS / INSERT INTO** | <b>Serve</b>rless SQL, <b>n</b>o ETL <b>co</b>de |
@@ -344,7 +344,7 @@ Producers ──► KDS ──► Firehose ──► S3 (Parquet) ──► Athe
 |---|---|
 | <b>Jo</b>in <b>da</b>ta <b>fr</b>om S3 + JDBC <b>sour</b>ces <b>i</b>n <b>o</b>ne ETL | **Glue job** <b>wi</b>th <b>mult</b>iple <b>sour</b>ces |
 | <b>Que</b>ry <b>acr</b>oss S3, <b>Dyna</b>moDB, RDS, <b>Cloud</b>Watch <b>Lo</b>gs <b>i</b>n <b>o</b>ne SQL <b>state</b>ment | **Athena Federated Query** (<b>Lam</b>bda-<b>bas</b>ed <b>conne</b>ctors) |
-| <b>Jo</b>in <b>wareh</b>ouse <b>tab</b>les <b>wi</b>th <b>li</b>ve <b>Aur</b>ora/RDS <b>Postg</b>reSQL <b>o</b>r <b>MyS</b>QL <b>da</b>ta | **Redshift federated query** |
+| <b>Jo</b>in <b>wareh</b>ouse <b>tab</b>les <b>wi</b>th <b>li</b>ve <b>Aur</b>ora/RDS <b>Postg</b>reSQL <b>o</b>r MySQL <b>da</b>ta | **Redshift federated query** |
 | <b>Jo</b>in <b>wareh</b>ouse <b>tab</b>les <b>wi</b>th S3 [<b>da</b>ta <b>la</b>ke](00-data-basics-for-beginners.md#data-lake) | **Redshift Spectrum** |
 | <b>Repli</b>cate <b>operat</b>ional DBs <b>in</b>to <b>t</b>he <b>wareh</b>ouse <b>contin</b>uously | **Zero-ETL** <b>integr</b>ations |
 | <b>Centr</b>alize <b>every</b>thing <b>fir</b>st | <b>La</b>nd <b>a</b>ll <b>sour</b>ces <b>i</b>n <b>a</b>n S3 <b>da</b>ta <b>la</b>ke (<b>r</b>aw → <b>cura</b>ted) |
@@ -493,7 +493,7 @@ EventBridge (cron 02:00) ──► Step Functions (Standard)
 
 <b>A</b> <b>ful</b>ly <b>serve</b>rless <b>pipe</b>line: **S3 → EventBridge → Step Functions → Lambda / Glue / Athena / Redshift Serverless → SNS**. <b>The</b>re <b>a</b>re <b>n</b>o <b>serv</b>ers <b>t</b>o <b>pat</b>ch <b>a</b>nd <b>every</b>thing <b>sca</b>les <b>automat</b>ically, <b>s</b>o <b>it</b>'s <b>usua</b>lly <b>t</b>he <b>ans</b>wer <b>f</b>or "<b>lea</b>st <b>operat</b>ional <b>over</b>head."
 
-<b>Mainte</b>nance <b>poi</b>nts: <b>vers</b>ion <b>t</b>he <b>sta</b>te <b>mach</b>ine <b>defin</b>ition <b>i</b>n <b>G</b>it <b>a</b>nd <b>dep</b>loy <b>wi</b>th <b>I</b>aC/SAM; <b>u</b>se <b>Cloud</b>Watch <b>metr</b>ics (`ExecutionsFailed`, `ExecutionsTimedOut`) <b>a</b>nd <b>X</b>-<b>R</b>ay <b>trac</b>ing; <b>u</b>se <b>St</b>ep <b>Funct</b>ions <b>vers</b>ions <b>a</b>nd <b>alia</b>ses <b>f</b>or <b>sa</b>fe <b>roll</b>out.
+<b>Mainte</b>nance <b>poi</b>nts: <b>vers</b>ion <b>t</b>he <b>sta</b>te <b>mach</b>ine <b>defin</b>ition <b>i</b>n <b>G</b>it <b>a</b>nd <b>dep</b>loy <b>wi</b>th IaC/SAM; <b>u</b>se <b>Cloud</b>Watch <b>metr</b>ics (`ExecutionsFailed`, `ExecutionsTimedOut`) <b>a</b>nd <b>X</b>-<b>R</b>ay <b>trac</b>ing; <b>u</b>se <b>St</b>ep <b>Funct</b>ions <b>vers</b>ions <b>a</b>nd <b>alia</b>ses <b>f</b>or <b>sa</b>fe <b>roll</b>out.
 
 ### Notifications and alerts (skill 1.3.4)
 
@@ -539,7 +539,7 @@ EventBridge (cron 02:00) ──► Step Functions (Standard)
 
 ### Software engineering best practices (skill 1.4.4)
 
-- **Version control:** <b>G</b>it <b>f</b>or <b>a</b>ll ETL <b>co</b>de, SQL, DAGs, <b>I</b>aC. <b>Bran</b>ches + <b>pu</b>ll <b>requ</b>ests + <b>co</b>de <b>rev</b>iew. <b>Kn</b>ow `clone`, `commit`, `push`, `pull`, `branch`, `merge`, `rebase` <b>a</b>t <b>a</b> <b>conc</b>ept <b>lev</b>el.
+- **Version control:** <b>G</b>it <b>f</b>or <b>a</b>ll ETL <b>co</b>de, SQL, DAGs, IaC. <b>Bran</b>ches + <b>pu</b>ll <b>requ</b>ests + <b>co</b>de <b>rev</b>iew. <b>Kn</b>ow `clone`, `commit`, `push`, `pull`, `branch`, `merge`, `rebase` <b>a</b>t <b>a</b> <b>conc</b>ept <b>lev</b>el.
 - **Testing:** <b>un</b>it <b>tes</b>ts <b>f</b>or <b>trans</b>form <b>funct</b>ions (<b>pyt</b>est; <b>Gl</b>ue <b>off</b>ers <b>a</b> <b>loc</b>al [<b>Doc</b>ker](00-data-basics-for-beginners.md#docker-and-containers) <b>ima</b>ge <b>f</b>or <b>test</b>ing <b>jo</b>bs), <b>integr</b>ation <b>tes</b>ts <b>o</b>n <b>sam</b>ple <b>da</b>ta, **data quality tests** <b>a</b>s <b>pipe</b>line <b>gat</b>es.
 - **Logging:** <b>struc</b>tured <b>lo</b>gs <b>t</b>o <b>Cloud</b>Watch <b>Lo</b>gs; <b>Gl</b>ue <b>conti</b>nuous <b>logg</b>ing; <b>Spa</b>rk <b>eve</b>nt <b>lo</b>gs <b>f</b>or <b>t</b>he <b>Spa</b>rk UI.
 - **Monitoring:** <b>Cloud</b>Watch <b>metr</b>ics <b>a</b>nd <b>ala</b>rms, <b>j</b>ob <b>r</b>un <b>insi</b>ghts, <b>dashb</b>oards (<b>deta</b>ils <b>i</b>n <b>Dom</b>ain 3).
@@ -552,7 +552,7 @@ EventBridge (cron 02:00) ──► Step Functions (Standard)
 | **AWS CDK** | <b>Def</b>ine <b>inf</b>ra <b>i</b>n <b>Pyt</b>hon/<b>TypeS</b>cript/<b>Ja</b>va/<b>e</b>tc. <b>usi</b>ng <b>const</b>ructs → <b>synthe</b>sizes <b>CloudFo</b>rmation | <b>Devel</b>opers <b>pre</b>fer <b>re</b>al <b>progra</b>mming <b>langu</b>ages, <b>loo</b>ps, <b>reus</b>able <b>compo</b>nents |
 | **AWS SAM** | <b>CloudFo</b>rmation <b>exten</b>sion <b>f</b>or <b>serve</b>rless (`AWS::Serverless::Function`, `::StateMachine`, `::SimpleTable`, `::Api`); <b>Comm</b>and <b>Li</b>ne <b>Inter</b>face (CLI): `sam build`, `sam deploy`, `sam local invoke` | **Package and deploy serverless pipelines** (<b>Lam</b>bda + <b>St</b>ep <b>Funct</b>ions + <b>Dyna</b>moDB), <b>te</b>st <b>Lam</b>bda <b>loca</b>lly |
 
-> <b>Ex</b>am <b>sig</b>nal: "<b>repea</b>table <b>deploy</b>ments <b>acr</b>oss <b>d</b>ev/<b>te</b>st/<b>pr</b>od" → <b>I</b>aC. "<b>Serve</b>rless <b>pipe</b>line, <b>loc</b>al <b>test</b>ing, <b>pack</b>age <b>Lam</b>bda <b>co</b>de" → **SAM**. "<b>Devel</b>opers <b>wa</b>nt <b>TypeS</b>cript/<b>Pyt</b>hon <b>f</b>or <b>inf</b>ra" → **CDK**.
+> <b>Ex</b>am <b>sig</b>nal: "<b>repea</b>table <b>deploy</b>ments <b>acr</b>oss <b>d</b>ev/<b>te</b>st/<b>pr</b>od" → IaC. "<b>Serve</b>rless <b>pipe</b>line, <b>loc</b>al <b>test</b>ing, <b>pack</b>age <b>Lam</b>bda <b>co</b>de" → **SAM**. "<b>Devel</b>opers <b>wa</b>nt <b>TypeS</b>cript/<b>Pyt</b>hon <b>f</b>or <b>inf</b>ra" → **CDK**.
 
 ### Storage volumes in Lambda (skill 1.4.7)
 
@@ -638,7 +638,7 @@ Git push ──► CodePipeline
 - **Firehose**: <b>buff</b>ered <b>ne</b>ar <b>re</b>al <b>ti</b>me; <b>Parq</b>uet/ORC <b>conve</b>rsion; <b>Lam</b>bda <b>trans</b>form; <b>dyna</b>mic <b>partit</b>ioning; <b>Reds</b>hift <b>v</b>ia S3 + COPY; <b>Iceb</b>erg <b>destin</b>ation; **no replay**.
 - **MSK** <b>f</b>or <b>Kaf</b>ka; **MSK Connect** <b>f</b>or <b>conne</b>ctors; **MSK Serverless** <b>f</b>or <b>n</b>o <b>siz</b>ing.
 - **DynamoDB Streams** = 24 <b>h</b> CDC. **KDS for DynamoDB** = <b>lon</b>ger <b>reten</b>tion.
-- <b>Bat</b>ch: **DMS** (DB, CDC), **AppFlow** (<b>Sa</b>aS), **DataSync** (<b>fi</b>le <b>sha</b>res), **Transfer Family** (SFTP), **Snow** (<b>offl</b>ine), **Data Exchange** (<b>thi</b>rd-<b>par</b>ty <b>da</b>ta), **zero-ETL** (DB → <b>Reds</b>hift).
+- <b>Bat</b>ch: **DMS** (DB, CDC), **AppFlow** (SaaS), **DataSync** (<b>fi</b>le <b>sha</b>res), **Transfer Family** (SFTP), **Snow** (<b>offl</b>ine), **Data Exchange** (<b>thi</b>rd-<b>par</b>ty <b>da</b>ta), **zero-ETL** (DB → <b>Reds</b>hift).
 - <b>Sched</b>ules: **EventBridge Scheduler**, <b>Gl</b>ue <b>trig</b>gers, <b>craw</b>ler <b>sched</b>ules, MWAA. <b>Eve</b>nts: **S3 Event Notifications** (<b>sim</b>ple) <b>v</b>s **EventBridge** (<b>filte</b>ring, <b>ma</b>ny <b>targ</b>ets, <b>rep</b>lay).
 - <b>Lam</b>bda + <b>Kine</b>sis: <b>bat</b>ch <b>si</b>ze, <b>bat</b>ch <b>win</b>dow, **parallelization factor (≤10)**, <b>bis</b>ect <b>o</b>n <b>err</b>or, <b>m</b>ax <b>retr</b>ies/<b>a</b>ge, <b>o</b>n-<b>fail</b>ure <b>destin</b>ation, <b>tumb</b>ling <b>wind</b>ows.
 - <b>Allow</b>list <b>outb</b>ound IPs <b>wi</b>th <b>a</b> **NAT gateway Elastic IP**.
@@ -655,7 +655,7 @@ Git push ──► CodePipeline
 - <b>Orchest</b>ration: **Step Functions** (<b>Stan</b>dard ≤1 <b>y</b>r / <b>Expr</b>ess ≤5 <b>m</b>in, <b>Ret</b>ry/<b>Cat</b>ch, <b>Distri</b>buted <b>M</b>ap), **MWAA** (<b>Airf</b>low), **Glue workflows** (<b>Gl</b>ue <b>on</b>ly), **EventBridge** (<b>sta</b>rt).
 - <b>Ale</b>rts: **SNS** <b>pu</b>sh; **SQS** <b>buf</b>fer + DLQ.
 - <b>Lam</b>bda: <b>mem</b>ory 128 MB–10 GB (CPU <b>sca</b>les), **15 min**, /<b>t</b>mp <b>u</b>p <b>t</b>o 10 GB, **reserved** (<b>c</b>ap) <b>v</b>s **provisioned** (<b>n</b>o <b>co</b>ld <b>sta</b>rt) <b>concur</b>rency, **EFS** <b>f</b>or <b>sha</b>red <b>persi</b>stent <b>stor</b>age.
-- <b>I</b>aC: **CloudFormation** (<b>templ</b>ates, <b>Stack</b>Sets), **CDK** (<b>co</b>de → <b>CloudFo</b>rmation), **SAM** (<b>serve</b>rless + <b>loc</b>al <b>test</b>ing).
-- CI/CD: <b>CodePi</b>peline + <b>CodeB</b>uild + <b>I</b>aC <b>dep</b>loy, <b>tes</b>ts <b>a</b>nd <b>appr</b>oval <b>gat</b>es.
+- IaC: **CloudFormation** (<b>templ</b>ates, <b>Stack</b>Sets), **CDK** (<b>co</b>de → <b>CloudFo</b>rmation), **SAM** (<b>serve</b>rless + <b>loc</b>al <b>test</b>ing).
+- CI/CD: <b>CodePi</b>peline + <b>CodeB</b>uild + IaC <b>dep</b>loy, <b>tes</b>ts <b>a</b>nd <b>appr</b>oval <b>gat</b>es.
 - <b>Distri</b>buted <b>compu</b>ting: <b>dri</b>ver/<b>execu</b>tors, <b>parti</b>tions, <b>shuf</b>fles, <b>la</b>zy <b>evalu</b>ation, <b>sk</b>ew.
 - <b>Da</b>ta <b>struc</b>tures: <b>gra</b>phs (DAGs, <b>line</b>age, <b>Nept</b>une), <b>tre</b>es (<b>inde</b>xes, <b>nes</b>ted <b>da</b>ta), <b>ha</b>sh (<b>partit</b>ioning, <b>joi</b>ns).

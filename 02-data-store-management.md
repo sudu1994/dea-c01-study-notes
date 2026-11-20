@@ -74,12 +74,12 @@
 | <b>La</b>ke <b>tab</b>les <b>wi</b>th <b>Atomi</b>city, <b>Consis</b>tency, <b>Isola</b>tion, <b>Durab</b>ility (ACID), <b>upda</b>tes/<b>dele</b>tes, <b>ti</b>me <b>tra</b>vel | **Apache Iceberg** <b>o</b>n S3 / **[Amazon S3 Tables](00-data-basics-for-beginners.md#amazon-s3-tables)** | <b>Op</b>en <b>tab</b>le <b>for</b>mat; S3 <b>Tab</b>les <b>ad</b>ds <b>autom</b>atic <b>mainte</b>nance |
 | PB-<b>sca</b>le [<b>Struc</b>tured <b>Que</b>ry <b>Lang</b>uage [SQL]](00-data-basics-for-beginners.md#sql) <b>analy</b>tics, <b>Busi</b>ness <b>Intell</b>igence (BI) <b>dashb</b>oards, <b>comp</b>lex <b>joi</b>ns | **Amazon Redshift** | <b>Colu</b>mnar <b>Massi</b>vely <b>Para</b>llel <b>Proce</b>ssing (MPP) <b>wareh</b>ouse |
 | <b>A</b>d-<b>h</b>oc SQL <b>o</b>n S3, <b>infre</b>quent <b>quer</b>ies, <b>n</b>o <b>infrast</b>ructure | **Amazon Athena** | <b>Serve</b>rless, <b>p</b>ay <b>p</b>er TB <b>scan</b>ned |
-| <b>Sin</b>gle-<b>dig</b>it <b>m</b>s <b>k</b>ey/<b>val</b>ue <b>o</b>r <b>docu</b>ment <b>a</b>t <b>a</b>ny <b>sca</b>le | **Amazon DynamoDB** | <b>Serve</b>rless <b>NoS</b>QL, <b>predic</b>table <b>late</b>ncy |
+| <b>Sin</b>gle-<b>dig</b>it <b>m</b>s <b>k</b>ey/<b>val</b>ue <b>o</b>r <b>docu</b>ment <b>a</b>t <b>a</b>ny <b>sca</b>le | **Amazon DynamoDB** | <b>Serve</b>rless NoSQL, <b>predic</b>table <b>late</b>ncy |
 | **Microsecond** <b>rea</b>ds <b>i</b>n <b>fro</b>nt <b>o</b>f <b>Dyna</b>moDB | **DynamoDB Accelerator (DAX)** | <b>Wri</b>te-<b>thro</b>ugh <b>i</b>n-<b>mem</b>ory <b>cac</b>he <b>f</b>or <b>Dyna</b>moDB |
 | **Durable** <b>i</b>n-<b>mem</b>ory <b>k</b>ey/<b>val</b>ue <b>a</b>s <b>a</b> <b>prim</b>ary <b>data</b>base | **Amazon MemoryDB** | [<b>Red</b>is](00-data-basics-for-beginners.md#redis-and-valkey)/<b>Val</b>key [<b>Applic</b>ation <b>Progra</b>mming <b>Inter</b>face [API]](00-data-basics-for-beginners.md#api) + <b>Mul</b>ti-AZ <b>transa</b>ction <b>l</b>og (<b>da</b>ta <b>surv</b>ives <b>no</b>de <b>fail</b>ure) |
 | <b>I</b>n-<b>mem</b>ory <b>cac</b>he (<b>da</b>ta <b>c</b>an <b>b</b>e <b>rebu</b>ilt) | **Amazon ElastiCache** | <b>Low</b>er <b>co</b>st <b>cac</b>he, <b>n</b>ot <b>a</b> <b>dura</b>ble <b>sys</b>tem <b>o</b>f <b>rec</b>ord |
 | <b>Relat</b>ional <b>Onl</b>ine <b>Transa</b>ction <b>Proce</b>ssing (OLTP) <b>wi</b>th <b>transa</b>ctions | **Amazon RDS / Aurora** | ACID, <b>joi</b>ns, <b>constr</b>aints |
-| <b>Vec</b>tor <b>simil</b>arity <b>sea</b>rch <b>ne</b>xt <b>t</b>o <b>relat</b>ional <b>da</b>ta | **Aurora PostgreSQL + pgvector** (HNSW / <b>IVFF</b>lat) | <b>Ke</b>ep [<b>embed</b>dings](00-data-basics-for-beginners.md#vectors-and-embeddings) <b>wi</b>th <b>busi</b>ness <b>da</b>ta, <b>u</b>se SQL |
+| <b>Vec</b>tor <b>simil</b>arity <b>sea</b>rch <b>ne</b>xt <b>t</b>o <b>relat</b>ional <b>da</b>ta | **Aurora PostgreSQL + pgvector** (HNSW / IVFFlat) | <b>Ke</b>ep [<b>embed</b>dings](00-data-basics-for-beginners.md#vectors-and-embeddings) <b>wi</b>th <b>busi</b>ness <b>da</b>ta, <b>u</b>se SQL |
 | <b>Fu</b>ll-<b>te</b>xt <b>sea</b>rch, <b>l</b>og <b>analy</b>tics, <b>vec</b>tor <b>sea</b>rch <b>a</b>t <b>sca</b>le | **[Amazon OpenSearch Service](00-data-basics-for-beginners.md#amazon-opensearch-service) / Serverless** | <b>Inve</b>rted <b>ind</b>ex + <b>k</b>-<b>Near</b>est <b>Neigh</b>bors (<b>k</b>-NN) <b>eng</b>ine |
 | <b>Hig</b>hly <b>conne</b>cted <b>da</b>ta (<b>fra</b>ud <b>rin</b>gs, <b>recommen</b>dations) | **[Amazon Neptune](00-data-basics-for-beginners.md#amazon-neptune)** | <b>Gra</b>ph <b>data</b>base [DB] (<b>Grem</b>lin, <b>openC</b>ypher, SPARQL) |
 | <b>B</b>ig <b>da</b>ta <b>proce</b>ssing <b>wi</b>th [HDFS](00-data-basics-for-beginners.md#hdfs)/<b>HBa</b>se | **Amazon EMR** | [<b>Had</b>oop](00-data-basics-for-beginners.md#apache-hadoop) <b>ecosy</b>stem <b>stor</b>age <b>a</b>nd <b>comp</b>ute |
@@ -133,7 +133,7 @@
 | **Materialized views** | <b>Preco</b>mpute <b>expen</b>sive <b>joi</b>ns/<b>aggreg</b>ations; <b>increm</b>ental <b>a</b>nd <b>au</b>to <b>refr</b>esh |
 | **Data sharing** | <b>Li</b>ve <b>re</b>ad (<b>a</b>nd <b>wri</b>te) <b>acc</b>ess <b>acr</b>oss <b>clus</b>ters/<b>workg</b>roups/<b>acco</b>unts/<b>Regi</b>ons **with no copies** |
 | **Redshift Spectrum** | <b>Que</b>ry S3 (<b>Gl</b>ue <b>Cata</b>log <b>exte</b>rnal <b>tab</b>les) <b>fr</b>om <b>Reds</b>hift |
-| **Federated query** | <b>Que</b>ry <b>li</b>ve RDS/<b>Aur</b>ora <b>Postg</b>reSQL & <b>MyS</b>QL |
+| **Federated query** | <b>Que</b>ry <b>li</b>ve RDS/<b>Aur</b>ora <b>Postg</b>reSQL & MySQL |
 | **[Zero-ETL](00-data-basics-for-beginners.md#zero-etl-integrations)** | <b>Ne</b>ar-<b>re</b>al-<b>ti</b>me <b>replic</b>ation <b>fr</b>om <b>Aur</b>ora/RDS/<b>Dyna</b>moDB |
 | **SUPER type + PartiQL** | <b>Sto</b>re <b>a</b>nd <b>que</b>ry <b>se</b>mi-<b>struc</b>tured [<b>JavaS</b>cript <b>Obj</b>ect <b>Nota</b>tion [JSON]](00-data-basics-for-beginners.md#json) |
 
@@ -160,7 +160,7 @@
 | <b>Met</b>hod | <b>Wh</b>at <b>i</b>t <b>do</b>es | <b>Wh</b>en |
 |---|---|---|
 | **Redshift Spectrum** | <b>Exte</b>rnal <b>tab</b>les <b>ov</b>er S3 <b>v</b>ia <b>Gl</b>ue <b>Cata</b>log; <b>Spec</b>trum <b>lay</b>er <b>sca</b>ns S3 <b>i</b>n <b>para</b>llel | <b>Jo</b>in <b>wareh</b>ouse <b>da</b>ta <b>wi</b>th **cold/large lake data** <b>with</b>out <b>load</b>ing <b>i</b>t |
-| **Redshift federated query** | <b>Pus</b>hes <b>quer</b>ies <b>do</b>wn <b>t</b>o **live** <b>Aur</b>ora/RDS <b>Postg</b>reSQL <b>o</b>r <b>MyS</b>QL | <b>Jo</b>in <b>operat</b>ional <b>da</b>ta <b>wi</b>th <b>wareh</b>ouse <b>da</b>ta <b>with</b>out <b>Extr</b>act, <b>Trans</b>form, <b>Lo</b>ad (ETL) |
+| **Redshift federated query** | <b>Pus</b>hes <b>quer</b>ies <b>do</b>wn <b>t</b>o **live** <b>Aur</b>ora/RDS <b>Postg</b>reSQL <b>o</b>r MySQL | <b>Jo</b>in <b>operat</b>ional <b>da</b>ta <b>wi</b>th <b>wareh</b>ouse <b>da</b>ta <b>with</b>out <b>Extr</b>act, <b>Trans</b>form, <b>Lo</b>ad (ETL) |
 | **Redshift materialized views** | <b>Sto</b>re <b>t</b>he <b>res</b>ult <b>o</b>f <b>a</b> <b>que</b>ry (<b>c</b>an <b>incl</b>ude <b>Spec</b>trum/<b>feder</b>ated <b>sour</b>ces) | <b>Spe</b>ed <b>u</b>p <b>repe</b>ated <b>expen</b>sive <b>quer</b>ies; <b>refr</b>esh <b>o</b>n <b>sche</b>dule <b>o</b>r <b>automat</b>ically |
 | **Athena federated query** | <b>Lam</b>bda <b>conne</b>ctors <b>t</b>o <b>Dyna</b>moDB, RDS, [<b>Cloud</b>Watch](00-data-basics-for-beginners.md#amazon-cloudwatch), <b>oth</b>ers | SQL <b>acr</b>oss <b>ma</b>ny <b>sour</b>ces <b>fr</b>om <b>Ath</b>ena |
 
@@ -179,9 +179,9 @@
 - <b>Lo</b>ng-<b>runn</b>ing <b>op</b>en <b>transa</b>ctions <b>ho</b>ld <b>loc</b>ks. <b>Com</b>mit <b>prom</b>ptly, <b>a</b>nd <b>sche</b>dule DDL <b>outs</b>ide <b>bu</b>sy <b>wind</b>ows.
 
 **RDS / Aurora:**
-- <b>R</b>ow-<b>lev</b>el <b>lock</b>ing <b>i</b>n <b>Inn</b>oDB/<b>Postg</b>reSQL; `SELECT … FOR UPDATE` <b>loc</b>ks <b>ro</b>ws <b>f</b>or <b>a</b> <b>transa</b>ction.
+- <b>R</b>ow-<b>lev</b>el <b>lock</b>ing <b>i</b>n InnoDB/<b>Postg</b>reSQL; `SELECT … FOR UPDATE` <b>loc</b>ks <b>ro</b>ws <b>f</b>or <b>a</b> <b>transa</b>ction.
 - **Deadlocks**: <b>t</b>he <b>eng</b>ine <b>kil</b>ls <b>o</b>ne <b>transa</b>ction. <b>F</b>ix <b>wi</b>th <b>consi</b>stent <b>lo</b>ck <b>orde</b>ring <b>a</b>nd <b>shor</b>ter <b>transa</b>ctions.
-- <b>Insp</b>ect <b>wi</b>th `pg_locks` / `pg_stat_activity` (<b>Postg</b>reSQL) <b>o</b>r `SHOW ENGINE INNODB STATUS` / `performance_schema` (<b>MyS</b>QL). **Performance Insights** <b>sho</b>ws <b>lo</b>ck <b>wai</b>ts <b>visu</b>ally.
+- <b>Insp</b>ect <b>wi</b>th `pg_locks` / `pg_stat_activity` (<b>Postg</b>reSQL) <b>o</b>r `SHOW ENGINE INNODB STATUS` / `performance_schema` (MySQL). **Performance Insights** <b>sho</b>ws <b>lo</b>ck <b>wai</b>ts <b>visu</b>ally.
 
 ### 🆕 Open table formats: Apache Iceberg (skill 2.1.7)
 
@@ -208,7 +208,7 @@ Catalog (Glue Data Catalog / S3 Tables) ──► current metadata.json
 | **Hidden partitioning** | <b>Parti</b>tion <b>b</b>y <b>trans</b>forms (<b>e</b>.g., `day(ts)`), <b>s</b>o <b>quer</b>ies <b>don</b>'t <b>ne</b>ed <b>t</b>o <b>refer</b>ence <b>parti</b>tion <b>colu</b>mns |
 | **Partition evolution** | <b>Cha</b>nge <b>partit</b>ioning <b>sch</b>eme <b>with</b>out <b>rewri</b>ting <b>o</b>ld <b>da</b>ta |
 | **Time travel** | <b>Que</b>ry <b>a</b> <b>pa</b>st <b>snap</b>shot/<b>ti</b>me; <b>ro</b>ll <b>ba</b>ck <b>b</b>ad <b>wri</b>tes |
-| **Copy-on-write vs merge-on-read** | <b>C</b>oW <b>rewr</b>ites <b>fil</b>es <b>o</b>n <b>upd</b>ate (<b>fas</b>ter <b>rea</b>ds); <b>M</b>oR <b>wri</b>tes <b>del</b>ete <b>fil</b>es (<b>fas</b>ter <b>wri</b>tes, <b>compa</b>ction <b>nee</b>ded) |
+| **Copy-on-write vs merge-on-read** | CoW <b>rewr</b>ites <b>fil</b>es <b>o</b>n <b>upd</b>ate (<b>fas</b>ter <b>rea</b>ds); MoR <b>wri</b>tes <b>del</b>ete <b>fil</b>es (<b>fas</b>ter <b>wri</b>tes, <b>compa</b>ction <b>nee</b>ded) |
 
 **Maintenance (exam favorite):**
 - **Compaction**: <b>rewr</b>ite <b>ma</b>ny [<b>sma</b>ll <b>fil</b>es](00-data-basics-for-beginners.md#small-files-problem) <b>in</b>to <b>few</b>er <b>lar</b>ge <b>fil</b>es. <b>I</b>n <b>Ath</b>ena: `OPTIMIZE table REWRITE DATA USING BIN_PACK`.
@@ -217,7 +217,7 @@ Catalog (Glue Data Catalog / S3 Tables) ──► current metadata.json
 
 **Amazon S3 Tables:** **table buckets** <b>th</b>at <b>sto</b>re <b>Iceb</b>erg <b>tab</b>les <b>a</b>s <b>a</b> <b>mana</b>ged <b>reso</b>urce, <b>wi</b>th **automatic compaction, snapshot management, and unreferenced file removal**, <b>pl</b>us <b>hig</b>her <b>perfor</b>mance <b>f</b>or <b>tabu</b>lar <b>da</b>ta. <b>Que</b>ry <b>fr</b>om <b>Ath</b>ena, <b>Reds</b>hift, EMR, <b>Gl</b>ue, <b>a</b>nd [<b>Fire</b>hose](00-data-basics-for-beginners.md#amazon-data-firehose) <b>c</b>an <b>deli</b>ver <b>in</b>to <b>th</b>em. → "<b>Mana</b>ged <b>Iceb</b>erg <b>wi</b>th <b>lea</b>st <b>mainte</b>nance" = **S3 Tables**.
 
-**Other formats you may see as distractors:** **[Apache Hudi](00-data-basics-for-beginners.md#apache-hudi)** (<b>upse</b>rts/<b>increm</b>ental <b>pul</b>ls, <b>C</b>oW/<b>M</b>oR, <b>str</b>ong <b>o</b>n EMR) <b>a</b>nd **[Delta Lake](00-data-basics-for-beginners.md#delta-lake)** (<b>Datab</b>ricks-<b>ori</b>gin). AWS <b>analy</b>tics <b>serv</b>ices <b>supp</b>ort <b>a</b>ll <b>thr</b>ee, <b>b</b>ut <b>Iceb</b>erg <b>i</b>s <b>t</b>he <b>o</b>ne <b>t</b>he <b>ex</b>am <b>gui</b>de <b>nam</b>es.
+**Other formats you may see as distractors:** **[Apache Hudi](00-data-basics-for-beginners.md#apache-hudi)** (<b>upse</b>rts/<b>increm</b>ental <b>pul</b>ls, CoW/MoR, <b>str</b>ong <b>o</b>n EMR) <b>a</b>nd **[Delta Lake](00-data-basics-for-beginners.md#delta-lake)** (<b>Datab</b>ricks-<b>ori</b>gin). AWS <b>analy</b>tics <b>serv</b>ices <b>supp</b>ort <b>a</b>ll <b>thr</b>ee, <b>b</b>ut <b>Iceb</b>erg <b>i</b>s <b>t</b>he <b>o</b>ne <b>t</b>he <b>ex</b>am <b>gui</b>de <b>nam</b>es.
 
 **Engines that work with Iceberg on AWS:** <b>Ath</b>ena (<b>re</b>ad/<b>wri</b>te, <b>Da</b>ta <b>Manipu</b>lation <b>Lang</b>uage [DML], <b>ti</b>me <b>tra</b>vel), <b>Gl</b>ue ETL, EMR ([<b>Spa</b>rk](00-data-basics-for-beginners.md#apache-spark), [<b>Tri</b>no](00-data-basics-for-beginners.md#presto-and-trino), [<b>Fli</b>nk](00-data-basics-for-beginners.md#apache-flink)), <b>Reds</b>hift (<b>re</b>ad), <b>Fire</b>hose (<b>wri</b>te), [<b>Mana</b>ged <b>Serv</b>ice <b>f</b>or <b>Apa</b>che <b>Fli</b>nk](00-data-basics-for-beginners.md#managed-service-for-apache-flink).
 
@@ -427,7 +427,7 @@ Catalog (Glue Data Catalog / S3 Tables) ──► current metadata.json
 
 ### Schema conversion (skill 2.4.3)
 
-- **Homogeneous** <b>migra</b>tions (<b>Ora</b>cle → RDS <b>Ora</b>cle, <b>MyS</b>QL → <b>Aur</b>ora <b>MyS</b>QL): <b>n</b>o <b>conve</b>rsion <b>nee</b>ded. <b>U</b>se <b>nat</b>ive <b>too</b>ls <b>o</b>r DMS.
+- **Homogeneous** <b>migra</b>tions (<b>Ora</b>cle → RDS <b>Ora</b>cle, MySQL → <b>Aur</b>ora MySQL): <b>n</b>o <b>conve</b>rsion <b>nee</b>ded. <b>U</b>se <b>nat</b>ive <b>too</b>ls <b>o</b>r DMS.
 - **Heterogeneous** <b>migra</b>tions (<b>Ora</b>cle/SQL <b>Ser</b>ver → <b>Aur</b>ora <b>Postg</b>reSQL <b>o</b>r <b>Reds</b>hift): <b>conv</b>ert <b>sch</b>ema <b>obje</b>cts <b>fir</b>st.
   - **DMS Schema Conversion**: <b>mana</b>ged, <b>ins</b>ide <b>t</b>he DMS <b>cons</b>ole; <b>gener</b>ates <b>asses</b>sment <b>repo</b>rts <b>a</b>nd <b>conv</b>erts <b>sche</b>mas <b>a</b>nd <b>co</b>de <b>obje</b>cts.
   - **AWS SCT**: <b>downlo</b>adable <b>desk</b>top <b>to</b>ol <b>th</b>at <b>do</b>es <b>t</b>he <b>sa</b>me (<b>sti</b>ll <b>nam</b>ed <b>i</b>n <b>t</b>he <b>ski</b>ll, <b>tho</b>ugh <b>remo</b>ved <b>fr</b>om <b>t</b>he <b>i</b>n-<b>sco</b>pe <b>serv</b>ice <b>li</b>st <b>i</b>n v1.1).

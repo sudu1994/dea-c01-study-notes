@@ -14,7 +14,7 @@
 | <b>Wind</b>owed <b>aggreg</b>ations / <b>stat</b>eful <b>str</b>eam <b>proce</b>ssing | **[Managed Service for Apache Flink](00-data-basics-for-beginners.md#managed-service-for-apache-flink)** |
 | <b>Data</b>base <b>migra</b>tion, <b>Cha</b>nge <b>Da</b>ta <b>Capt</b>ure (CDC) | **Amazon Web Services (AWS) [Database Migration Service [DMS]](00-data-basics-for-beginners.md#aws-dms)** (+ DMS <b>Sch</b>ema <b>Conve</b>rsion <b>f</b>or <b>heterog</b>eneous) |
 | <b>Data</b>base (DB) → [<b>Reds</b>hift](00-data-basics-for-beginners.md#amazon-redshift) <b>wi</b>th <b>n</b>o <b>pipe</b>line | **[Zero-ETL](00-data-basics-for-beginners.md#zero-etl-integrations) integration** |
-| <b>Soft</b>ware <b>a</b>s <b>a</b> <b>Serv</b>ice (<b>Sa</b>aS) <b>sou</b>rce ([<b>Sales</b>force](00-data-basics-for-beginners.md#snowflake-splunk-and-salesforce), <b>Zend</b>esk…) | **[Amazon AppFlow](00-data-basics-for-beginners.md#amazon-appflow)** |
+| <b>Soft</b>ware <b>a</b>s <b>a</b> <b>Serv</b>ice (SaaS) <b>sou</b>rce ([<b>Sales</b>force](00-data-basics-for-beginners.md#snowflake-splunk-and-salesforce), <b>Zend</b>esk…) | **[Amazon AppFlow](00-data-basics-for-beginners.md#amazon-appflow)** |
 | <b>O</b>n-<b>pr</b>em <b>Netw</b>ork <b>Fi</b>le <b>Sys</b>tem (NFS)/<b>Ser</b>ver <b>Mess</b>age <b>Blo</b>ck (SMB) <b>t</b>o <b>Sim</b>ple <b>Stor</b>age <b>Serv</b>ice (S3) | **[AWS DataSync](00-data-basics-for-beginners.md#aws-datasync)** |
 | <b>Part</b>ners <b>upl</b>oad <b>ov</b>er SSH <b>Fi</b>le <b>Tran</b>sfer <b>Prot</b>ocol (SFTP) | **[AWS Transfer Family](00-data-basics-for-beginners.md#aws-transfer-family)** |
 | <b>Petab</b>ytes <b>offl</b>ine | **[Snow Family](00-data-basics-for-beginners.md#aws-snow-family)** |
@@ -82,7 +82,7 @@
 | <b>Dyna</b>moDB <b>Stre</b>ams <b>reten</b>tion | 24 <b>h</b> |
 | <b>Lam</b>bda | 15 <b>m</b>in <b>time</b>out; 128 MB–10,240 MB <b>mem</b>ory; /<b>t</b>mp <b>u</b>p <b>t</b>o 10 GB; <b>Kine</b>sis <b>parallel</b>ization <b>fac</b>tor <b>u</b>p <b>t</b>o 10 |
 | <b>St</b>ep <b>Funct</b>ions | <b>Stan</b>dard <b>u</b>p <b>t</b>o 1 <b>ye</b>ar; <b>Expr</b>ess <b>u</b>p <b>t</b>o 5 <b>m</b>in; 256 KB <b>payl</b>oad |
-| <b>Fire</b>hose <b>buf</b>fer | 1–128 <b>M</b>iB <b>si</b>ze / <b>inte</b>rval (<b>ze</b>ro <b>buffe</b>ring <b>avail</b>able) |
+| <b>Fire</b>hose <b>buf</b>fer | 1–128 MiB <b>si</b>ze / <b>inte</b>rval (<b>ze</b>ro <b>buffe</b>ring <b>avail</b>able) |
 | S3 <b>requ</b>est <b>ra</b>te | 3,500 <b>wri</b>tes & 5,500 <b>rea</b>ds <b>p</b>er <b>sec</b>ond **per prefix** |
 | S3 <b>lifec</b>ycle <b>t</b>o <b>Infre</b>quent <b>Acc</b>ess (IA) | ≥ 30 <b>da</b>ys <b>i</b>n <b>Stan</b>dard |
 | S3 <b>mini</b>mum <b>durat</b>ions | IA 30 <b>d</b>; <b>Glac</b>ier <b>Inst</b>ant <b>Retri</b>eval (<b>Glac</b>ier IR)/<b>Flex</b>ible 90 <b>d</b>; <b>De</b>ep <b>Arch</b>ive 180 <b>d</b> |

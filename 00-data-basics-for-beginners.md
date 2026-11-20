@@ -50,7 +50,7 @@
 <b>T</b>he <b>stan</b>dard <b>lang</b>uage <b>f</b>or <b>ask</b>ing <b>quest</b>ions <b>o</b>f <b>tabu</b>lar <b>da</b>ta: `SELECT region, SUM(sales) FROM orders GROUP BY region`. <b>Us</b>ed <b>b</b>y <b>Ath</b>ena, <b>Reds</b>hift, RDS <b>a</b>nd <b>ma</b>ny <b>oth</b>er <b>serv</b>ices.
 
 ### API
-<b>A</b>n **Application Programming Interface** <b>i</b>s <b>a</b> <b>defi</b>ned <b>w</b>ay <b>f</b>or <b>o</b>ne <b>prog</b>ram <b>t</b>o <b>a</b>sk <b>anot</b>her <b>f</b>or <b>da</b>ta <b>o</b>r <b>acti</b>ons, <b>usua</b>lly <b>ov</b>er <b>t</b>he <b>w</b>eb (HTTP). <b>F</b>or <b>exam</b>ple, "<b>ca</b>ll `GET /orders?date=today` <b>a</b>nd <b>rece</b>ive JSON <b>ba</b>ck." <b>Ma</b>ny <b>da</b>ta <b>sour</b>ces (<b>Sa</b>aS <b>ap</b>ps, <b>part</b>ners) <b>a</b>re <b>re</b>ad <b>thro</b>ugh <b>the</b>ir APIs.
+<b>A</b>n **Application Programming Interface** <b>i</b>s <b>a</b> <b>defi</b>ned <b>w</b>ay <b>f</b>or <b>o</b>ne <b>prog</b>ram <b>t</b>o <b>a</b>sk <b>anot</b>her <b>f</b>or <b>da</b>ta <b>o</b>r <b>acti</b>ons, <b>usua</b>lly <b>ov</b>er <b>t</b>he <b>w</b>eb (HTTP). <b>F</b>or <b>exam</b>ple, "<b>ca</b>ll `GET /orders?date=today` <b>a</b>nd <b>rece</b>ive JSON <b>ba</b>ck." <b>Ma</b>ny <b>da</b>ta <b>sour</b>ces (SaaS <b>ap</b>ps, <b>part</b>ners) <b>a</b>re <b>re</b>ad <b>thro</b>ugh <b>the</b>ir APIs.
 
 ### JDBC and ODBC
 <b>Stan</b>dard "<b>plu</b>gs" (<b>driv</b>ers) <b>th</b>at <b>l</b>et <b>a</b> <b>prog</b>ram <b>ta</b>lk <b>t</b>o <b>alm</b>ost <b>a</b>ny SQL <b>data</b>base <b>t</b>he <b>sa</b>me <b>w</b>ay. **JDBC (Java Database Connectivity)** <b>i</b>s <b>us</b>ed <b>b</b>y <b>Ja</b>va-<b>bas</b>ed <b>too</b>ls <b>su</b>ch <b>a</b>s <b>Spa</b>rk, <b>Gl</b>ue <b>a</b>nd EMR. **ODBC (Open Database Connectivity)** <b>i</b>s <b>us</b>ed <b>b</b>y <b>ma</b>ny <b>oth</b>er <b>too</b>ls, <b>su</b>ch <b>a</b>s <b>Exc</b>el, <b>Tabl</b>eau <b>a</b>nd <b>Pow</b>er BI. <b>A</b> JDBC/ODBC *<b>conne</b>ction* = <b>data</b>base <b>addr</b>ess (URL) + <b>po</b>rt + <b>user</b>name/<b>pass</b>word.
@@ -176,7 +176,7 @@
 <b>A</b> <b>to</b>ol <b>t</b>o <b>sche</b>dule <b>a</b>nd <b>orches</b>trate <b>pipel</b>ines <b>writ</b>ten <b>a</b>s <b>Pyt</b>hon **DAGs**, <b>wi</b>th <b>a</b> <b>w</b>eb UI <b>show</b>ing <b>ru</b>ns, <b>fail</b>ures <b>a</b>nd <b>retr</b>ies. <b>O</b>n AWS: **MWAA**.
 
 ### Apache Iceberg
-<b>A</b>n <b>op</b>en **table format** <b>th</b>at <b>tur</b>ns <b>a</b> <b>fol</b>der <b>o</b>f <b>Parq</b>uet <b>fil</b>es <b>i</b>n S3 <b>in</b>to <b>a</b> <b>re</b>al <b>tab</b>le <b>suppo</b>rting <b>upda</b>tes, <b>dele</b>tes, `MERGE`, <b>sch</b>ema <b>chan</b>ges <b>a</b>nd **time travel** (<b>que</b>ry <b>t</b>he <b>tab</b>le <b>a</b>s <b>i</b>t <b>w</b>as <b>yeste</b>rday). <b>AWS</b>'s <b>ma</b>in <b>lakeh</b>ouse <b>tab</b>le <b>for</b>mat.
+<b>A</b>n <b>op</b>en **table format** <b>th</b>at <b>tur</b>ns <b>a</b> <b>fol</b>der <b>o</b>f <b>Parq</b>uet <b>fil</b>es <b>i</b>n S3 <b>in</b>to <b>a</b> <b>re</b>al <b>tab</b>le <b>suppo</b>rting <b>upda</b>tes, <b>dele</b>tes, `MERGE`, <b>sch</b>ema <b>chan</b>ges <b>a</b>nd **time travel** (<b>que</b>ry <b>t</b>he <b>tab</b>le <b>a</b>s <b>i</b>t <b>w</b>as <b>yeste</b>rday). AWS's <b>ma</b>in <b>lakeh</b>ouse <b>tab</b>le <b>for</b>mat.
 
 ### Apache Hudi
 <b>Anot</b>her <b>tab</b>le <b>for</b>mat <b>li</b>ke <b>Iceb</b>erg, <b>focu</b>sed <b>o</b>n <b>fa</b>st <b>upse</b>rts <b>a</b>nd <b>increm</b>ental <b>proce</b>ssing.
@@ -188,7 +188,7 @@
 <b>Fa</b>st <b>distri</b>buted SQL <b>engi</b>nes <b>th</b>at <b>que</b>ry <b>da</b>ta <b>whe</b>re <b>i</b>t <b>si</b>ts (S3, <b>datab</b>ases) <b>with</b>out <b>load</b>ing <b>i</b>t <b>fir</b>st. <b>Ath</b>ena <b>i</b>s <b>bui</b>lt <b>o</b>n <b>Tri</b>no/<b>Pre</b>sto.
 
 ### Apache HBase
-<b>A</b> <b>NoS</b>QL <b>data</b>base <b>o</b>n <b>t</b>op <b>o</b>f <b>Had</b>oop <b>f</b>or <b>fa</b>st <b>ran</b>dom <b>rea</b>ds/<b>wri</b>tes <b>o</b>n <b>hu</b>ge <b>tab</b>les. <b>Ru</b>ns <b>o</b>n EMR.
+<b>A</b> NoSQL <b>data</b>base <b>o</b>n <b>t</b>op <b>o</b>f <b>Had</b>oop <b>f</b>or <b>fa</b>st <b>ran</b>dom <b>rea</b>ds/<b>wri</b>tes <b>o</b>n <b>hu</b>ge <b>tab</b>les. <b>Ru</b>ns <b>o</b>n EMR.
 
 ### Redis and Valkey
 <b>I</b>n-<b>mem</b>ory <b>k</b>ey/<b>val</b>ue <b>sto</b>res: <b>extre</b>mely <b>fa</b>st, <b>oft</b>en <b>us</b>ed <b>a</b>s <b>a</b> <b>cac</b>he. <b>Val</b>key <b>i</b>s <b>t</b>he <b>op</b>en-<b>sou</b>rce <b>fo</b>rk <b>o</b>f <b>Red</b>is. AWS <b>ru</b>ns <b>th</b>em <b>a</b>s <b>Elasti</b>Cache <b>a</b>nd <b>Memo</b>ryDB.
@@ -200,16 +200,16 @@
 <b>A</b> **container** <b>pack</b>ages <b>a</b>n <b>a</b>pp <b>wi</b>th <b>every</b>thing <b>i</b>t <b>nee</b>ds <b>s</b>o <b>i</b>t <b>ru</b>ns <b>t</b>he <b>sa</b>me <b>every</b>where. <b>Doc</b>ker <b>i</b>s <b>t</b>he <b>com</b>mon <b>to</b>ol <b>f</b>or <b>buil</b>ding <b>th</b>em.
 
 ### PostgreSQL, MySQL, Oracle and SQL Server
-<b>Popu</b>lar **relational databases** (<b>tab</b>les, SQL, <b>transa</b>ctions). <b>Postg</b>reSQL <b>a</b>nd <b>MyS</b>QL <b>a</b>re <b>op</b>en <b>sou</b>rce; <b>Ora</b>cle <b>a</b>nd SQL <b>Ser</b>ver <b>a</b>re <b>comme</b>rcial. RDS <b>a</b>nd <b>Aur</b>ora <b>r</b>un <b>th</b>em <b>f</b>or <b>y</b>ou. **pgvector** <b>i</b>s <b>a</b> <b>Postg</b>reSQL <b>exten</b>sion <b>f</b>or <b>stor</b>ing <b>a</b>nd <b>searc</b>hing <b>vect</b>ors.
+<b>Popu</b>lar **relational databases** (<b>tab</b>les, SQL, <b>transa</b>ctions). <b>Postg</b>reSQL <b>a</b>nd MySQL <b>a</b>re <b>op</b>en <b>sou</b>rce; <b>Ora</b>cle <b>a</b>nd SQL <b>Ser</b>ver <b>a</b>re <b>comme</b>rcial. RDS <b>a</b>nd <b>Aur</b>ora <b>r</b>un <b>th</b>em <b>f</b>or <b>y</b>ou. **pgvector** <b>i</b>s <b>a</b> <b>Postg</b>reSQL <b>exten</b>sion <b>f</b>or <b>stor</b>ing <b>a</b>nd <b>searc</b>hing <b>vect</b>ors.
 
 ### MongoDB
-<b>A</b> <b>popu</b>lar <b>NoS</b>QL **document database** <b>stor</b>ing JSON-<b>li</b>ke <b>docum</b>ents. <b>AWS</b>'s <b>compa</b>tible <b>serv</b>ice <b>i</b>s <b>Docum</b>entDB.
+<b>A</b> <b>popu</b>lar NoSQL **document database** <b>stor</b>ing JSON-<b>li</b>ke <b>docum</b>ents. AWS's <b>compa</b>tible <b>serv</b>ice <b>i</b>s <b>Docum</b>entDB.
 
 ### Jupyter
 <b>Noteb</b>ooks <b>i</b>n <b>t</b>he <b>brow</b>ser <b>whe</b>re <b>y</b>ou <b>m</b>ix <b>co</b>de, <b>resu</b>lts <b>a</b>nd <b>not</b>es, <b>ce</b>ll <b>b</b>y <b>ce</b>ll. <b>Com</b>mon <b>f</b>or <b>da</b>ta <b>explor</b>ation.
 
 ### Snowflake, Splunk and Salesforce
-<b>Thi</b>rd-<b>par</b>ty <b>prod</b>ucts <b>th</b>at <b>app</b>ear <b>a</b>s <b>sour</b>ces <b>o</b>r <b>destin</b>ations: **Snowflake** <b>i</b>s <b>a</b> <b>clo</b>ud <b>da</b>ta <b>wareh</b>ouse, **Splunk** <b>a</b> <b>l</b>og <b>sea</b>rch/<b>analy</b>tics <b>to</b>ol, **Salesforce** <b>a</b> <b>cust</b>omer-<b>relati</b>onship (CRM) <b>Sa</b>aS <b>a</b>pp.
+<b>Thi</b>rd-<b>par</b>ty <b>prod</b>ucts <b>th</b>at <b>app</b>ear <b>a</b>s <b>sour</b>ces <b>o</b>r <b>destin</b>ations: **Snowflake** <b>i</b>s <b>a</b> <b>clo</b>ud <b>da</b>ta <b>wareh</b>ouse, **Splunk** <b>a</b> <b>l</b>og <b>sea</b>rch/<b>analy</b>tics <b>to</b>ol, **Salesforce** <b>a</b> <b>cust</b>omer-<b>relati</b>onship (CRM) SaaS <b>a</b>pp.
 
 ---
 
@@ -224,16 +224,16 @@
 S3 <b>buck</b>ets <b>bui</b>lt <b>specif</b>ically <b>f</b>or <b>Iceb</b>erg <b>tab</b>les, <b>wi</b>th <b>autom</b>atic <b>mainte</b>nance (<b>compa</b>ction, <b>clea</b>nup).
 
 #### Amazon Redshift
-<b>AWS</b>'s <b>da</b>ta <b>wareh</b>ouse <b>f</b>or <b>fa</b>st SQL <b>analy</b>tics <b>a</b>t <b>peta</b>byte <b>sca</b>le. **Redshift Spectrum** <b>le</b>ts <b>i</b>t <b>que</b>ry <b>fil</b>es <b>i</b>n S3 <b>dire</b>ctly; **Redshift Serverless** <b>remo</b>ves <b>clus</b>ter <b>manag</b>ement.
+AWS's <b>da</b>ta <b>wareh</b>ouse <b>f</b>or <b>fa</b>st SQL <b>analy</b>tics <b>a</b>t <b>peta</b>byte <b>sca</b>le. **Redshift Spectrum** <b>le</b>ts <b>i</b>t <b>que</b>ry <b>fil</b>es <b>i</b>n S3 <b>dire</b>ctly; **Redshift Serverless** <b>remo</b>ves <b>clus</b>ter <b>manag</b>ement.
 
 #### Amazon RDS
-<b>Mana</b>ged <b>relat</b>ional <b>datab</b>ases (<b>Postg</b>reSQL, <b>MyS</b>QL, <b>Ora</b>cle, SQL <b>Ser</b>ver…): AWS <b>hand</b>les <b>back</b>ups, <b>patc</b>hing <b>a</b>nd <b>fail</b>over.
+<b>Mana</b>ged <b>relat</b>ional <b>datab</b>ases (<b>Postg</b>reSQL, MySQL, <b>Ora</b>cle, SQL <b>Ser</b>ver…): AWS <b>hand</b>les <b>back</b>ups, <b>patc</b>hing <b>a</b>nd <b>fail</b>over.
 
 #### Amazon Aurora
-<b>AWS</b>'s <b>o</b>wn <b>hi</b>gh-<b>perfor</b>mance <b>MyS</b>QL/<b>Postg</b>reSQL-<b>compa</b>tible <b>data</b>base, <b>pa</b>rt <b>o</b>f RDS.
+AWS's <b>o</b>wn <b>hi</b>gh-<b>perfor</b>mance MySQL/<b>Postg</b>reSQL-<b>compa</b>tible <b>data</b>base, <b>pa</b>rt <b>o</b>f RDS.
 
 #### Amazon DynamoDB
-<b>Serve</b>rless <b>NoS</b>QL <b>k</b>ey/<b>val</b>ue <b>data</b>base <b>wi</b>th <b>sin</b>gle-<b>dig</b>it-<b>millis</b>econd <b>spe</b>ed <b>a</b>t <b>a</b>ny <b>sca</b>le. <b>Desi</b>gned <b>aro</b>und <b>kno</b>wn <b>acc</b>ess <b>patt</b>erns, <b>n</b>ot <b>a</b>d-<b>h</b>oc <b>quer</b>ies.
+<b>Serve</b>rless NoSQL <b>k</b>ey/<b>val</b>ue <b>data</b>base <b>wi</b>th <b>sin</b>gle-<b>dig</b>it-<b>millis</b>econd <b>spe</b>ed <b>a</b>t <b>a</b>ny <b>sca</b>le. <b>Desi</b>gned <b>aro</b>und <b>kno</b>wn <b>acc</b>ess <b>patt</b>erns, <b>n</b>ot <b>a</b>d-<b>h</b>oc <b>quer</b>ies.
 
 #### Amazon OpenSearch Service
 <b>Sea</b>rch <b>a</b>nd <b>l</b>og-<b>analy</b>tics <b>eng</b>ine (<b>op</b>en-<b>sou</b>rce <b>fo</b>rk <b>o</b>f <b>Elastic</b>search): <b>fu</b>ll-<b>te</b>xt <b>sea</b>rch, <b>l</b>og <b>dashb</b>oards, <b>vec</b>tor <b>sea</b>rch.
@@ -247,7 +247,7 @@ S3 <b>buck</b>ets <b>bui</b>lt <b>specif</b>ically <b>f</b>or <b>Iceb</b>erg <b>
 ### Moving data in (ingestion)
 
 #### Amazon Kinesis Data Streams
-<b>AWS</b>'s <b>strea</b>ming <b>serv</b>ice, <b>li</b>ke <b>Kaf</b>ka: <b>produ</b>cers <b>wri</b>te <b>reco</b>rds <b>in</b>to <b>sha</b>rds, <b>ma</b>ny <b>consu</b>mers <b>re</b>ad <b>th</b>em, <b>da</b>ta <b>i</b>s <b>ke</b>pt <b>f</b>or <b>rep</b>lay.
+AWS's <b>strea</b>ming <b>serv</b>ice, <b>li</b>ke <b>Kaf</b>ka: <b>produ</b>cers <b>wri</b>te <b>reco</b>rds <b>in</b>to <b>sha</b>rds, <b>ma</b>ny <b>consu</b>mers <b>re</b>ad <b>th</b>em, <b>da</b>ta <b>i</b>s <b>ke</b>pt <b>f</b>or <b>rep</b>lay.
 
 #### Amazon Data Firehose
 <b>T</b>he <b>easi</b>est <b>w</b>ay <b>t</b>o *<b>deli</b>ver* <b>strea</b>ming <b>da</b>ta: <b>i</b>t <b>buff</b>ers <b>reco</b>rds <b>a</b>nd <b>wri</b>tes <b>th</b>em <b>t</b>o S3, <b>Reds</b>hift, <b>OpenS</b>earch, <b>Spl</b>unk <b>a</b>nd <b>oth</b>ers, <b>wi</b>th <b>n</b>o <b>co</b>de. <b>C</b>an <b>conv</b>ert JSON <b>t</b>o <b>Parq</b>uet <b>o</b>n <b>t</b>he <b>w</b>ay. (<b>Form</b>erly "<b>Kine</b>sis <b>Da</b>ta <b>Fire</b>hose".)
@@ -271,7 +271,7 @@ AWS-<b>mana</b>ged <b>autom</b>atic <b>replic</b>ation <b>fr</b>om <b>Aur</b>ora
 <b>Mana</b>ged SFTP/FTP <b>serv</b>ers <b>th</b>at <b>sa</b>ve <b>uplo</b>ads <b>stra</b>ight <b>in</b>to S3, <b>s</b>o <b>part</b>ners <b>ke</b>ep <b>the</b>ir <b>exis</b>ting <b>fi</b>le-<b>tran</b>sfer <b>too</b>ls.
 
 #### Amazon AppFlow
-<b>N</b>o-<b>co</b>de <b>trans</b>fers <b>fr</b>om <b>Sa</b>aS <b>ap</b>ps (<b>Sales</b>force, <b>Zend</b>esk, <b>Servi</b>ceNow…) <b>in</b>to S3/<b>Reds</b>hift.
+<b>N</b>o-<b>co</b>de <b>trans</b>fers <b>fr</b>om SaaS <b>ap</b>ps (<b>Sales</b>force, <b>Zend</b>esk, <b>Servi</b>ceNow…) <b>in</b>to S3/<b>Reds</b>hift.
 
 #### AWS Snow Family
 <b>Phys</b>ical <b>devi</b>ces AWS <b>shi</b>ps <b>t</b>o <b>y</b>ou; <b>y</b>ou <b>lo</b>ad <b>petab</b>ytes <b>on</b>to <b>th</b>em <b>a</b>nd <b>sh</b>ip <b>th</b>em <b>ba</b>ck. <b>Us</b>ed <b>wh</b>en <b>t</b>he <b>netw</b>ork <b>i</b>s <b>t</b>oo <b>sl</b>ow.
@@ -300,7 +300,7 @@ AWS-<b>mana</b>ged <b>autom</b>atic <b>replic</b>ation <b>fr</b>om <b>Aur</b>ora
 <b>Ru</b>ns <b>sma</b>ll <b>pie</b>ces <b>o</b>f <b>co</b>de <b>i</b>n <b>resp</b>onse <b>t</b>o <b>eve</b>nts (<b>a</b> <b>fi</b>le <b>arri</b>ves, <b>a</b>n API <b>i</b>s <b>cal</b>led), <b>u</b>p <b>t</b>o 15 <b>minu</b>tes, <b>n</b>o <b>serv</b>ers. <b>P</b>ay <b>p</b>er <b>r</b>un.
 
 #### Amazon ECS, EKS and Fargate
-<b>Wa</b>ys <b>t</b>o <b>r</b>un <b>conta</b>iners: **ECS** <b>i</b>s <b>AWS</b>'s <b>o</b>wn <b>conta</b>iner <b>serv</b>ice, **EKS** <b>i</b>s <b>mana</b>ged <b>Kuber</b>netes, <b>a</b>nd **Fargate** <b>ru</b>ns <b>conta</b>iners <b>f</b>or <b>eit</b>her <b>with</b>out <b>mana</b>ging <b>serv</b>ers.
+<b>Wa</b>ys <b>t</b>o <b>r</b>un <b>conta</b>iners: **ECS** <b>i</b>s AWS's <b>o</b>wn <b>conta</b>iner <b>serv</b>ice, **EKS** <b>i</b>s <b>mana</b>ged <b>Kuber</b>netes, <b>a</b>nd **Fargate** <b>ru</b>ns <b>conta</b>iners <b>f</b>or <b>eit</b>her <b>with</b>out <b>mana</b>ging <b>serv</b>ers.
 
 #### AWS Batch
 <b>Ru</b>ns <b>lar</b>ge <b>numb</b>ers <b>o</b>f <b>bat</b>ch <b>compu</b>ting <b>jo</b>bs (<b>conta</b>iners) <b>a</b>nd <b>mana</b>ges <b>t</b>he <b>comp</b>ute <b>f</b>or <b>y</b>ou.
@@ -325,7 +325,7 @@ AWS-<b>mana</b>ged <b>autom</b>atic <b>replic</b>ation <b>fr</b>om <b>Aur</b>ora
 ### Analytics, BI and AI
 
 #### Amazon QuickSight
-<b>AWS</b>'s BI (<b>busi</b>ness <b>intell</b>igence) <b>dashb</b>oard <b>to</b>ol. **SPICE** <b>i</b>s <b>i</b>ts <b>i</b>n-<b>mem</b>ory <b>eng</b>ine <b>f</b>or <b>fa</b>st <b>dashb</b>oards.
+AWS's BI (<b>busi</b>ness <b>intell</b>igence) <b>dashb</b>oard <b>to</b>ol. **SPICE** <b>i</b>s <b>i</b>ts <b>i</b>n-<b>mem</b>ory <b>eng</b>ine <b>f</b>or <b>fa</b>st <b>dashb</b>oards.
 
 #### Amazon SageMaker Unified Studio and SageMaker Catalog
 <b>O</b>ne <b>works</b>pace <b>f</b>or <b>da</b>ta <b>a</b>nd AI <b>wo</b>rk (SQL, <b>noteb</b>ooks, ETL, <b>mod</b>els). **SageMaker Catalog** <b>i</b>s <b>whe</b>re <b>peo</b>ple <b>sea</b>rch <b>f</b>or <b>data</b>sets, <b>requ</b>est <b>acc</b>ess <b>a</b>nd <b>s</b>ee <b>line</b>age (<b>bui</b>lt <b>o</b>n <b>Ama</b>zon <b>Data</b>Zone).

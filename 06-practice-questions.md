@@ -109,7 +109,7 @@
 **8.** <b>A</b>n <b>applic</b>ation <b>nee</b>ds <b>sema</b>ntic <b>sea</b>rch <b>ov</b>er <b>prod</b>uct <b>descri</b>ptions <b>sto</b>red <b>along</b>side <b>relat</b>ional <b>ord</b>er <b>da</b>ta, <b>wi</b>th <b>hi</b>gh <b>rec</b>all <b>a</b>nd <b>l</b>ow <b>late</b>ncy. <b>Mem</b>ory <b>i</b>s <b>n</b>ot <b>a</b> <b>conc</b>ern. <b>Wh</b>at <b>sho</b>uld <b>t</b>he <b>da</b>ta <b>engi</b>neer <b>cho</b>ose?
 
 - <b>A</b>. [<b>Aur</b>ora](00-data-basics-for-beginners.md#amazon-aurora) [<b>Postg</b>reSQL](00-data-basics-for-beginners.md#postgresql-mysql-oracle-and-sql-server) <b>wi</b>th <b>pgve</b>ctor <b>a</b>nd <b>a</b> <b>Hierar</b>chical <b>Navig</b>able <b>Sma</b>ll <b>Wor</b>ld (HNSW) <b>ind</b>ex
-- <b>B</b>. <b>Aur</b>ora <b>Postg</b>reSQL <b>wi</b>th <b>pgve</b>ctor <b>a</b>nd <b>a</b>n <b>IVFF</b>lat <b>ind</b>ex <b>trai</b>ned <b>o</b>n <b>a</b> <b>sma</b>ll <b>sam</b>ple
+- <b>B</b>. <b>Aur</b>ora <b>Postg</b>reSQL <b>wi</b>th <b>pgve</b>ctor <b>a</b>nd <b>a</b>n IVFFlat <b>ind</b>ex <b>trai</b>ned <b>o</b>n <b>a</b> <b>sma</b>ll <b>sam</b>ple
 - <b>C</b>. <b>Dyna</b>moDB <b>wi</b>th <b>a</b> <b>Glo</b>bal <b>Secon</b>dary <b>Ind</b>ex (GSI) <b>o</b>n <b>t</b>he <b>embed</b>ding
 - <b>D</b>. <b>Ath</b>ena <b>ov</b>er <b>Parq</b>uet [<b>embed</b>dings](00-data-basics-for-beginners.md#vectors-and-embeddings)
 

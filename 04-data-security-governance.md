@@ -69,7 +69,7 @@
 - **Authentication** = <b>prov</b>ing *<b>w</b>ho* <b>y</b>ou <b>a</b>re. **Authorization** = <b>deci</b>ding *<b>wh</b>at* <b>y</b>ou <b>m</b>ay <b>d</b>o.
 - **Methods:**
   - **Password-based**: <b>data</b>base <b>use</b>rs, <b>cons</b>ole <b>passw</b>ords (+ **Multi-Factor Authentication [MFA]**).
-  - **Certificate-based**: <b>X</b>.509 <b>certif</b>icates, <b>mut</b>ual <b>Trans</b>port <b>Lay</b>er <b>Secu</b>rity (TLS), <b>I</b>oT <b>devi</b>ces, <b>cli</b>ent <b>certif</b>icates.
+  - **Certificate-based**: <b>X</b>.509 <b>certif</b>icates, <b>mut</b>ual <b>Trans</b>port <b>Lay</b>er <b>Secu</b>rity (TLS), IoT <b>devi</b>ces, <b>cli</b>ent <b>certif</b>icates.
   - **Role-based**: <b>ass</b>ume <b>a</b>n **IAM role** <b>a</b>nd <b>g</b>et **temporary credentials** <b>fr</b>om AWS <b>Secu</b>rity <b>Tok</b>en <b>Serv</b>ice (STS). **This is the preferred method for AWS workloads.**
 - <b>Workf</b>orce <b>use</b>rs <b>si</b>gn <b>i</b>n <b>thro</b>ugh **IAM Identity Center** (<b>Sin</b>gle <b>Si</b>gn-<b>O</b>n [SSO], <b>feder</b>ated <b>wi</b>th <b>Ok</b>ta, <b>Micro</b>soft <b>Ent</b>ra ID, <b>e</b>tc.). <b>Avo</b>id <b>lo</b>ng-<b>liv</b>ed IAM <b>us</b>er <b>acc</b>ess <b>ke</b>ys.
 
@@ -83,7 +83,7 @@
 | <b>Sour</b>ces | <b>Class</b>less <b>Int</b>er-<b>Dom</b>ain <b>Rout</b>ing <b>ran</b>ges (CIDRs), <b>pre</b>fix <b>lis</b>ts, **other security groups** | CIDRs <b>on</b>ly |
 
 <b>Da</b>ta-<b>engine</b>ering <b>patt</b>erns:
-- <b>Data</b>base <b>Secu</b>rity <b>Gro</b>up (SG) <b>all</b>ows <b>t</b>he <b>po</b>rt (5439 <b>Reds</b>hift, 5432 [<b>Postg</b>reSQL](00-data-basics-for-beginners.md#postgresql-mysql-oracle-and-sql-server), 3306 <b>MyS</b>QL) **from the application/Glue SG**, <b>n</b>ot <b>fr</b>om `0.0.0.0/0`.
+- <b>Data</b>base <b>Secu</b>rity <b>Gro</b>up (SG) <b>all</b>ows <b>t</b>he <b>po</b>rt (5439 <b>Reds</b>hift, 5432 [<b>Postg</b>reSQL](00-data-basics-for-beginners.md#postgresql-mysql-oracle-and-sql-server), 3306 MySQL) **from the application/Glue SG**, <b>n</b>ot <b>fr</b>om `0.0.0.0/0`.
 - **Glue**: SG <b>nee</b>ds <b>a</b> **self-referencing inbound rule for all Transmission Control Protocol (TCP)**.
 - **EMR**: <b>mana</b>ged <b>secu</b>rity <b>gro</b>ups <b>f</b>or <b>prim</b>ary/<b>co</b>re/<b>ta</b>sk <b>nod</b>es; <b>blo</b>ck <b>pub</b>lic <b>acc</b>ess <b>sett</b>ing.
 - <b>Lam</b>bda <b>i</b>n <b>a</b> VPC: <b>outb</b>ound <b>rul</b>es <b>t</b>o <b>rea</b>ch <b>datab</b>ases; <b>Netw</b>ork <b>Addr</b>ess <b>Transl</b>ation (NAT) <b>gate</b>way <b>o</b>r VPC <b>endpo</b>ints <b>f</b>or AWS <b>Applic</b>ation <b>Progra</b>mming <b>Inter</b>faces (APIs).
@@ -273,9 +273,9 @@
 
 **In transit (TLS):**
 - AWS <b>serv</b>ice <b>endpo</b>ints <b>u</b>se <b>Hyper</b>text <b>Tran</b>sfer <b>Prot</b>ocol <b>Sec</b>ure (HTTPS)/TLS. **Enforce** <b>i</b>t <b>wi</b>th <b>buc</b>ket <b>poli</b>cies <b>deny</b>ing <b>requ</b>ests <b>whe</b>re **`aws:SecureTransport` = false**.
-- <b>Reds</b>hift: <b>param</b>eter **`require_ssl = true`**. RDS <b>Postg</b>reSQL: **`rds.force_ssl = 1`**. <b>MyS</b>QL: `REQUIRE SSL` <b>p</b>er <b>us</b>er. <b>Ja</b>va <b>Data</b>base <b>Connec</b>tivity (JDBC)/[<b>Op</b>en <b>Data</b>base <b>Connec</b>tivity [ODBC]](00-data-basics-for-beginners.md#jdbc-and-odbc): <b>Sec</b>ure <b>Sock</b>ets <b>Lay</b>er (SSL) <b>opti</b>ons.
+- <b>Reds</b>hift: <b>param</b>eter **`require_ssl = true`**. RDS <b>Postg</b>reSQL: **`rds.force_ssl = 1`**. MySQL: `REQUIRE SSL` <b>p</b>er <b>us</b>er. <b>Ja</b>va <b>Data</b>base <b>Connec</b>tivity (JDBC)/[<b>Op</b>en <b>Data</b>base <b>Connec</b>tivity [ODBC]](00-data-basics-for-beginners.md#jdbc-and-odbc): <b>Sec</b>ure <b>Sock</b>ets <b>Lay</b>er (SSL) <b>opti</b>ons.
 - EMR <b>secu</b>rity <b>configu</b>ration: <b>i</b>n-<b>tran</b>sit TLS <b>betw</b>een <b>nod</b>es.
-- <b>Hyb</b>rid <b>netw</b>orks: <b>Si</b>te-<b>t</b>o-<b>Si</b>te <b>Virt</b>ual <b>Priv</b>ate <b>Netw</b>ork [VPN] (<b>IPs</b>ec), <b>Dir</b>ect <b>Conn</b>ect (+ <b>MAC</b>sec <b>o</b>r VPN <b>ov</b>er <b>Dir</b>ect <b>Conn</b>ect [DX]).
+- <b>Hyb</b>rid <b>netw</b>orks: <b>Si</b>te-<b>t</b>o-<b>Si</b>te <b>Virt</b>ual <b>Priv</b>ate <b>Netw</b>ork [VPN] (<b>IPs</b>ec), <b>Dir</b>ect <b>Conn</b>ect (+ MACsec <b>o</b>r VPN <b>ov</b>er <b>Dir</b>ect <b>Conn</b>ect [DX]).
 
 **Before transit (client-side encryption):**
 - <b>Encr</b>ypt **before** <b>da</b>ta <b>lea</b>ves <b>t</b>he <b>prod</b>ucer, <b>s</b>o AWS <b>on</b>ly <b>ev</b>er <b>sto</b>res <b>ciphe</b>rtext.
@@ -407,7 +407,7 @@ All members of the consumer project can query it (Athena, Redshift, notebooks); 
 |---|---|---|
 | **Centralized** | <b>O</b>ne <b>cent</b>ral <b>da</b>ta <b>te</b>am <b>ow</b>ns <b>t</b>he <b>la</b>ke/<b>wareh</b>ouse, <b>inges</b>tion, <b>a</b>nd <b>a</b>ll <b>permis</b>sions | <b>Consi</b>stent <b>a</b>nd <b>sim</b>ple; <b>cent</b>ral <b>te</b>am <b>beco</b>mes <b>a</b> <b>bottl</b>eneck |
 | **Decentralized / data mesh** | **Domain teams own their data as products** (<b>th</b>ey <b>publ</b>ish <b>t</b>o <b>a</b> <b>cata</b>log); <b>a</b> **central governance** <b>lay</b>er <b>se</b>ts <b>stand</b>ards (<b>cata</b>log, <b>poli</b>cies, <b>secu</b>rity) | <b>Sca</b>les <b>wi</b>th <b>t</b>he <b>organi</b>zation; <b>nee</b>ds <b>str</b>ong <b>stand</b>ards <b>a</b>nd <b>a</b> <b>cata</b>log |
-| **Federated / hub-and-spoke** | <b>Cent</b>ral **governance/catalog account** + **producer** <b>a</b>nd **consumer** <b>acco</b>unts; <b>La</b>ke <b>Forma</b>tion + RAM <b>sha</b>re <b>tab</b>les <b>acr</b>oss <b>acco</b>unts; <b>SageM</b>aker <b>Cata</b>log <b>f</b>or <b>disco</b>very <b>a</b>nd <b>subscri</b>ptions | <b>AWS</b>'s <b>refer</b>ence <b>archit</b>ecture <b>f</b>or <b>mul</b>ti-<b>acco</b>unt <b>da</b>ta <b>platf</b>orms |
+| **Federated / hub-and-spoke** | <b>Cent</b>ral **governance/catalog account** + **producer** <b>a</b>nd **consumer** <b>acco</b>unts; <b>La</b>ke <b>Forma</b>tion + RAM <b>sha</b>re <b>tab</b>les <b>acr</b>oss <b>acco</b>unts; <b>SageM</b>aker <b>Cata</b>log <b>f</b>or <b>disco</b>very <b>a</b>nd <b>subscri</b>ptions | AWS's <b>refer</b>ence <b>archit</b>ecture <b>f</b>or <b>mul</b>ti-<b>acco</b>unt <b>da</b>ta <b>platf</b>orms |
 
 <b>A</b> <b>gover</b>nance <b>frame</b>work <b>cov</b>ers **ownership/stewardship**, **classification** (<b>pub</b>lic, <b>inte</b>rnal, <b>confid</b>ential, PII), **access policies**, **quality standards**, **[lineage](00-data-basics-for-beginners.md#data-lineage)**, **lifecycle/retention**, <b>a</b>nd **auditing**.
 

@@ -151,7 +151,7 @@
 
 | <b>Compo</b>nent | <b>Purp</b>ose |
 |---|---|
-| **Event buses** | <b>Defa</b>ult <b>b</b>us (AWS <b>serv</b>ice <b>eve</b>nts), <b>cus</b>tom <b>bus</b>es (<b>yo</b>ur <b>ap</b>ps), <b>part</b>ner <b>bus</b>es (<b>Soft</b>ware <b>a</b>s <b>a</b> <b>Serv</b>ice [<b>Sa</b>aS]) |
+| **Event buses** | <b>Defa</b>ult <b>b</b>us (AWS <b>serv</b>ice <b>eve</b>nts), <b>cus</b>tom <b>bus</b>es (<b>yo</b>ur <b>ap</b>ps), <b>part</b>ner <b>bus</b>es (<b>Soft</b>ware <b>a</b>s <b>a</b> <b>Serv</b>ice [SaaS]) |
 | **Rules** | <b>Mat</b>ch <b>eve</b>nts <b>b</b>y **event pattern** (<b>sou</b>rce, <b>det</b>ail-<b>ty</b>pe, <b>fie</b>lds) → <b>u</b>p <b>t</b>o 5 <b>targ</b>ets <b>p</b>er <b>ru</b>le |
 | **Targets** | <b>Lam</b>bda, <b>St</b>ep <b>Funct</b>ions, <b>Gl</b>ue <b>workf</b>lows, <b>Kine</b>sis, [<b>Sim</b>ple <b>Que</b>ue <b>Serv</b>ice [SQS]](00-data-basics-for-beginners.md#amazon-sqs), [<b>Sim</b>ple <b>Notifi</b>cation <b>Serv</b>ice [SNS]](00-data-basics-for-beginners.md#amazon-sns), [<b>Elas</b>tic <b>Conta</b>iner <b>Serv</b>ice [ECS]](00-data-basics-for-beginners.md#amazon-ecs-eks-and-fargate) <b>tas</b>ks, API <b>destin</b>ations… |
 | **Scheduler** | <b>Cr</b>on/<b>ra</b>te/<b>o</b>ne-<b>ti</b>me <b>sched</b>ules <b>a</b>t <b>lar</b>ge <b>sca</b>le, <b>wi</b>th <b>ti</b>me <b>zon</b>es, <b>flex</b>ible <b>wind</b>ows, <b>retr</b>ies, <b>De</b>ad-<b>Let</b>ter <b>Que</b>ue (DLQ) |
@@ -170,7 +170,7 @@
 **Amazon QuickSight:**
 - <b>Serve</b>rless <b>Busi</b>ness <b>Intell</b>igence (BI): <b>dashb</b>oards, <b>anal</b>yses, <b>pagin</b>ated <b>repo</b>rts, **embedded dashboards** <b>i</b>n <b>ap</b>ps.
 - **Super-fast, Parallel, In-memory Calculation Engine (SPICE)**: <b>i</b>n-<b>mem</b>ory <b>eng</b>ine. <b>Imp</b>ort <b>da</b>ta <b>f</b>or <b>fa</b>st, <b>scal</b>able <b>dashb</b>oards; <b>sche</b>dule <b>fu</b>ll <b>o</b>r **incremental refreshes**. **Direct query** <b>hi</b>ts <b>t</b>he <b>sou</b>rce <b>li</b>ve (<b>alw</b>ays <b>fre</b>sh, <b>slo</b>wer, <b>loa</b>ds <b>t</b>he <b>sou</b>rce).
-- <b>Da</b>ta <b>sour</b>ces: <b>Ath</b>ena, <b>Reds</b>hift, RDS/<b>Aur</b>ora, S3, <b>OpenS</b>earch, <b>Snowf</b>lake, <b>Sa</b>aS…
+- <b>Da</b>ta <b>sour</b>ces: <b>Ath</b>ena, <b>Reds</b>hift, RDS/<b>Aur</b>ora, S3, <b>OpenS</b>earch, <b>Snowf</b>lake, SaaS…
 - **Row-level security (RLS)** <b>a</b>nd <b>col</b>umn-<b>lev</b>el <b>secu</b>rity <b>p</b>er <b>us</b>er/<b>gro</b>up.
 - **Amazon Q in QuickSight**: <b>a</b>sk <b>quest</b>ions <b>i</b>n <b>natu</b>ral <b>lang</b>uage, <b>bui</b>ld <b>visu</b>als <b>a</b>nd <b>da</b>ta <b>stor</b>ies.
 - <b>Licen</b>sing <b>b</b>y <b>auth</b>ors <b>a</b>nd <b>read</b>ers.
@@ -281,7 +281,7 @@ WHERE rn = 1;
 - **Export** <b>t</b>o S3 <b>f</b>or <b>arch</b>ive <b>a</b>nd <b>Ath</b>ena <b>anal</b>ysis.
 - **CloudWatch agent** <b>f</b>or EC2/<b>o</b>n-<b>pr</b>em <b>l</b>og <b>colle</b>ction; <b>embe</b>dded <b>met</b>ric <b>for</b>mat <b>f</b>or <b>cus</b>tom <b>metr</b>ics <b>fr</b>om <b>lo</b>gs.
 - **Glue continuous logging** <b>stre</b>ams <b>dri</b>ver/<b>exec</b>utor <b>lo</b>gs <b>i</b>n <b>re</b>al <b>ti</b>me <b>dur</b>ing <b>a</b> <b>r</b>un.
-- <b>Encr</b>ypt <b>l</b>og <b>gro</b>ups <b>wi</b>th [<b>K</b>ey <b>Manag</b>ement <b>Serv</b>ice [KMS]](00-data-basics-for-beginners.md#aws-kms). <b>Auto</b>mate <b>l</b>og <b>gro</b>up <b>crea</b>tion <b>a</b>nd <b>reten</b>tion <b>wi</b>th <b>Infrast</b>ructure <b>a</b>s <b>Co</b>de (<b>I</b>aC).
+- <b>Encr</b>ypt <b>l</b>og <b>gro</b>ups <b>wi</b>th [<b>K</b>ey <b>Manag</b>ement <b>Serv</b>ice [KMS]](00-data-basics-for-beginners.md#aws-kms). <b>Auto</b>mate <b>l</b>og <b>gro</b>up <b>crea</b>tion <b>a</b>nd <b>reten</b>tion <b>wi</b>th <b>Infrast</b>ructure <b>a</b>s <b>Co</b>de (IaC).
 
 ### Alerts (skill 3.3.3)
 
